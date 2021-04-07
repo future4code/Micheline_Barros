@@ -1,12 +1,63 @@
-titulo{
-    font-size: 20px;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-}
 body{
-    background-color: rgba(164, 205, 224, 0.966);
+    background-image: url(./img/imagemFundo.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
 }
 
+.titulo{
+    font-size: 15px;
+    font-family: sans-serif;
+    text-align: left;
+ 
+}
+
+#nomeLoja{
+    letter-spacing: -2px;
+}
+
+#slogan{
+    font-size: 15px;
+    margin-top: -10px;;
+}
+
+.menuNav{
+    margin-top: 50px;
+    
+}
+
+.menuNav a{ /*class a - o "a" se refere ao link anchor*/ 
+    color: rgb(134, 78, 141);
+    text-decoration: none;
+    padding: 15px;
+    font-weight: bold;
+    float: right;
+    background-color: rgb(61, 47, 47);
+}
+
+.menuNav a:hover{ /*:hover faz com que o menu mude de cor quando o mouse passa por cima*/
+    background-color: rgb(224, 104, 5);
+}
+
+.apresentacao{
+
+    margin-top: 200px;
+    text-align: center;
+    
+}
+
+.container-redesSociais{
+    margin-top: 400px;
+    position:absolute;
+	left:90%; /* posição dos ícones e texto das redes sociais a direita ocupando 90% da tela, porcentagem se mostrou mais eficiente, pois com 500px os ícones não chegam nem na metade da tela. E com % a página fica responsiva*/
+}
+
+.paragRedesSociais{
+   
+   
+}
 
 .redesSociais{
-    width: 50px;
+    width: 30px;
+    margin: 5px;
 }
