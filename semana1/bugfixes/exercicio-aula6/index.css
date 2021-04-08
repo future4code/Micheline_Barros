@@ -52,7 +52,7 @@ div img {
 }
 
 .container {
-    height: 400px;
+    height: 350px;
     text-align: center;
     padding: 100px 0px 0px 0px;
 }
@@ -73,8 +73,13 @@ div img {
     color: white;
 }
 
-#container-de-descricao>ol {
-    padding: 15px 0px;
+#container-de-descricao> ol {
+    padding: 15px 850px;
+    
+}
+
+#container-de-descricao> p {
+    display: block;  
 }
 
 
@@ -84,8 +89,12 @@ div img {
 
 #container-para-comprar>p {
     color: #c44f00;
-    padding: 100px 0;
     font-size: 60px;
+    display: block;
+}
+
+#container-para-comprar>a {
+    padding-top: 90px;
     display: block;
 }
 
