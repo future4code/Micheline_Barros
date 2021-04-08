@@ -1,63 +1,119 @@
 body{
-    background-image: url(./img/imagemFundo.png);
+    background-image: url(./img/fundo-coração.png);
     background-repeat: no-repeat;
     background-size: cover;
     position: relative;
+    text-align: center;
 }
 
 .titulo{
     font-size: 15px;
     font-family: sans-serif;
     text-align: left;
- 
+    height: 50px;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    margin: 0%;
+   
+}
+
+.titulo2{
+    font-size: 35px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    text-align: left;
+    height: 50px;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    margin: 0%;
+   
 }
 
 #nomeLoja{
     letter-spacing: -2px;
+    display:inline-block;
 }
 
 #slogan{
     font-size: 15px;
-    margin-top: -10px;;
+    margin-top: -10px;
+    display: inline-block;
+    font-family: monospace;
+    letter-spacing: -1.5px;
+    padding: 15px;
 }
 
 .menuNav{
     margin-top: 50px;
-    
+    display: block;
 }
 
 .menuNav a{ /*class a - o "a" se refere ao link anchor*/ 
     color: rgb(134, 78, 141);
     text-decoration: none;
     padding: 15px;
-    font-weight: bold;
-    float: right;
+    font-family: fantasy;
     background-color: rgb(61, 47, 47);
+    display: inline-block;
+    margin-top: 50px;
+    letter-spacing: 0.5px;
 }
 
 .menuNav a:hover{ /*:hover faz com que o menu mude de cor quando o mouse passa por cima*/
     background-color: rgb(224, 104, 5);
+    color:white;
 }
 
 .apresentacao{
-
-    margin-top: 200px;
-    text-align: center;
-    
+    display: block;
+    width: 50%;
+    margin: auto;
+    letter-spacing: 0.5px;
+    font-family: fantasy;
+    margin-top: 100px;
 }
 
 .container-redesSociais{
-    margin-top: 400px;
+    margin-top: 120px;
     position:absolute;
-	left:90%; /* posição dos ícones e texto das redes sociais a direita ocupando 90% da tela, porcentagem se mostrou mais eficiente, pois com 500px os ícones não chegam nem na metade da tela. E com % a página fica responsiva*/
+	left:85%; /* posição dos ícones e texto das redes sociais a direita ocupando 90% da tela, porcentagem se mostrou mais eficiente, pois com 500px os ícones não chegam nem na metade da tela. E com % a página fica responsiva*/
+    position: fixed;
+  
 }
 
 .paragRedesSociais{
-   
+   font-family: fantasy;
    
 }
 
 .redesSociais{
     width: 30px;
     margin: 5px;
+    height: 30px;
+    
 }
+.botao{
+    margin-top: 50px;
+    display: block;
+}
+.botao a:hover{ /*:hover faz com que o menu mude de cor quando o mouse passa por cima*/
+    background-color: rgb(236, 143, 67);
+    color:white;
+}
+.botao a{ /*class a - o "a" se refere ao link anchor*/ 
+    color: rgb(165, 99, 173);
+    text-decoration: none;
+    padding: 15px;
+    font-family: fantasy;
+    background-color: rgb(107, 82, 82);
+    display: inline-block;
+    margin-top: 50px;
+    letter-spacing: 0.5px;
+}
+
+.tabela-estoque{
+    text-align: center;
+}
+
+
