@@ -19,11 +19,11 @@
     </div>
 
     
-    <h2>Adicionar Produto</h2>
+    <h2>Adicionar Venda</h2>
     <form action="">
         <div>
-            <label for="link-foto">Link para foto: </label>
-            <input type="url" id="link-foto" name="link-foto">
+            <label for="cod-produto">Código do Produto: </label>
+            <input type="number" id="cod-produto" name="codigo">
         </div>
         
         <div>
@@ -40,13 +40,23 @@
         
         <div>
             <!-- Preencha as propriedades necessárias para os elementos abaixo -->
-            <label for="qtde">Quantidade disponível: </label>
+            <label for="qtde">Quantidade: </label>
+            <input type="number" id="qtde" name="quantidade">
+        </div>
+        <div>
+            <!-- Preencha as propriedades necessárias para os elementos abaixo -->
+            <label for="form-pag">Forma de pagamento: </label>
+            <input type="number" id="qtde" name="quantidade">
+        </div>
+        <div>
+            <!-- Preencha as propriedades necessárias para os elementos abaixo -->
+            <label for="qtde">Vendedor: </label>
             <input type="number" id="qtde" name="quantidade">
         </div>
 
         <div class="form-add">
             <!-- Adicione ao type do botão abaixo o valor para que ele submeta o formulário -->
-            <button type="submit">Adicionar</button>
+            <button type="submit">Adicionar Venda</button>
         </div>
 
     </form>
