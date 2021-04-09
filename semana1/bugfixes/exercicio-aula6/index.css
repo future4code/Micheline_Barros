@@ -157,7 +157,11 @@ td button {
 #back-button:active {
         background-color: yellow;
       }
-
-
+.caixa-texto{
+    border-left: 0;
+    border-top: 0;
+    border-right: 0;
+    border-width: 1px;
+}
 
 
