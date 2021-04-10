@@ -7,21 +7,20 @@
 header{
     width: 100%;
     position: fixed;
-    top: 0;
+    margin-top: 10px;
     font-size: 12px;
     font-family: Georgia, 'Times New Roman', Times, serif;
     color:#F8EEE7;
     background-color: #49274A;
     text-align: center;
     letter-spacing: 0.5px;
+     /* margin-left: 10px;  */
 }
-/* .cabecalho{
-    margin-left: 1650px; */
-/* } */
+
 .menu-rigth{
     margin-top: 10px;
     display: inline-block;
-    /* margin-left: 10px;  */
+   
 }
 .menu-left{
     /* margin-top: 10px; */
@@ -40,6 +39,10 @@ header{
     letter-spacing: 0.15px;
     font-size: 15px;
 }
+.menu-rigth a:hover{ /*:hover faz com que o menu mude de cor quando o mouse passa por cima*/
+    background-color: #49274A;
+    color:white;
+}
 .menu-left a{
     color: #F8EEE7;
     text-decoration: none;
@@ -49,9 +52,12 @@ header{
     letter-spacing: 0.5px;
     font-size: 15px;
 }
+.menu-left a:hover{ /*:hover faz com que o menu mude de cor quando o mouse passa por cima*/
+    background-color: #49274A;
+    color:white;
+}
 .container-menu{
-    background-color: #F4DECB;
-    width: 100%;
+    background-color: #49274A;
     padding: 15px;
 }
 .mudando-display{
@@ -59,22 +65,39 @@ header{
     margin-top: 50px;
 }
 .container-titulo{
-    /* margin: 0 auto; */
+    
     text-align: center;
-   
-    background-color: #94618E;
+    color: #49274A;
+    background-color:#F4DECB;
 }
 
 .texto-apresentacao{
     font-family: Georgia, 'Times New Roman', Times, serif;
-    /* text-align: center; */
+   
     margin-left: 50px;
     
     margin-top: 50px;
- 
 }
 .container-texto-corpo{
     background-color: #F4DECB;
-    
+}
+img{
+    width: 500px;
+    display: block;
+}
+.redesSociais{
+    width: 40px;
+    display: inline; 
+    padding: 0 20px;
+    margin-top: 20px;
+}
+
+footer{
+  text-align: center;
+  background-color: #49274A;
+  color: #F8EEE7;
+}
+#msg{
+    width: 500px 500px;
 }
 
