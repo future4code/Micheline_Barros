@@ -1,3 +1,4 @@
+
 * {
     margin: 0;
     padding: 0;
@@ -23,7 +24,7 @@ header{
    
 }
 .menu-left{
-    /* margin-top: 10px; */
+    margin-top: 10px;
     display: inline-block;
     margin-left: 1459px; 
     margin-top: 15px;
@@ -60,31 +61,48 @@ header{
     background-color: #49274A;
     padding: 15px;
 }
-.mudando-display{
+.ele-web{
     display: inline-block;
     margin-top: 50px;
 }
 .container-titulo{
-    
     text-align: center;
     color: #49274A;
     background-color:#F4DECB;
+    font-weight: 1000;
 }
 
 .texto-apresentacao{
-    font-family: Georgia, 'Times New Roman', Times, serif;
-   
+    font-family: Arial, Helvetica, sans-serif;
     margin-left: 50px;
-    
     margin-top: 50px;
+    padding: 20px 500px 235px 30px;
+    background-color: #94618E;
+    width: 680px;
+    height: 450px;
 }
+.bem-vindo{
+    font-family: fantasy;
+    font-size: 40px;
+    margin-bottom: 30px;
+    width: 800px;
+    color:#F4DECB;
+    letter-spacing: 3px;
+}
+
 .container-texto-corpo{
     background-color: #F4DECB;
 }
-img{
-    width: 500px;
-    display: block;
+.container-trabalhos-web{
+    background-color: #F4DECB;
+    padding-top: 0;
 }
+.container-trabalhos-web img{
+   width: 500px;
+   height: 250px;
+  
+}
+
 .redesSociais{
     width: 40px;
     display: inline; 
@@ -100,4 +118,34 @@ footer{
 #msg{
     width: 500px 500px;
 }
+form{
+    text-align: center;
+}
+h4{
+    color: rgb(189, 172, 150);
+    margin-top: 30px;
+}
+.meu-nome{
+    color: rgb(199, 169, 130);
+    margin-bottom: 10px;
+    font-weight: 1000;
+    text-align: justify;
 
+}
+.conhecimento{
+    color: rgb(189, 172, 150);
+    margin-bottom: 10px;
+    text-align: justify;
+    font-weight: 600;
+}
+.clique{
+    width: 20px;
+    height: 18px;
+    padding-left: 10px;
+    
+}
+.meu-nome a{
+color: rgb(199, 169, 130);
+text-decoration: none;
+}
+position: fixed e bottom: 0
