@@ -99,7 +99,10 @@ footer{
 
 #video-reprod{
     display: grid;
-    
     align-items: center;
     justify-items: center;
+}
+
+.video12{
+    height: 80vh;
 }
