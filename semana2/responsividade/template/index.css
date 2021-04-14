@@ -18,7 +18,7 @@ div div{
 #main-container{
     grid-template-columns: repeat(6, 1fr);
     grid-template-rows: 1fr 1fr 1fr 3fr 1fr;
-    height: 100vh; /*observar comportamento*/
+    height: 100%; /*observar comportamento*/
 
 }
 
@@ -33,7 +33,8 @@ div div{
     background-color: blue;
     /* height: 50px; */
     grid-column: 1/3;
-    margin: 2%;
+    margin: 10px;
+  
     
 }
 
@@ -41,7 +42,7 @@ div div{
     background-color: yellow;
     /* height: 50px; */
     grid-column: 3/5;
-    margin: 2%;
+    margin: 10px;
 
 }
 
@@ -49,22 +50,21 @@ div div{
     background-color: green;
     /* height: 50px; */
     grid-column: 5/7;
-    margin: 2%;
+    margin: 10px;
    
 }
 
 .black-block {
     background-color: black;
     color: white;
-    margin: 2%;
+    margin: 10px;
 }
 
 .white-block {
     background-color: white;
-    /* height: 50px; */
-    grid-row: 5/6;
-    margin: 2%;
+    margin: 10px;
 }
+
 #block7{
     grid-column: 1/4;
 }
@@ -81,30 +81,28 @@ div div{
     grid-column: 5/7;
 }
 
-@media  screen and (max-device-width:800px) {
+@media  screen and (min-device-width:421px) and (max-device-width:800px) {
    
     #main-container{
         display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        grid-template-rows: repeat(7, 1fr) 3fr 1fr 1fr;
+        grid-template-columns:1fr 1fr;
+        grid-template-rows: repeat(5, 1fr) 3fr 1fr 1fr;
        
     }
-
     .blue-block {
-        grid-column: 1/2;
-        margin:2%; 
+        grid-column: 1/2; 
     }
-
+    
     .yellow-block {
         grid-column: 2/3;
-        margin: 2%;
     }
-
-    .green-block {
+    
+    .green-block { 
         grid-column: 1/-1;
-        margin: 2%;
+        margin-left: 10px;
+        margin-right: 10px;
     }
-
+    
     #block7{
         grid-column: 1/2;
     }
@@ -119,16 +117,21 @@ div div{
     }
     #block11{
         grid-column: 1/-1;
+        margin-left: 10px;
+        margin-right: 10px;
     }
+
+
     
 }
 
 @media  screen and (max-device-width:420px) {
    
     #main-container{
-        display:flex;
-        flex-direction: column;
-        height: 100%;
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 1fr 1fr 3fr 1fr;
+      
     }
+   
     
 }
