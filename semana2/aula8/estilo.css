@@ -1,0 +1,108 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    display: grid;
+    grid-template-rows: 70px 1fr 70px;
+    grid-template-columns: 1fr ;
+    height: 100vh;
+ }
+
+header{
+    background-color: purple;
+    display: flex;
+    justify-content:space-between;
+    grid-column: 1/-1;
+}
+
+
+.icone{
+    width: 40px;
+    margin-right: 10px;
+}
+
+.icone1{
+    width: 20px;
+    margin-left: 10px;
+}
+
+.icone-titulo{
+    display: flex;
+    margin-left: 10px;
+    align-items: center;
+}
+
+.busca{
+    display: flex;
+    align-items: center;
+    margin-right: 20px;
+}
+
+.tela-videos{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: inset 0 0 1em steelblue;
+    margin-top: 10px;
+    text-align: center;
+    margin-left: 10px;
+    width: 400px;
+    height: 250px;
+}
+
+.video{
+    width: 350px;
+}
+
+main{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    column-gap: 16px;
+    margin-bottom: 20px;
+    justify-items: center;
+}
+
+footer{
+    background-color: purple;
+    grid-column: 1/-1;
+    display: flex;
+    justify-content:space-between;
+    align-items: center;
+}
+
+
+.cafucio{
+    display: flex;
+    margin-left: 10px;
+    align-items:flex-end;
+    flex-direction: column;
+}
+.motivacional{
+    font-size: 20px;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    padding-left: 10px;
+    display: block;
+}
+.filosofo{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  
+}
+
+.assiste{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 20px;
+    margin-right: 20px;
+}
+
+#video-reprod{
+    display: grid;
+    align-items: center;
+    justify-items: center;
+}
+
+.video12{
+    height: 80vh;
+}
