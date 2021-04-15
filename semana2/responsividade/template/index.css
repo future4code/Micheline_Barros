@@ -81,6 +81,8 @@ div div{
     grid-column: 5/7;
 }
 
+
+
 @media  screen and (min-device-width:421px) and (max-device-width:800px) {
    
     #main-container{
@@ -128,10 +130,43 @@ div div{
 @media  screen and (max-device-width:420px) {
    
     #main-container{
-        grid-template-columns: 1fr;
-        grid-template-rows: 1fr 1fr 1fr 3fr 1fr;
-      
+        display: grid;
+        grid-template-columns:1fr;
+        grid-template-rows: repeat(7, 1fr) repeat(2, 3fr) repeat(3, 1fr);
+       
     }
-   
+    .blue-block {
+        grid-column: 1/-1; 
+    }
+    
+    .yellow-block {
+        grid-column: 1/-1; 
+    }
+    
+    .green-block { 
+        grid-column: 1/-1;
+    }
+    
+    #block7{
+        grid-column: 1/-1;
+    }
+    #block8{
+        grid-column: 1/-1;
+    }
+    #block9{
+        grid-column: 1/-1;
+    }
+    #block10{
+        grid-column: 1/-1;
+    }
+    #block11{
+        grid-column: 1/-1;
+        
+    }
+
     
 }
+
+
+
+
