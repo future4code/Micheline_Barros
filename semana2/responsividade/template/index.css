@@ -1,0 +1,172 @@
+body {
+    width: 100vw;
+    height: 100vh;
+    padding: 0;
+    margin: 0;
+}
+
+div {
+    border: 1px solid black;
+    display: grid;
+}
+div div{
+    align-items: center;
+    justify-content: center;
+    display: grid;
+}
+
+#main-container{
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: 1fr 1fr 1fr 3fr 1fr;
+    height: 100%; /*observar comportamento*/
+
+}
+
+#first-block {
+    background-color: red;
+  
+    grid-column: 1/-1;
+    
+}
+
+.blue-block {
+    background-color: blue;
+    /* height: 50px; */
+    grid-column: 1/3;
+    margin: 10px;
+  
+    
+}
+
+.yellow-block {
+    background-color: yellow;
+    /* height: 50px; */
+    grid-column: 3/5;
+    margin: 10px;
+
+}
+
+.green-block {
+    background-color: green;
+    /* height: 50px; */
+    grid-column: 5/7;
+    margin: 10px;
+   
+}
+
+.black-block {
+    background-color: black;
+    color: white;
+    margin: 10px;
+}
+
+.white-block {
+    background-color: white;
+    margin: 10px;
+}
+
+#block7{
+    grid-column: 1/4;
+}
+#block8{
+    grid-column: 4/7;
+}
+#block9{
+    grid-column: 1/3;
+}
+#block10{
+    grid-column: 3/5;
+}
+#block11{
+    grid-column: 5/7;
+}
+
+
+
+@media  screen and (min-device-width:421px) and (max-device-width:800px) {
+   
+    #main-container{
+        display: grid;
+        grid-template-columns:1fr 1fr;
+        grid-template-rows: repeat(5, 1fr) 3fr 1fr 1fr;
+       
+    }
+    .blue-block {
+        grid-column: 1/2; 
+    }
+    
+    .yellow-block {
+        grid-column: 2/3;
+    }
+    
+    .green-block { 
+        grid-column: 1/-1;
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+    
+    #block7{
+        grid-column: 1/2;
+    }
+    #block8{
+        grid-column: 2/3;
+    }
+    #block9{
+        grid-column: 1/2;
+    }
+    #block10{
+        grid-column: 2/3;
+    }
+    #block11{
+        grid-column: 1/-1;
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+
+
+    
+}
+
+@media  screen and (max-device-width:420px) {
+   
+    #main-container{
+        display: grid;
+        grid-template-columns:1fr;
+        grid-template-rows: repeat(7, 1fr) repeat(2, 3fr) repeat(3, 1fr);
+       
+    }
+    .blue-block {
+        grid-column: 1/-1; 
+    }
+    
+    .yellow-block {
+        grid-column: 1/-1; 
+    }
+    
+    .green-block { 
+        grid-column: 1/-1;
+    }
+    
+    #block7{
+        grid-column: 1/-1;
+    }
+    #block8{
+        grid-column: 1/-1;
+    }
+    #block9{
+        grid-column: 1/-1;
+    }
+    #block10{
+        grid-column: 1/-1;
+    }
+    #block11{
+        grid-column: 1/-1;
+        
+    }
+
+    
+}
+
+
+
+
