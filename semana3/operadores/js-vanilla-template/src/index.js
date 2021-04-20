@@ -93,3 +93,4 @@ const emailDoUsuario = prompt("Digite seu email.");
 const mensagem= `O e-mail ${emailDoUsuario} foi cadastrado com sucesso. Seja bem-vido(a), ${nomeDoUsuario}!`;
 
 console.log(mensagem);
+
