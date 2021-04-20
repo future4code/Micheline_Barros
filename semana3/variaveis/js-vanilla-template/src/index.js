@@ -1,18 +1,18 @@
-//interpretação de código
+// interpretação de código
 
-//Resposta exercício 1: 
-//console.log(b): será impresso o valor 10
-//console.log(a,b): será impresso os valores 10, 5; já que o valor de b foi alterado para 5.
-
-
-//Resposta exercício 2:
-//console.log(a,b,c): será impresso os valores 10, 10, 10.
+// Resposta exercício 1: 
+// console.log(b): será impresso o valor 10
+// console.log(a,b): será impresso os valores 10, 5; já que o valor de b foi alterado para 5.
 
 
-//Escrita de Código
+// Resposta exercício 2:
+// console.log(a,b,c): será impresso os valores 10, 10, 10.
 
-//Exercício 1
-//a)
+
+// Escrita de Código
+
+// Exercício 1
+// a)
 let nome;
 
 //b)
@@ -34,7 +34,7 @@ console.log(typeof idade);
 //f)
 console.log("Olá",nome, ",você tem ",idade,"anos.");
 
-//Exercício 2
+Exercício 2
 
 const nomeDeDeus= prompt("Segundo a Bíblia, no texto de Isaías 42:8, qual é o nome de Deus?(fonte:www.bible.com/pt e www.jw.org/pt)");
 console.log("1. Segundo a Bíblia, no texto de Isaías 42:8, qual é o nome de Deus?(fonte:www.bible.com/pt e www.jw.org/pt");
@@ -85,3 +85,8 @@ const respostasTresPergutas = [true, false, true];
 console.log(tresPerguntas[2], respostasTresPergutas[2])
 console.log(tresPerguntas[1], respostasTresPergutas[0])
 console.log(tresPerguntas[0], respostasTresPergutas[1])
+
+
+console.log("4. ",(9*5)+3);
+const array = [103,109,304,893,758,920,391,458,905]
+console.log("1. ", true && !true);
