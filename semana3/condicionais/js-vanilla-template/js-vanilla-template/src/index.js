@@ -18,79 +18,79 @@
 //c - Sim, que mensagem da última linha do código não foi definida. Isso acontece porque ela foi declarada dentro do escopo filho, o que faz com que ela não exista dentro do escopo pai.
 
 
-//Exercício 4
-//Apto a dirigir?
+// //Exercício 4
+// //Apto a dirigir?
 
-const idadeUsuario = Number(prompt("Digite sua idade."))
-if (idadeUsuario>=18){
-  console.log ("Você pode dirigir");
-} else{
-  console.log ("Você não pode dirigir");
-}
+// const idadeUsuario = Number(prompt("Digite sua idade."))
+// if (idadeUsuario>=18){
+//   console.log ("Você pode dirigir");
+// } else{
+//   console.log ("Você não pode dirigir");
+// }
 
-//Exercício 5
-// Turno em que estuda:
+// //Exercício 5
+// // Turno em que estuda:
 
-const turnoDiaEstuda = prompt("Qual turno você está estudando? Digite: M (matutino), V (Vespertino) ou N (Noturno).");
+// const turnoDiaEstuda = prompt("Qual turno você está estudando? Digite: M (matutino), V (Vespertino) ou N (Noturno).");
 
-if (turnoDiaEstuda=='M'){
-  console.log ("Bom dia!");
-} else if(turnoDiaEstuda=='V'){
-  console.log ("Boa tarde!");
-} else {
-  console.log ("Boa noite!");
-}
+// if (turnoDiaEstuda=='M'){
+//   console.log ("Bom dia!");
+// } else if(turnoDiaEstuda=='V'){
+//   console.log ("Boa tarde!");
+// } else {
+//   console.log ("Boa noite!");
+// }
 
 
-//Exercício 6
-// Turno em que estuda:
+// //Exercício 6
+// // Turno em que estuda:
 
-const turnoDiaEstuda = prompt("Qual turno você está estudando? Digite: M (matutino), V (Vespertino) ou N (Noturno).");
+// const turnoDiaEstuda = prompt("Qual turno você está estudando? Digite: M (matutino), V (Vespertino) ou N (Noturno).");
 
-let turno;
+// let turno;
 
-switch (turnoDiaEstuda){
-  case 'M':
-  console.log ("Bom dia!");
-  break;
+// switch (turnoDiaEstuda){
+//   case 'M':
+//   console.log ("Bom dia!");
+//   break;
 
-  case 'V':
-  console.log ("Boa tarde!");
-  break;
+//   case 'V':
+//   console.log ("Boa tarde!");
+//   break;
 
-  case 'N':
-  console.log ("Boa noite!");
-  break;
-}
+//   case 'N':
+//   console.log ("Boa noite!");
+//   break;
+// }
 
-//Exercício 7
-//Gênero Filme e Preço
+// //Exercício 7
+// //Gênero Filme e Preço
 
-let generoFilme = prompt("Qual o gênero do filme?");
+// let generoFilme = prompt("Qual o gênero do filme?");
 
-let precoIngresso = Number(prompt("Qual o valor do ingresso?"));
+// let precoIngresso = Number(prompt("Qual o valor do ingresso?"));
 
-if ((generoFilme=="fantasia")&&(precoIngresso<15)){
-  console.log("Bom filme!🤑");
-} else {
-  console.log("Escolha outro filme!🙁")
-}
+// if ((generoFilme=="fantasia")&&(precoIngresso<15)){
+//   console.log("Bom filme!🤑");
+// } else {
+//   console.log("Escolha outro filme!🙁")
+// }
 
-// DESAFIOS
+// // DESAFIOS
 
-// Desafio 1
-let generoFilme = prompt("Qual o gênero do filme?");
+// // Desafio 1
+// let generoFilme = prompt("Qual o gênero do filme?");
 
-let precoIngresso = Number(prompt("Qual o valor do ingresso?"));
+// let precoIngresso = Number(prompt("Qual o valor do ingresso?"));
 
-let snack = prompt("Qual o snack você vai comprar?");
+// let snack = prompt("Qual o snack você vai comprar?");
 
-if ((generoFilme=="fantasia")&&(precoIngresso<15)){
-  let mensagem = `Bom filme com ${snack}🤑!`;
-  console.log(mensagem);  
-} else {
-  console.log("Escolha outro filme!🙁")
-}
+// if ((generoFilme=="fantasia")&&(precoIngresso<15)){
+//   let mensagem = `Bom filme com ${snack}🤑!`;
+//   console.log(mensagem);  
+// } else {
+//   console.log("Escolha outro filme!🙁")
+// }
 
 //Desafio 2
 const nomeTorcedor = prompt("Informe seu nome completo.");
