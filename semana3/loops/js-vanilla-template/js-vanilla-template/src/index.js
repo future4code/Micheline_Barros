@@ -97,7 +97,7 @@ while(chuteNumero!==numeroPensado){
         console.log("Errrrrrrrou, o número pensado é maior");
     } 
     chuteNumero=Number(prompt("Chute um número."));
-   contador++;
+    contador++;
 }
 
 console.log("O número pensado foi:",numeroPensado);
