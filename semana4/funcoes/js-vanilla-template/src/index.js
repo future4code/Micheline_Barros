@@ -67,3 +67,45 @@ function mensagem (texto) {
 }
 
 mensagem ("Deu certo!");
+
+Exercício 6
+
+//a.
+function numeroDeElementos (array) {
+    
+    return array.length;
+}
+
+const array = [10, 23, 45, 78, 90, 52, 35, 67, 84, 22]
+const tamanhoArray = numeroDeElementos(array);
+console.log(tamanhoArray);
+
+//b.
+function imparPar (numero) {
+  
+  return numero % 2 == 0;;
+}
+
+const resultado = imparPar(10);
+
+console.log(resultado)
+
+//c. 
+
+function numeroDeElementos (array) {
+    
+   for(let i = 0; i<array.length; i++) {
+   
+    if (array[i]%2 == 0){
+        arrayPares.push(array[i]);
+    }
+    
+   } 
+   return arrayPares.length;
+}
+arrayPares = [];
+const array = [10, 23, 45, 78, 90, 52, 35, 67, 84, 22]
+numeroDeElementos(array);
+console.log(arrayPares.length)
+
+//d.
