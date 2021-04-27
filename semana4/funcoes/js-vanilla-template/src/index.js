@@ -14,7 +14,7 @@
 //Exercício 3
 //a função testa se quais elementos da array são pares e manda pra arrayFinal. Sugiro o nome: arrayNumerosPares.
 
-
+//Escrita de código
 //Exercício 4
 //a.
 function meusDados(){
@@ -37,5 +37,33 @@ function dadosPessoais (nome, idade, endereco, souNaoSou) {
 dadosPessoais ("Micheline", 35, "Fortaleza", true);
 
 
+// Exercício 5
 
+//a.
 
+function somaDoisNumeros (numero1, numero2) {
+    const soma = numero1 + numero2;
+    return soma;
+}
+console.log(somaDoisNumeros(5, 10));
+
+//b.
+
+function maiorMenor (numero1, numero2) {
+
+    resultado = numero1 >= numero2;
+    return resultado;
+}
+
+maiorMenor(10, 40)
+console.log("O número 1 é maior que o número 2?", resultado);
+
+//c.
+
+function mensagem (texto) {
+    for (let contador = 1; contador <= 10; contador++) {
+        console.log (texto);
+    }
+}
+
+mensagem ("Deu certo!");
