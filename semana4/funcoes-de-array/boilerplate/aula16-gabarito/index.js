@@ -9,7 +9,7 @@ function imprimirDespesas(despesas){
     divDespesas.innerHTML = '<p><u>Despesas Detalhadas</u></p>'
 
     despesas.forEach(despesa => {
-        divDespesas.innerHTML += `<p>Valor: ${despesa.valor} | Tipo:${despesa.tipo} | Descrição:${despesa.descricao}</p>`
+        divDespesas.innerHTML += `<p>Valor: ${despesa.valor} | Tipo: ${despesa.tipo} | Descrição: ${despesa.descricao}</p>`
     });
     
 }
@@ -25,6 +25,17 @@ function imprimirExtrato(){
 
 
     // AQUI VEM A IMPLEMENTAÇÃO
+    arrDespesas.forEach(itemDespesa => {
+        if (itemDespesa.tipo === "alimentação") {
+            gastoAlimentacao += itemDespesa.valor;
+        } else if (itemDespesa.tipo === "utilidades") {
+            gastoUtilidades += itemDespesa.valor;
+        } else {
+            gastoViagem += itemDespesa.valor
+        }
+    })
+
+    gastoTotal = gastoAlimentacao + gastoUtilidades + gastoViagem;
 
     divExtrato.innerHTML = `<p>Extrato: Gasto Total: R$${gastoTotal} | Alimentação: R$${gastoAlimentacao} | 
                                         Utilidades: R$${gastoUtilidades} | Viagem: R$${gastoViagem}</p>`
