@@ -1,29 +1,31 @@
 //Exercício 1
-let arrays = [0, 8, 23, 16, 10, 15, 41, 12, 13]
+let array = [0, 8, 23, 16, 10, 15, 41, 12, 13]
 function inverteArray(array) {
 //   implemente sua lógica aqui
  
   for (let i= 0; i <= array.length; i=i+1){
       if(i===0){
-        arrays.splice(0,0, arrays.splice(array.length-1, 1)[0])
+        array.splice(0,0, array.splice(array.length-1, 1)[0])
         } else {
-          arrays.splice(i,0, arrays.splice(array.length-1, 1)[0])
+          array.splice(i,0, array.splice(array.length-1, 1)[0])
           }
-      
-     
-      
    }
-   
-   return arrays;
-   
+   return array;  
 }
 
 
 
 //Exercício 2
-
+let arrayParesAoQuadrado = [];
 function retornaNumerosParesElevadosADois (array) {
    // implemente sua lógica aqui
+   for (let i = 0; i<array.length; i++){
+   if (array[i]%2==0){
+      arrayParesAoQuadrado.push(array[i]*array[i]);
+
+   }
+   }
+   return arrayParesAoQuadrado;
 }
 
 //Exercício 3
