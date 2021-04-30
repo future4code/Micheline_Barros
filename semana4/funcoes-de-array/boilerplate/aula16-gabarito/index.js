@@ -11,9 +11,10 @@ function imprimirDespesas(despesas){
     despesas.forEach(despesa => {
         divDespesas.innerHTML += `<p>Valor: ${despesa.valor} | Tipo: ${despesa.tipo} | Descrição: ${despesa.descricao}</p>`
     });
-    console.log(arrDespesas)
+   
     
 }
+
 
 
 // SEGUNDO 
@@ -86,12 +87,13 @@ function filtrarDespesas(){
     let valorMin = Number(document.getElementById('valorFiltroMin').value)
     let valorMax = Number(document.getElementById('valorFiltroMax').value)
 
+    
 
     let despesasFiltradas = arrDespesas.filter ((despesa) => {
-        if((despesa.tipo === tipoFiltro) || (despesa.valor >= valorMin && despesa.vlor <= valorMax)) {
+        if((despesa.tipo === tipoFiltro) || (despesa.valor >= valorMin && despesa.valor <= valorMax)) {
             return true;
-        } 
-        return false
+        }
+        // return false
         
     })
 
