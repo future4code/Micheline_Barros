@@ -90,16 +90,20 @@ function filtrarDespesas(){
     
 
     let despesasFiltradas = arrDespesas.filter ((despesa) => {
-        if((despesa.tipo === tipoFiltro) || (despesa.valor >= valorMin && despesa.valor <= valorMax)) {
+        if(despesa.tipo === tipoFiltro && despesa.valor >= valorMin && despesa.valor <= valorMax) {
+            return true;
+        } else if (tipoFiltro === "todos"){
             return true;
         }
         // return false
         
     })
+    
 
+    
+    
     imprimirDespesas(despesasFiltradas)
 }
-
 
 
 
