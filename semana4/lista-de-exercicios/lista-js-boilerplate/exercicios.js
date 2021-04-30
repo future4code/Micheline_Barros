@@ -30,8 +30,16 @@ function retornaNumerosParesElevadosADois (array) {
 
 //Exercício 3
 
+let arrayNumerosPares = [];
 function retornaNumerosPares (array) {
    // implemente sua lógica aqui
+   for (let i = 0; i<array.length; i++){
+   if (array[i]%2==0){
+      arrayNumerosPares.push(array[i]);
+
+   }
+   }
+   return arrayNumerosPares;
 }
 
 //Exercício 4
