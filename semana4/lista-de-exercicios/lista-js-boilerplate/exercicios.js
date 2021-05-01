@@ -2,7 +2,6 @@
 let array = [0, 8, 23, 16, 10, 15, 41, 12, 13]
 function inverteArray(array) {
 //   implemente sua lógica aqui
- 
   for (let i= 0; i <= array.length; i=i+1){
       if(i===0){
         array.splice(0,0, array.splice(array.length-1, 1)[0])
@@ -16,8 +15,9 @@ function inverteArray(array) {
 
 
 //Exercício 2
-let arrayParesAoQuadrado = [];
+
 function retornaNumerosParesElevadosADois (array) {
+   let arrayParesAoQuadrado = [];
    // implemente sua lógica aqui
    for (let i = 0; i<array.length; i++){
    if (array[i]%2==0){
@@ -30,8 +30,9 @@ function retornaNumerosParesElevadosADois (array) {
 
 //Exercício 3
 
-let arrayNumerosPares = [];
+
 function retornaNumerosPares (array) {
+   let arrayNumerosPares = [];
    // implemente sua lógica aqui
    for (let i = 0; i<array.length; i++){
    if (array[i]%2==0){
@@ -43,8 +44,9 @@ function retornaNumerosPares (array) {
 }
 
 //Exercício 4
-let numeroMaior = 0;
+
 function retornaMaiorNumero(array) {
+   let numeroMaior = 0;
    // implemente sua lógica aqui
    for (let i = 0; i<array.length; i++){
       if (array[i]>numeroMaior){
@@ -65,8 +67,16 @@ function retornaQuantidadeElementos (array) {
 //Exercício 6
 
 function retornaExpressoesBooleanas() {
+   const arrayBooleano = [];
+   const booleano1 = true;
+   const booleano2 = false;
+   const booleano3 = !booleano2;
+   const booleano4 = !booleano3;  
+   arrayBooleano.push((booleano1 && booleano2 && !booleano4), ((booleano1 && booleano2) || !booleano3), (booleano2 || booleano3) && (booleano4 || booleano1), (!(booleano2 && booleano3) || !(booleano1 && booleano3)), (!(booleano1) && !(booleano3) || (!booleano4 && booleano3 && booleano3)))
    // implemente sua lógica aqui
+   return arrayBooleano;
 }
+
 
 //Exercício 7
 
