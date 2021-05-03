@@ -95,23 +95,40 @@ function retornaNNumerosPares(n) {
 // Exercício 8
 
 function checaTriangulo(a, b, c) {
-  
+  let triangulo = ""
   // implemente sua lógica aqui
   if(a===b && b===c){
-   return "Equilátero"
+    triangulo = "Equilátero"
   } else if (a !== b && b !== c) {
-   return "Escaleno";
+   triangulo = "Escaleno";
   } else {
-   return "isósceles";
+   triangulo = "isósceles";
   }
- 
+  return triangulo
 }
 
 // Exercício 9
 
 function comparaDoisNumeros(num1, num2) {
    // implemente sua lógica aqui
+   let maior;
+   let menor;
+   if (num1>num2){
+      maior = num1;
+      menor = num2;
+   } else {
+      maior = num2;
+      menor = num1;
+   }
+   const saida = {
+   maiorNumero: maior,
+   maiorDivisivelporMenor: maior%menor === 0,
+   diferenca: maior - menor
+   }
+   return saida;
 }
+
+
 
 // Exercício 10
 
@@ -254,3 +271,5 @@ const contas = [
 function atualizaSaldo() {
   // implemente sua lógica aqui
 }
+
+
