@@ -184,7 +184,16 @@ function ordenaArray(array) {
 
 function filmeFavorito() {
    // implemente sua lógica aqui
+   const dadosFilme = {
+      nome:"o Diabo Veste Prada",
+      ano: 2006,
+      diretor: "David Frankel",
+      atores:["Meryl Streep", "Anne Hathaway", "Emily Blunt", "Stanley Tucci"]
+   }
+   return filmeFavorito;
+   
 }
+
 
 // Exercício 13
 
