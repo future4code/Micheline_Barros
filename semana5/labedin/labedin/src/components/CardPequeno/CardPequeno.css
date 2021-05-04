@@ -1,0 +1,27 @@
+.little-container {
+    display: flex;
+    align-items: center;
+    border: 1px solid black;
+    padding: 20px 10px;
+    margin-bottom: 10px;
+    height: 100px;
+}
+
+.little-container > img {
+    width: 50px;
+    margin-right: 10px;
+    border-radius: 50%;
+}
+
+.little-container h4 {
+    margin-bottom: 15px;
+    margin-left: 10px;
+    margin-right: 10px;
+   }
+
+
+.little-container > div {
+    display: flex;
+    /* flex-direction: column; */
+    justify-items: flex-start;
+}
