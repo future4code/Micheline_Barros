@@ -170,6 +170,14 @@ return arrayMenorMaior;
 
 function ordenaArray(array) {
    // implemente sua lógica aqui
+   for (let z = array.length-1; z > 0; z--){
+      for (let i = 0; i < z; i++){
+         if (array[i] > array[i+1]) {
+            [array[i], array[i+1]] = [array[i+1], array[i]]
+      }
+   }
+}
+   return array;
 }
 
 // Exercício 12
