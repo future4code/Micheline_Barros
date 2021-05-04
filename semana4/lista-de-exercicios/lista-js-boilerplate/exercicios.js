@@ -132,18 +132,38 @@ function comparaDoisNumeros(num1, num2) {
 
 // Exercício 10
 
+let arrayMenorMaior = [];
 function segundoMaiorEMenor(array) {
    // implemente sua lógica aqui
    let numeroMaior = 0;
-   let numeroMenor = 0;
    let segundoNumeroMaior = 0;
-   let segundoNumeroMenor = 0;
+   let numeroMenor = 10000000000;
+   let segundoNumeroMenor = numeroMenor;
    for (let i = 0; i < array.length; i++) {
-      if (array[i] > numeroMaior || array[i] < numeroMenor) {
+      if (array[i] > numeroMaior) {
          numeroMaior = array[i];
-         numeroMenor = array[i];
+      }
+     
+      if (array[i] < numeroMenor) {
+        numeroMenor = array[i]; 
+        
       }
    }
+   for (let i = 0; i < array.length; i++){
+         if(array[i]!==numeroMaior && array[i] >segundoNumeroMaior){
+         segundoNumeroMaior = array[i];
+         }
+
+         if(array[i]!== numeroMenor && array[i] < segundoNumeroMenor){
+         segundoNumeroMenor = array[i];
+         }
+
+   }
+
+arrayMenorMaior.push(segundoNumeroMaior)
+arrayMenorMaior.push(segundoNumeroMenor)
+return arrayMenorMaior;
+
 }
 
 //Exercício 11
