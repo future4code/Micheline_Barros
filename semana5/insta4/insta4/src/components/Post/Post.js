@@ -64,10 +64,6 @@ class Post extends React.Component { //estado inicial
     }  
   } 
    
-  
-
-
-  
   onClickComentario = () => {
     this.setState({
       comentando: !this.state.comentando
