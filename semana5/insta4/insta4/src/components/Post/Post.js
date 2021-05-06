@@ -50,20 +50,24 @@ class Post extends React.Component { //estado inicial
 
   onClickCurtida = () => {  //expressão de função
     console.log('Curtiu!')
-    this.setState({
-      curtido: !this.state.curtido,
-      numeroCurtidas : this.state.numeroCurtidas + 1
-    })
-  }
+    
+    if(this.state.curtido === false){
+        this.setState({
+          curtido: true,
+          numeroCurtidas : this.state.numeroCurtidas + 1
+        })
+    } else {
+      this.setState({
+        curtido: false,
+        numeroCurtidas : this.state.numeroCurtidas - 1
+      })
+    }  
+  } 
+   
+  
 
-  // onClickCurtida = () => {  //expressão de função
-  //   console.log('Curtiu!')
-  //   this.setState({
-  //     curtido: this.state.curtido,
-  //     numeroCurtidas : this.state.numeroCurtidas - 1
-  //   })
-  // }
 
+  
   onClickComentario = () => {
     this.setState({
       comentando: !this.state.comentando
@@ -79,12 +83,13 @@ class Post extends React.Component { //estado inicial
 
   render() {  //função
     let iconeCurtida
-   
-
+    
     if(this.state.curtido) {
-      iconeCurtida = iconeCoracaoPreto
-    } else {
-      iconeCurtida = iconeCoracaoBranco
+      iconeCurtida = iconeCoracaoPreto 
+      
+    } else  {
+      iconeCurtida = iconeCoracaoBranco 
+      
     }
 
     let componenteComentario
@@ -104,9 +109,11 @@ class Post extends React.Component { //estado inicial
       <PostFooter>
         <IconeComContador
           icone={iconeCurtida}
+          
           onClickIcone={this.onClickCurtida}
           valorContador={this.state.numeroCurtidas}
         />
+        
 
         <IconeComContador
           icone={iconeComentario}
@@ -117,6 +124,6 @@ class Post extends React.Component { //estado inicial
       {componenteComentario}
     </PostContainer>
   }
-}
 
+}
 export default Post
