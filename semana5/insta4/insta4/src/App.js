@@ -13,7 +13,14 @@ const MainContainer = styled.div`
   align-items: center;
 `
 
+
 class App extends React.Component {
+
+  state = {
+    postagem: []
+  }
+
+
   render() {
     return (
       <MainContainer>
