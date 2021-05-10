@@ -4,6 +4,7 @@ import React from 'react'
 
 export default class Etapa1 extends React.Component {
     render (){
+       
         return (
             <div>
                 <h2> ETAPA 1 - DADOS GERAIS</h2>
@@ -21,12 +22,12 @@ export default class Etapa1 extends React.Component {
                         <option value="Ensino médio completo">Ensino médio completo</option>  
                         <option value="Ensino superior incompleto">Ensino superior incompleto</option>  
                         <option value="Ensino superiior completo">Ensino superior completo</option>  
-                    </select>
-                    <button>Próxima etapa</button>
+                    </select> 
                 </ol>
+                <button onClick = {this.props.mudarEtapa}>Próxima etapa</button>
             </div>
         
-        )
+        );
     
     }
 }

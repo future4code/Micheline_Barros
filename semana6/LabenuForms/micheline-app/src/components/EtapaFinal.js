@@ -10,6 +10,6 @@ export default class EtapaFinal extends React.Component {
                 <p>Muito obrigado por participar! Entraremos em contato!</p>
             </div>
         
-        )
+        );
     }
 }

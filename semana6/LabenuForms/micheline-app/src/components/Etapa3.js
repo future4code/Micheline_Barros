@@ -12,11 +12,12 @@ export default class Etapa3 extends React.Component {
                     <input />
                     <p>6. Qual a unidade de ensino?</p>
                     <input />
-                    <button>Próxima etapa</button>
+                   
                 </ol>
+                <button onClick = {this.props.mudarEtapa}>Próxima etapa</button>
             </div>
         
-        )
+        );
     
     }
 }
