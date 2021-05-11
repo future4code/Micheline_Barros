@@ -51,9 +51,10 @@ class App extends React.Component {
     
     const novaListaTarefas = [...this.state.tarefas, newTarefa]
     this.setState({tarefas:novaListaTarefas})
-  
-    
+    this.setState ({ inputValue: ''})
   }
+    
+  
 
   selectTarefa = (id) => {
     const tarefasFiltradas = this.state.tarefas.map((tarefa) => {
