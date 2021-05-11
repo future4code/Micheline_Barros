@@ -2,9 +2,6 @@ import React from 'react'
 import styled from "styled-components";
 
 
-const Imput4 = styled.input `
-margin-bottom: 15px;
-`
 const Botao = styled.button `
 margin-top: 15px;
 `
@@ -24,8 +21,6 @@ export default class Etapa1 extends React.Component {
                     <p>3. Qual seu email?</p>
                     <input />
                     <p>4. Qual sua escolaridade?</p>
-                    <Imput4 />
-                    <br />
                     <select>
                         <option value="Ensino médio incompleto">Ensino médio incompleto</option>  
                         <option value="Ensino médio completo">Ensino médio completo</option>  
