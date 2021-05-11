@@ -31,11 +31,12 @@ class App extends React.Component {
     }
 
   componentDidUpdate() {
-
+    localStorage.setItem("lista", JSON.stringify(this.state.tarefas))
   };
 
   componentDidMount() {
-
+    const listaSalva = JSON.parse(localStorage.getItem("lista"))
+    this.setState({tarefas: listaSalva})
   };
 
   onChangeInput = (event) => {
