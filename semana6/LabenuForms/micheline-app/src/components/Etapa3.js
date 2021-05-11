@@ -17,9 +17,9 @@ export default class Etapa3 extends React.Component {
             <div>
                 <h2> ETAPA 3 - INFORMAÇÕES GERAIS DE ENSINO</h2>
                 <div>
-                    <p>5. Qual curso?</p>
+                    <p>5. Por que você não terminou um curso de graduação?</p>
                     <input />
-                    <p>6. Qual a unidade de ensino?</p>
+                    <p>6. Você fez algum curso complementar?</p>
                     <Imput6 />
                     <br />
                     <select>
