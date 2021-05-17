@@ -35,8 +35,7 @@ class App extends React.Component {
   };
 
   componentDidMount() {
-    const listaSalva = JSON.parse(localStorage.getItem("lista"))
-    this.setState({tarefas: listaSalva})
+    this.setState({tarefas: JSON.parse(localStorage.getItem("lista")) || []})
   };
 
   onChangeInput = (event) => {
