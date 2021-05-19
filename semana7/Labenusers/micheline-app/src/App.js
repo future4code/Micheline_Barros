@@ -62,6 +62,7 @@ getAllUsers = () => { //mostra informações dos usuários como nome e email
   axios.get(URL_BASE, header)
   .then((res) => {
     this.setState({listaUsuarios: res.data});
+    console.log(res)
   })
   .catch((err) => {
     alert(err.response.data);
@@ -69,15 +70,36 @@ getAllUsers = () => { //mostra informações dos usuários como nome e email
   });
 };
 
+deleteUser = (usuarioId) => { 
+  const header = {
+    headers:{
+      Authorization: "micheline-barros-paiva"
+    }
+  };
+
+  axios.delete(`${URL_BASE}`+usuarioId, header)
+  .then((res) => {
+    this.setState({listaUsuarios: res.data});
+   
+  })
+  .catch((err) => {
+    alert(err.response.data);
+    console.log(err)
+    
+  });
+};
+
 
   render(){
     const listaDeUsuarios = this.state.listaUsuarios.map((usuario) => {
       return(
-        <li key = {usuario.id}>{usuario.name}</li>
+        <li key = {usuario.id}>{usuario.name}<p></p><button onClick={()=>this.deleteUser(this.usuarioId)}>remover</button></li>
+        
       )
     });
     console.log('entrou na lista')
     console.log(listaDeUsuarios)
+    
     return (
       <div className='corpo'>
         <h2>Labenusers</h2>
@@ -87,7 +109,13 @@ getAllUsers = () => { //mostra informações dos usuários como nome e email
         <input placeholder='nome' onChange={this.handleName} value={this.state.inputName} />
         <input placeholder='E-mail' onChange={this.handleEmail} value={this.state.inputEmail} />
         <button onClick={this.criarUsuario} >criar</button>
-        <div>{listaDeUsuarios}</div>
+        <div>
+        <h2>Labenusers</h2>
+        <button>Trocar de página</button>
+        <hr />
+        <h3>Lista de usuários</h3>
+          {listaDeUsuarios}
+        </div>
 
       </div>
     );
