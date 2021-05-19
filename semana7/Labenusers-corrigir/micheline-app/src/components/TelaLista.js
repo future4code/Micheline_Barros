@@ -1,4 +1,5 @@
 import React from "react";
+import '../index.css';
 import axios from 'axios';
 import styled from 'styled-components'
 
@@ -10,10 +11,6 @@ width:300px;
 display: flex;
 justify-content: space-between;
 `
-// const DivList = styled.div `
-// text-align:center;
-// margin:auto;
-// `
 
 
 const URL_BASE = 'https://us-central1-labenu-apis.cloudfunctions.net/labenusers/users'
@@ -75,14 +72,14 @@ getAllUsers = () => { //mostra informações dos usuários como nome e email
             )
           });
         return(
-            <div>
+            <DivList>
             <h2>Labenusers</h2>
             <button onClick={this.props.cadastro}>Trocar de página</button>
              <hr />
             <h3>Lista de usuários</h3>
-            <div>{listaDeUsuarios}</div>
-               
-            </div>
+            {listaDeUsuarios}
+            
+            </DivList>
         )
     }
 }

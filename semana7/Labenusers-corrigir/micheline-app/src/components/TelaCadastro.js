@@ -48,7 +48,6 @@ export default class TelaCadastro extends React.Component{
         })
       }
       
-
     render() {
         return(
             <div>
