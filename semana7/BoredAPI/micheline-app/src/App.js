@@ -27,7 +27,8 @@ const URL_BASE = "https://www.boredapi.com/api/activity/"
 export default class App extends React.Component {
   
 state = {
-  activity:{}
+  activity:{},
+  inputPesquisa:''
 }
 
 gerarAleatoria = () =>{
@@ -39,6 +40,21 @@ gerarAleatoria = () =>{
     .catch((err) => {
       alert(err)
     })
+}
+
+pesquisarAtividade = () =>{
+  axios.get(`http://www.boredapi.com/api/activity?type=${this.state.inputPesquisa}`)
+    .then((res) => {
+     console.log(res.data)
+      this.setState({activity:res.data})
+    })
+    .catch((err) => {
+      alert(err)
+    })
+}
+
+handlePesquisa = (event) => {
+  this.setState({inputPesquisa: event.target.value})
 }
 
  render(){
@@ -55,6 +71,9 @@ gerarAleatoria = () =>{
         <p>Tipo: {this.state.activity.type}</p>
         <p>Participantes: {this.state.activity.participants}</p>
         <p>Preço: ${this.state.activity.price}</p>
+        <hr />
+        <input placeholder='pesquise por atividade' onChange={this.handlePesquisa} value={this.state.inputPesquisa}></input>
+        <button onClick={this.pesquisarAtividade}>Pesquisar</button>
        </Atividade>
       
      </ContainerArea>
