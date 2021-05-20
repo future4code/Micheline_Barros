@@ -1,12 +1,14 @@
 import React from "react";
+import './index.css'
 import styled from "styled-components";
 import axios from 'axios';
 
 
-const ContainerArea= styled.div`
+const AreaMensagem= styled.div`
   border-radius: 0.5rem;
   display: flex;
   flex-direction: column;
+  align-items: center;
   margin: auto;
   box-sizing: border-box;
   width: 37.5rem;
@@ -60,23 +62,25 @@ handlePesquisa = (event) => {
  render(){
    
    return(
-     <ContainerArea>
-       <h1>Está entediado?</h1>
-       <p>Clique no botão e vamos lhe sugerir uma atividade para realizar.</p>
-       <button onClick={this.gerarAleatoria}>Click Aqui</button>
-       <hr/>
-       <Atividade> 
-        <h3>A atividade sugerida é:</h3>
-        <p>Nome: {this.state.activity.activity}</p>
-        <p>Tipo: {this.state.activity.type}</p>
-        <p>Participantes: {this.state.activity.participants}</p>
-        <p>Preço: ${this.state.activity.price}</p>
-        <hr />
-        <input placeholder='pesquise por atividade' onChange={this.handlePesquisa} value={this.state.inputPesquisa}></input>
-        <button onClick={this.pesquisarAtividade}>Pesquisar</button>
-       </Atividade>
-      
-     </ContainerArea>
+     
+        <AreaMensagem>
+          <h1>Está entediado?</h1>
+          <p>Clique no botão e vamos lhe sugerir uma atividade para realizar.</p>
+          <button onClick={this.gerarAleatoria}>Click Aqui</button>
+          <hr/>
+          <Atividade> 
+            <h3>A atividade sugerida é:</h3>
+            <p>Nome: {this.state.activity.activity}</p>
+            <p>Tipo: {this.state.activity.type}</p>
+            <p>Participantes: {this.state.activity.participants}</p>
+            <p>Preço: ${this.state.activity.price}</p>
+            <hr />
+            <input placeholder='pesquise por atividade' onChange={this.handlePesquisa} value={this.state.inputPesquisa}></input>
+            <button onClick={this.pesquisarAtividade}>Pesquisar</button>
+          </Atividade>
+          
+        </AreaMensagem>
+     
    );
  }
 }
