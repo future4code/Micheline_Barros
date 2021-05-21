@@ -9,7 +9,6 @@ const URL_BASE = 'https://us-central1-labenu-apis.cloudfunctions.net/labefy/play
 export default class CriarPlaylist extends React.Component{
 
     state ={
-        playlist:[],
         inputPlayList: ''
     }
 
@@ -30,9 +29,7 @@ export default class CriarPlaylist extends React.Component{
         axios.post(URL_BASE, body, header)
         .then((res) => {
             console.log('play adicionada')
-            this.setState({playlist: res.data})
             this.setState({inputPlayList:''});
-            console.log(this.state.inputPlayList)
         })
         .catch((err) => {
             console.log (err.response.data)
