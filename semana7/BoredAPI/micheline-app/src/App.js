@@ -38,6 +38,7 @@ gerarAleatoria = () =>{
     .then((res) => {
      console.log(res.data)
       this.setState({activity:res.data})
+      alert(res)
     })
     .catch((err) => {
       alert(err)
@@ -49,9 +50,13 @@ pesquisarAtividade = () =>{
     .then((res) => {
      console.log(res.data)
       this.setState({activity:res.data})
+      console.log('entrou')
+      
     })
     .catch((err) => {
-      alert(err)
+      alert(err.error)
+      console.log('Seu erro foi',err)
+      console.log('entrou')
     })
 }
 
