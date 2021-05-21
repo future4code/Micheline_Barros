@@ -39,6 +39,7 @@ export default class ListaPlaylist extends React.Component{
             <div>
                 <h2>Playlists</h2>
                 <button onClick={this.props.criarPlaylist}>Nova Playlist</button>
+                <button onClick={this.props.home}>Home</button>
             </div>
         );
     }

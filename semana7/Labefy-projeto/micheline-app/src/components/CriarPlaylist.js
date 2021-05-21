@@ -3,6 +3,7 @@ import '../App.css';
 import styled from 'styled-components';
 import axios from 'axios';
 
+
 const URL_BASE = 'https://us-central1-labenu-apis.cloudfunctions.net/labefy/playlists'
 
 export default class CriarPlaylist extends React.Component{
@@ -44,6 +45,10 @@ export default class CriarPlaylist extends React.Component{
                     <h2>Nova playlist</h2>
                     <input placeholder='digite o nome da Playlist' onChange={this.handleNameList} value={this.state.inputPlayList}/>
                     <button onClick={this.createPlaylist}>SALVAR</button>
+                    <hr/>
+                    <button onClick={this.props.home}>Home</button>
+                    <p></p>
+                    <button onClick={this.props.listaPlaylist}>Playlists</button>
                 </div>
             );
     }

@@ -18,9 +18,9 @@ export default class App extends React.Component {
       case 'home' :
         return <Home listaPlaylist={this.irParaListaPlaylist}/>
       case 'listaPlaylist':
-        return <ListaPlaylist criarPlaylist={this.irParaCriarPlaylist}/>
+        return <ListaPlaylist criarPlaylist={this.irParaCriarPlaylist} home={this.irParaHome}/>
       case 'criarPlaylist' :
-        return <CriarPlaylist />
+        return <CriarPlaylist home={this.irParaHome} listaPlaylist={this.irParaListaPlaylist}/>
       default:
         return <p>Erro inesperado! Página não encontrada</p>
     }
