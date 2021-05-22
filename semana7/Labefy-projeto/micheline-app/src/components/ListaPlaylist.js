@@ -5,6 +5,7 @@ import axios from 'axios';
 import Playlist from './CriarPlaylist';
 
 
+
 const ListaPlay = styled.div `
 display: flex;
 justify-content: space-between;
@@ -12,6 +13,18 @@ border: 2px solid purple;
 width: 300px;
 padding: 10px;
 margin:auto;
+button{
+    height:30px;
+    border: none;
+    background-color: Transparent;
+    cursor:pointer;
+    overflow: hidden;
+};
+img{
+    height:28px;
+    width:28px;
+    margin: auto;
+}
 `
 
 const URL_BASE = 'https://us-central1-labenu-apis.cloudfunctions.net/labefy/playlists'
@@ -63,7 +76,7 @@ export default class ListaPlaylist extends React.Component{
     render (){
         const listaPlayLista = this.state.listaPlay.map((nome) =>{
             return(
-                <ListaPlay key={nome.id}>{nome.name}<button onClick={() => this.deletePlaylist(nome.id)}>Excluir</button></ListaPlay>
+                <ListaPlay key={nome.id}>{nome.name}<button onClick={() => this.deletePlaylist(nome.id)}><img src="https://image.flaticon.com/icons/png/512/4028/4028613.png" /></button></ListaPlay>
             )   
         })
          return (
