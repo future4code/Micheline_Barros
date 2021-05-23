@@ -10,7 +10,7 @@ const ListaPlay = styled.div `
 display: flex;
 justify-content: space-between;
 border: 2px solid purple;
-width: 300px;
+width: 500px;
 padding: 10px;
 margin:auto;
 button{
@@ -76,7 +76,7 @@ export default class ListaPlaylist extends React.Component{
     render (){
         const listaPlayLista = this.state.listaPlay.map((nome) =>{
             return(
-                <ListaPlay key={nome.id}>{nome.name}<button onClick={() => this.deletePlaylist(nome.id)}><img src="https://image.flaticon.com/icons/png/512/4028/4028613.png" /></button></ListaPlay>
+                <ListaPlay key={nome.id}>{nome.name}<button onClick={this.props.listaMusicas}>Entrar na Playlist</button><button onClick={() => this.deletePlaylist(nome.id)}><img src="https://image.flaticon.com/icons/png/512/4028/4028613.png" /></button></ListaPlay>
             )   
         })
          return (
