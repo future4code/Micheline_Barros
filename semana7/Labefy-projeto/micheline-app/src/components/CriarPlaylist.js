@@ -44,7 +44,7 @@ export default class CriarPlaylist extends React.Component{
                     <input placeholder='digite o nome da Playlist' onChange={this.handleNameList} value={this.state.inputPlayList}/>
                     <button onClick={this.createPlaylist}>SALVAR</button>
                     <hr/>
-                    <button onClick={this.props.home}>Home</button>
+                    
                     <p></p>
                     <button onClick={this.props.listaPlaylist}>Playlists</button>
                 </div>

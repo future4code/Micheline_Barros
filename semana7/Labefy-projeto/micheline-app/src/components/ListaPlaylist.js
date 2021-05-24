@@ -3,6 +3,7 @@ import '../App.css';
 import styled from 'styled-components';
 import axios from 'axios';
 import Playlist from './CriarPlaylist';
+import DetalhesPlaylist from './DetalhesPlaylist';
 
 
 
@@ -25,6 +26,15 @@ img{
     width:28px;
     margin: auto;
 }
+.b1{ 
+}
+`
+
+const BordaDiv = styled.div`
+    label{
+        
+        margin-left:30px;
+    }
 `
 
 const URL_BASE = 'https://us-central1-labenu-apis.cloudfunctions.net/labefy/playlists'
@@ -32,11 +42,16 @@ const URL_BASE = 'https://us-central1-labenu-apis.cloudfunctions.net/labefy/play
 export default class ListaPlaylist extends React.Component{
 
     state ={
-        listaPlay: []
+        listaPlay: [],
+        inputMusica: '',
+        inputArtist: '',
+        inputUrl: ''
     }
 
-    componentDidMount(){
+    componentDidMount(idPlaylist){
         this.getAllPlaylists();
+        this.addTrackToPlaylist(idPlaylist);
+      
       }
 
     getAllPlaylists = () => {
@@ -47,13 +62,12 @@ export default class ListaPlaylist extends React.Component{
         };
         axios.get(URL_BASE, header)
         .then((res) => {
-            console.log('lista')
             this.setState({listaPlay: res.data.result.list});
-            console.log(this.state.listaPlay)
-            
+            console.log(res.data)
         })
         .catch((err) => {
             console.log (err)
+           
         })
     }
 
@@ -73,22 +87,89 @@ export default class ListaPlaylist extends React.Component{
         });
     };
 
-    render (){
-        const listaPlayLista = this.state.listaPlay.map((nome) =>{
-            return(
-                <ListaPlay key={nome.id}>{nome.name}<button onClick={this.props.listaMusicas}>Entrar na Playlist</button><button onClick={() => this.deletePlaylist(nome.id)}><img src="https://image.flaticon.com/icons/png/512/4028/4028613.png" /></button></ListaPlay>
-            )   
+
+    handleMusicas = (event) =>{
+        this.setState({inputMusica: event.target.value})
+    }
+    
+    handleArtists = (event) =>{
+        this.setState({inputArtist: event.target.value})
+    }
+
+    handleUrls = (event) =>{
+        this.setState({inputUrl: event.target.value})
+    }
+
+    addTrackToPlaylist = (idPlaylist) => {
+        const header = {
+            headers:{
+                Authorization:'micheline-barros-paiva'
+            }
+        };
+        const body = {
+            name: this.state.inputMusica,
+            artist: this.state.inputArtist,
+            url: this.state.inputUrl
+        }
+        axios.post(`${URL_BASE}/${idPlaylist}/tracks`, body, header)
+        .then((res) => {
+            alert('Música adicionada')
+            // this.setState({inputPlayList:''});
+            console.log(this.state.inputMusica)
         })
+        .catch((err) => {
+            console.log (err.response.data.message)
+        })
+    }
+   
+
+  
+
+    render (){
+        const listaPlayLista = this.state.listaPlay.map((playlist) =>{
+            console.log('esse aqui',playlist.id)
+            return(
+                <div key={playlist.id}>
+                    <ListaPlay  key={playlist.id} idPlaylist={playlist.id}>
+                        {playlist.name}
+                        <button className='b1' onClick={() => this.props.listaMusicas(playlist.id)}><img src='https://image.flaticon.com/icons/png/512/2404/2404847.png'/></button><button onClick={() => this.addTrackToPlaylist(playlist.id)}><img src='https://img-premium.flaticon.com/png/512/2404/2404891.png?token=exp=1621825946~hmac=83751819e2693983e1f3f48f0eec3955'/></button>
+                        <button onClick={() => this.deletePlaylist(playlist.id)}><img src="https://image.flaticon.com/icons/png/512/4028/4028613.png" /></button>
+                    </ListaPlay>
+                    
+                </div>
+                
+                
+            )  
+            
+        })
+
          return (
+            
             <div>
+                
                 <h2>Playlists</h2>
                 <button onClick={this.props.criarPlaylist}>Nova Playlist</button>
-                <button onClick={this.props.home}>Home</button>
+                
+                
+                <hr />
+                <BordaDiv>  
+                    <p>Adicionar Mísicas as Playlitsts</p>
+                        <label>Nome da música:  </label>
+                        <input onChange={this.handleMusicas} value={this.state.inputMusica}></input>
+                        <label>Cantor ou banda:  </label>
+                        <input onChange={this.handleArtists} value={this.state.inputArtist}></input>
+                        <label>URL da música:  </label>
+                        <input onChange={this.handleUrls} value={this.state.inputUrl}></input>
+                        
+                </BordaDiv>
                 <hr />
                 <h3>Playlists</h3>
                 <div>
                     {listaPlayLista}
+                    
                 </div>
+
+                
             </div>
         );
     }

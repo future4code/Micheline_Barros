@@ -7,17 +7,6 @@ import Playlist from './CriarPlaylist';
 const DivContainer = styled.div `
     display: flex;
 `
-const BordaDiv = styled.div`
-    border: 1px solid black;
-    box-sizing: border-box;
-    margin-left: 10px;
-    padding:8px;
-    width: 20vw;
-    height: 400px;
-    input{
-        margin-top: 70px;
-    }
-`
 const ListaMusicas = styled.div `
 display: flex;
 justify-content: space-between;
@@ -25,18 +14,6 @@ border: 2px solid purple;
 width: 300px;
 padding: 10px;
 margin:auto;
-/* button{
-    height:30px;
-    border: none;
-    background-color: Transparent;
-    cursor:pointer;
-    overflow: hidden;
-};
-img{
-    height:28px;
-    width:28px;
-    margin: auto;
-} */
 `
 const DivPlaylist = styled.div `
 padding-right: 370px;
@@ -44,56 +21,60 @@ flex-grow: 1;
 `
 
 
+
 const URL_BASE = 'https://us-central1-labenu-apis.cloudfunctions.net/labefy/playlists'
 
 export default class DetalhesPlaylist extends React.Component{
 
     state ={
-        listaMusicas: []
+        listaMusicas: [{
+            name:'grito',
+            artist:'desconhecido',
+            url:'http://spoti4.future4.com.br/1.mp3'
+        }],
+        
     }
 
-    // componentDidMount(){
-    //     this.getAllPlaylists();
-    //   }
+    componentDidMount(){
+        this.getPlaylistTracks();
+        
+      }
 
-    getPlaylistTracks = (id) => {
+
+    getPlaylistTracks = (idPlaylist) => {
+        console.log("id detalhe",idPlaylist)
         const header = {
             headers:{
                 Authorization:'micheline-barros-paiva'
             }
         };
-        axios.get(`${URL_BASE}/${id}`, header)
+        axios.get(`${URL_BASE}/${idPlaylist}/tracks`, header)
         .then((res) => {
-            console.log('')
+            console.log(res)
             this.setState({listaMusicas: res.data.result.list});
-            console.log(this.state.listaMusicas)
+            this.getPlaylistTracks();
             
         })
         .catch((err) => {
             console.log (err)
+            console.log('entrou no erro')
         })
     }
 
-    // deletePlaylist = (id) => {
-    //     const header = {
-    //         headers:{
-    //             Authorization:'micheline-barros-paiva'
-    //         }
-    //     };
-    //     axios.delete(`${URL_BASE}/${id}`, header)
-    //     .then((res) =>{
-    //         alert('Playlist excluída.');
-    //         this.getAllPlaylists();
-    //     })
-    //     .catch((err) => {
-    //         alert('Ocorreu um erro inexperado. Tente novamente.')
-    //     });
-    // };
+    
 
     render (){
-        const listaMusicasDaPlay = this.state.listaMusicas.map((nome) =>{
-            return(
-                <ListaMusicas key={nome.id}>{nome.name}{nome.artist}</ListaMusicas>
+        console.log('o estado', this.state.listaMusicas)
+
+        const listaMusicasDaPlay = this.state.listaMusicas.map((musica) =>{
+            
+                return(
+                <ListaMusicas key={musica.id}>
+                    {musica.name}  -  {musica.artist }
+                    <audio controls='conrols'>
+                        <source src={musica.url} type='audio/ogg' />
+                    </audio>
+                </ListaMusicas>
             )   
         })
          return (
@@ -101,25 +82,20 @@ export default class DetalhesPlaylist extends React.Component{
            
                 <h2>Músicas na Playlists</h2>
                 <button onClick={this.props.listaPlaylist}>Playlist</button>
-                <button onClick={this.props.home}>Home</button>
+               
                 <hr />
                 <DivContainer>
-                    <BordaDiv>
-                        <label>Nome da música:  </label>
-                        <input ></input><br/><br/>
-                        <label>Cantor ou banda:  </label>
-                        <input></input><br/><br/>
-                        <label>URL da música:  </label>
-                        <input></input>
-                    </BordaDiv>
                     <DivPlaylist>
                         <h3>Playlists</h3>
                         {listaMusicasDaPlay}
                     </DivPlaylist>
                 </DivContainer>
+                
             </div>
         );
     }
  
 }
 
+
+                            

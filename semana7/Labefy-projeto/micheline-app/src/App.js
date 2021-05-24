@@ -11,27 +11,24 @@ import DetalhesPlaylist from './components/DetalhesPlaylist';
 export default class App extends React.Component {
 
   state = {
-    telaAtual: 'home'
+    telaAtual: 'listaPlaylist',
+    idDetalhe: ''
   }
 
   alternaTela = () => {
     switch (this.state.telaAtual){
-      case 'home' :
-        return <Home listaPlaylist={this.irParaListaPlaylist}/>
       case 'listaPlaylist':
-        return <ListaPlaylist criarPlaylist={this.irParaCriarPlaylist} home={this.irParaHome} listaMusicas={this.irParaDetalhesPlaylist}/>
+        return <ListaPlaylist listaNomesPlaylist={this.state.listaPlay} criarPlaylist={this.irParaCriarPlaylist}  listaMusicas={this.irParaDetalhesPlaylist} idPlaylist={this.idPlaylist}/>
       case 'criarPlaylist' :
-        return <CriarPlaylist home={this.irParaHome} listaPlaylist={this.irParaListaPlaylist}/>
+        return <CriarPlaylist  listaPlaylist={this.irParaListaPlaylist} idPlaylist={this.props.idPlaylist}/>
       case 'detalhesPlaylist':
-        return <DetalhesPlaylist home={this.irParaHome} listaPlaylist={this.irParaListaPlaylist}/>
+        return <DetalhesPlaylist  listaPlaylist={this.irParaListaPlaylist} idPlaylist={this.idPlaylist}/>
       default:
         return <p>Erro inesperado! Página não encontrada</p>
     }
   }
 
-  irParaHome = () => {
-    this.setState({telaAtual: 'home'})
-  }
+ 
 
   irParaListaPlaylist = () => {
     this.setState({telaAtual: 'listaPlaylist'})
@@ -41,15 +38,19 @@ export default class App extends React.Component {
     this.setState({telaAtual: 'criarPlaylist'})
   }
 
-  irParaDetalhesPlaylist = () => {
+  irParaDetalhesPlaylist = (idPlaylist) => {
     this.setState({telaAtual: 'detalhesPlaylist'})
+    this.setState({idDetalhe:idPlaylist})
+    
+
   }
 
 
 
 
   render(){
-    return (
+    console.log('idPlay', this.state.idDetalhe)
+  return (
       <div className="App">
         {this.alternaTela()}
       </div>
