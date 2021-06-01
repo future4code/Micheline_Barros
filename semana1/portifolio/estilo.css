@@ -1,0 +1,151 @@
+
+* {
+    margin: 0;
+    padding: 0;
+   
+}
+
+header{
+    width: 100%;
+    position: fixed;
+    margin-top: 10px;
+    font-size: 12px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    color:#F8EEE7;
+    background-color: #49274A;
+    text-align: center;
+    letter-spacing: 0.5px;
+     /* margin-left: 10px;  */
+}
+
+.menu-rigth{
+    margin-top: 10px;
+    display: inline-block;
+   
+}
+.menu-left{
+    margin-top: 10px;
+    display: inline-block;
+    margin-left: 1459px; 
+    margin-top: 15px;
+    
+}
+
+.menu-rigth a{
+    color: #F8EEE7;
+    text-decoration: none;
+    padding: 11px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    background-color: #94618E;
+    letter-spacing: 0.15px;
+    font-size: 15px;
+}
+.menu-rigth a:hover{ /*:hover faz com que o menu mude de cor quando o mouse passa por cima*/
+    background-color: #49274A;
+    color:white;
+}
+.menu-left a{
+    color: #F8EEE7;
+    text-decoration: none;
+    padding: 11px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    background-color: #94618E;
+    letter-spacing: 0.5px;
+    font-size: 15px;
+}
+.menu-left a:hover{ /*:hover faz com que o menu mude de cor quando o mouse passa por cima*/
+    background-color: #49274A;
+    color:white;
+}
+.container-menu{
+    background-color: #49274A;
+    padding: 15px;
+}
+.ele-web{
+    display: inline-block;
+    margin-top: 50px;
+}
+.container-titulo{
+    text-align: center;
+    color: #49274A;
+    background-color:#F4DECB;
+    font-weight: 1000;
+}
+
+.texto-apresentacao{
+    font-family: Arial, Helvetica, sans-serif;
+    margin-left: 50px;
+    margin-top: 50px;
+    padding: 20px 500px 235px 30px;
+    background-color: #94618E;
+    width: 680px;
+    height: 450px;
+}
+.bem-vindo{
+    font-family: fantasy;
+    font-size: 40px;
+    margin-bottom: 30px;
+    width: 800px;
+    color:#F4DECB;
+    letter-spacing: 3px;
+}
+
+.container-texto-corpo{
+    background-color: #F4DECB;
+}
+.container-trabalhos-web{
+    background-color: #F4DECB;
+    padding-top: 0;
+}
+.container-trabalhos-web img{
+   width: 500px;
+   height: 250px;
+  
+}
+
+.redesSociais{
+    width: 40px;
+    display: inline; 
+    padding: 0 20px;
+    margin-top: 20px;
+}
+
+footer{
+  text-align: center;
+  background-color: #49274A;
+  color: #F8EEE7;
+}
+#msg{
+    width: 500px 500px;
+}
+form{
+    text-align: center;
+}
+h4{
+    color: rgb(189, 172, 150);
+    margin-top: 30px;
+}
+.meu-nome{
+    color: rgb(199, 169, 130);
+    margin-bottom: 10px;
+    font-weight: 1000;
+    text-align: justify;
+
+}
+.conhecimento{
+    color: rgb(189, 172, 150);
+    margin-bottom: 10px;
+    text-align: justify;
+    font-weight: 600;
+}
+.clique{
+    width: 20px;
+    height: 18px;
+    padding-left: 10px;
+    
+}
+.meu-nome a{
+color: rgb(199, 169, 130);
+text-decoration: none;
+}
+position: fixed e bottom: 0
