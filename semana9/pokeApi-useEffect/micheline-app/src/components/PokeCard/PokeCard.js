@@ -1,4 +1,4 @@
-import React, { useState, useEffect, prevProps} from 'react'
+import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import styled  from 'styled-components'
 
@@ -34,7 +34,7 @@ function PokeCard(props){
                 <Img src={pokemonCard.sprites.front_default} alt={pokemonCard.name} />
             )}
 
-        </div>
+        </div> 
     )
 }
 export default PokeCard;
