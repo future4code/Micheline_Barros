@@ -1,39 +1,37 @@
-import React, { useState, useEffect, props, prevProps } from 'react'
+import React, { useState, useEffect, prevProps} from 'react'
 import axios from 'axios'
 import styled  from 'styled-components'
 
+const Img = styled.img `
+width:200px;
+`
 
-function PokeCard(){
-    const [pokemon, setPokemon] = useState({})
+function PokeCard(props){
+    const [pokemons, setPokemons] = useState({})
 
     useEffect(() =>{
-        selecionaPokemon(props.pokemonDados)
-    }, [])
+        selecionaPokemon(props.pokemon)
+    }, [props.pokemon])
 
-    useEffect((prevProps) =>{
-        if(prevProps.pokemon !== props.pokemon){
-            selecionaPokemon(props.pokemon)
-        }
-    }, [prevProps, props.pokemon])
 
     const selecionaPokemon = (pokeName) => {
       axios.get(`https://pokeapi.co/api/v2/pokemon/${pokeName}`)
       .then((res) => {
-          setPokemon(res.data)
+          setPokemons(res.data)
+          console.log('setPokemons', res.data)
       })
       .catch((err) => {
           console.log(err)
       })
     }
 
-    const pokemonCard = pokemon;
+    const pokemonCard = pokemons;
     return(
         <div>
-            <p>{pokemonCard.name}</p>
-            <p>{pokemonCard.name}</p>
-            {pokemonCard.types && <p>{pokemonCard.types[0].type.name}</p>}
+            <p>Nome: {pokemonCard.name}</p>
+            {pokemonCard.types && <p>Tipo: {pokemonCard.types[0].type.name}</p>}
             {pokemonCard.sprites && (
-                <img src={pokemonCard.sprites.front_default} alt={pokemonCard.name} />
+                <Img src={pokemonCard.sprites.front_default} alt={pokemonCard.name} />
             )}
 
         </div>
