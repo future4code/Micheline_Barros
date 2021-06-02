@@ -1,13 +1,14 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import styled, { ThemeConsumer } from 'styled-components'
+import PokeCard from './components/PokeCard/PokeCard'
 
 
 function App() {
   const [pokeList, setPokeList] = useState([])
   const [pokeName, setPokeName] = useState('')
 
-  useEffect(() =>{
+  useEffect(() => {
     duzentosPokemon()
   },[])
 
@@ -16,6 +17,7 @@ function App() {
     .then((res) => {
       setPokeList(res.data.results)
       console.log(res.data.results)
+      
     }).catch((err) => {
       console.log(err)
     })
@@ -23,21 +25,24 @@ function App() {
 
   const onChangeSelectPokeName = (event) => {
     setPokeName(event.target.value)
+    console.log('pokeName',pokeName)
   }
 
   return (
     
-    <div>
+    <>
       <select onChange={onChangeSelectPokeName}>
         <option value=''></option>
-        {pokeList.map((namePoke) => {
-          console.log(namePoke.name)
+        {pokeList.map((pokemon) => {
+          console.log('nomes',pokemon.name)
           return(
-            <option value={namePoke.name}>{namePoke.name}</option>
+            <option key={pokemon.id} value={pokemon.name}>{pokemon.name}</option>
           )
         })}
       </select>
-    </div>
+      {/* {pokeName && <PokeCard pokemon={pokeName}/>} */}
+      
+    </>
   );
 }
 
