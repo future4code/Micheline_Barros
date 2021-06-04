@@ -28,9 +28,6 @@ function TelaMatches(props) {
     })
   }
 
-  useEffect(() => {
-    clear()
-  }, [])
   //tenho que fazer um get para os perfis e um get matche?
   const clear = () => {
     const header = {
@@ -38,12 +35,13 @@ function TelaMatches(props) {
     }
     axios.put(`${urlBase}clear`, header).then((res) => {
       console.log(res.data)
+      setPerfilMatche([])
+      console.log('entrei no clear')
     }).catch((err) => {
       console.log(err)
     })
   }
 
-   
 
   return (
     <div>
@@ -59,7 +57,7 @@ function TelaMatches(props) {
           </ContainerMatches>
         )
       })}
-      <button onclick={clear}>Clear</button>
+      <button onClick={clear}>Clear</button>
     </div>
   );
 }
