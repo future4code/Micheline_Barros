@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
-import TelaMatches from './components/TelaMatches'
-import TelaPerfis from './components/TelaPerfis'
+import TelaMatches from './components/TelaMatches/TelaMatches'
+import TelaPerfis from './components/TelaPerfis/TelaPerfis'
 
 
 function App() {
@@ -26,9 +26,9 @@ function App() {
   }
 
   return (
-    <div>
+    <>
       {retornaTela()}
-    </div>
+    </>
   );
 }
 
