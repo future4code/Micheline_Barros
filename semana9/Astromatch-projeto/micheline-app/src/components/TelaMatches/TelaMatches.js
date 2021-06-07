@@ -17,7 +17,7 @@ function TelaMatches(props) {
     axios.get(`${urlBase}matches`).then((res) => {
       setPerfilMatche(res.data.matches)
     }).catch((err) => {
-      alert(err)
+      alert(err.response.data)
     })
   }
 
@@ -29,7 +29,7 @@ function TelaMatches(props) {
       console.log(res.data)
       setPerfilMatche([])
     }).catch((err) => {
-     alert(err)
+     alert(err.response.data)
     })
   }
 

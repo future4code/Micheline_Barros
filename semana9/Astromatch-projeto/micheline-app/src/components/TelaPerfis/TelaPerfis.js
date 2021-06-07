@@ -23,7 +23,7 @@ function TelaPerfis(props) {
         axios.get(`${urlBase}person`).then((res) => {
             setPerfilUsuario(res.data.profile)
         }).catch((err) => {
-            alert(err)
+            alert(err.response.data)
         })
     }
 
@@ -40,7 +40,7 @@ function TelaPerfis(props) {
         axios.post(`${urlBase}choose-person`, body, header).then((res) => {
             setMatch(res.data)
         }).catch((err) => {
-            alert(err)
+            alert(err.response.data)
         })
     }
 
@@ -56,7 +56,7 @@ function TelaPerfis(props) {
         axios.post(`${urlBase}choose-person`, body, header).then((res) => {
             setMatch(res.data)
         }).catch((err) => {
-            alert(err)
+            alert(err.response.data)
         })
     }
 
