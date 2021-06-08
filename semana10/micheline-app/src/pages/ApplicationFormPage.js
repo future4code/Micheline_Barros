@@ -1,12 +1,18 @@
 import React from 'react'
+import {useHistory} from 'react-router-dom'
 
 
 
 export default function ApplicationFormPage(){
+    const history = useHistory()
+
+    const goBack = () => {
+        history.goBack()
+    }
 
     return(
         <>
-        <button>VOLTAR</button><button>ENVIAR</button>
+        <button onClick = {goBack} >VOLTAR</button><button onClick = {null} >ENVIAR</button>
         <p>ApplicationFormPage</p>
         </>
     );
