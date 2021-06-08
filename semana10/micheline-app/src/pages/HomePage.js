@@ -15,8 +15,9 @@ export default function HomePage(){
 
     return(
         <>
-        <button onClick = {goToListTrips}>VIAGENS</button><button onClick = {goToAdmin}>ÁREA DE LOGIN</button>
-        <p>HomePage</p>
+         <p>HomePage</p>
+         <button onClick = {goToListTrips}>VIAGENS</button><button onClick = {goToAdmin}>ÁREA DE LOGIN</button>
+      
         </>
     );
 }
