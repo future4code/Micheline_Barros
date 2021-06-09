@@ -16,6 +16,10 @@ export default function HomePage(){
     return(
         <>
          <p>HomePage</p>
+         <div>
+             <img src="Logo.png" width='500px'/>
+         </div>
+         
          <button onClick = {goToListTrips}>VIAGENS</button><button onClick = {goToAdmin}>ÁREA DE LOGIN</button>
       
         </>
