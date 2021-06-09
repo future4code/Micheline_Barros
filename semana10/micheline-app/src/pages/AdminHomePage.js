@@ -2,11 +2,15 @@ import React, { useEffect, useState } from 'react'
 import {useHistory} from 'react-router-dom'
 import axios from 'axios'
 import { baseUrl } from '../constants/urls'
+import useProtectedPage from '../hooks/useProtectdPage'
 
 
 export default function AdminHomePage(){
     const [ trips, setTrips ] = useState({})
-    const history = useHistory()
+
+    useProtectedPage()
+
+    const history = useHistory();
 
     const goBack = () => {
         history.goBack()
