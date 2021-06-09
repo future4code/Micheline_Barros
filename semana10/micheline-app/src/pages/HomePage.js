@@ -9,8 +9,8 @@ export default function HomePage(){
         history.push('/trips/list')
     }
 
-    const goToAdmin = () => {
-        history.push('/admin/trips/list')
+    const goToLogin = () => {
+        history.push('/login')
     }
 
     return(
@@ -20,7 +20,7 @@ export default function HomePage(){
              <img src="Logo.png" width='500px'/>
          </div>
          
-         <button onClick = {goToListTrips}>VIAGENS</button><button onClick = {goToAdmin}>ÁREA DE LOGIN</button>
+         <button onClick = {goToListTrips}>VIAGENS</button><button onClick = {goToLogin}>ÁREA DE LOGIN</button>
       
         </>
     );

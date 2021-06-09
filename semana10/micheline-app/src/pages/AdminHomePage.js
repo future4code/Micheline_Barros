@@ -1,13 +1,32 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import {useHistory} from 'react-router-dom'
+import axios from 'axios'
+import { baseUrl } from '../constants/urls'
 
 
 export default function AdminHomePage(){
+    const [ trips, setTrips ] = useState({})
     const history = useHistory()
 
     const goBack = () => {
         history.goBack()
     }
+
+    const getTripDetail = (id) => {
+        axios.get( `${baseUrl}/trip/${id}`, {
+            headers : {
+                auth: localStorage.getItem('token')
+            }
+        }).then((res) => {
+            console.log(res)
+        }).catch((err) => {
+            console.log(err.response.data)
+        })
+    }
+
+    useEffect (() => {
+        getTripDetail()
+    }, [])
 
     return(
         <>
