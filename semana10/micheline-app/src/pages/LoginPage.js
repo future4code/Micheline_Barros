@@ -3,8 +3,17 @@ import React from 'react'
 import {useHistory} from 'react-router-dom'
 import { baseUrl } from '../constants/urls'
 import useInput from '../hooks/useInput'
+import styled from 'styled-components';
 
-
+const ContainerLogin = styled.div `
+    display: flex;
+    div{
+        display: flex;
+        flex-direction: column;
+        padding:20px;
+        margin: auto;
+    }
+`
 
 export default function LoginPage(){
     const [email, handleEmail] = useInput('')
@@ -13,7 +22,6 @@ export default function LoginPage(){
     
     const login = () => {
         const body = { email, password};
-        // console.log(body)
         axios.post(`${baseUrl}/login`, body).then((res) => {
             localStorage.setItem("token", res.data.token)
             history.push("/admin/trips/list")
@@ -31,11 +39,22 @@ export default function LoginPage(){
 
     return(
         <>
-         <button onClick = {goBack} >VOLTAR</button>
-        <p>Login Page</p>
-        <input placeholder='E-mail' value={ email } onChange={ handleEmail }/>
-        <input placeholder='senha'value={ password } onChange={ handlepassword }/>
-        <button onClick={ login }>LOGIN</button>
+        <div>
+            <button onClick = {goBack} >VOLTAR</button>
+        </div>
+        <ContainerLogin>
+            <div>
+                <input placeholder='E-mail' value={ email } onChange={ handleEmail }/>
+                <input placeholder='senha'value={ password } onChange={ handlepassword }/>
+                <button onClick={ login }>LOGIN</button>
+            </div>
+            
+            <div>
+                 <img src='/09.jpg' width='400px'/>
+            </div>
+           
+        </ContainerLogin>
+       
         </>
     );
 }

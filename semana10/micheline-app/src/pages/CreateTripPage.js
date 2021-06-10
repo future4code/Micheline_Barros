@@ -15,7 +15,7 @@ export default function CreateTripPage(){
     return(
         <>
         <button onClick = {goBack} >VOLTAR</button><button onClick = {null} >CRIAR</button>
-        <p>CreateTripPage</p>
+        <p>CreateTripPage - form para criar viagens</p>
         </>
     );
 }

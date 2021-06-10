@@ -1,63 +1,43 @@
 import React from 'react'
 import styled from 'styled-components'
-import {BrowserRouter, Switch, Route} from 'react-router-dom';
-import HomePage from './pages/HomePage'
-import AdminHomePage from './pages/AdminHomePage'
-import ApplicationFormPage from './pages/ApplicationFormPage'
-import CreateTripPage from './pages/CreateTripPage'
-import ListTripsPage from './pages/ListTripsPage'
-import LoginPage from './pages/LoginPage'
-import TripDetailsPage from './pages/TripDetailsPage'
-import Error from './pages/Error';
+import Router from './router/Router'
 
 
+const AreaMensagem= styled.div`
+  border-radius: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: auto;
+  box-sizing: border-box;
+  /* width: 50rem; */
+  box-shadow: 5px 5px 15px -5px #000000;
+  background-color: #4c6ead;
+  /* button{
+    width:100px;
+    margin: auto;
+  } */
+`
 const Container = styled.div `
   font-family: sans-serif;
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
   text-align: center;
+  align-items: center;
+  width: 100vw;
+  min-height: 100vh;
 `
 
 function App() {
   return (
+    <AreaMensagem>
     <Container>
-      <BrowserRouter>
-        <Switch>
 
-          <Route exact path={'/'}>
-            <HomePage />
-          </Route>
-
-          <Route exact path={'/trips/list'}>
-            <ListTripsPage />
-          </Route>
-
-          <Route exact path={'/trips/application'}>
-            <ApplicationFormPage />
-          </Route>
-
-          <Route exact path={'/login'}>
-            <LoginPage />
-          </Route>
-
-          <Route exact path={'/admin/trips/list'}>
-            <AdminHomePage />
-          </Route>
-
-          <Route exact path={'/admin/trips/create'}>
-            <CreateTripPage />
-          </Route>
-
-          <Route exact path={'/admin/trips/:id'}>
-            <TripDetailsPage />
-          </Route>
-
-          <Route>
-            <Error />
-          </Route>
-
-        </Switch>
-        
-      </BrowserRouter>
+      <Router />
+      
     </Container>
+    </AreaMensagem>
   );
 }
 

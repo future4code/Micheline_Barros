@@ -13,7 +13,7 @@ export default function ApplicationFormPage(){
     return(
         <>
         <button onClick = {goBack} >VOLTAR</button><button onClick = {null} >ENVIAR</button>
-        <p>ApplicationFormPage</p>
+        <p>ApplicationFormPage - formulário para se candidatar as viagens</p>
         </>
     );
 }
