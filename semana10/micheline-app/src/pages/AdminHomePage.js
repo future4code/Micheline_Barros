@@ -16,14 +16,16 @@ const ContainerViagem = styled.div `
 `
 
 export default function AdminHomePage(){
-   
-
     useProtectedPage()
 
     const history = useHistory();
 
-    const goBack = () => {
-        history.goBack()
+    const goHome = () => {
+        history.push('/')
+    }
+
+    const goCreateTrip = () => {
+        history.push('/admin/trips/create')
     }
 
     const listTrips = useRequestData( `${baseUrl}/trips`, [] )
@@ -47,7 +49,9 @@ export default function AdminHomePage(){
     return(
         <>
             <div>
-                <button onClick = {goBack} >VOLTAR</button><button onClick = {null} >CRIAR VIAGEM</button><button onClick = {null} >LOGOUT</button>
+                <button onClick = {goHome} >VOLTAR</button>
+                <button onClick = {goCreateTrip} >CRIAR VIAGEM</button>
+                <button onClick = {null} >LOGOUT</button>
             </div>
             <p>AdminHomePage</p>
             {listaViagens}

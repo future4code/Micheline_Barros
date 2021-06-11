@@ -2,8 +2,9 @@ import axios from 'axios'
 import React from 'react'
 import {useHistory} from 'react-router-dom'
 import { baseUrl } from '../constants/urls'
-import useInput from '../hooks/useInput'
+// import useInput from '../hooks/useInput'
 import styled from 'styled-components';
+import useForm from '../hooks/useForm'
 
 const ContainerLogin = styled.div `
     display: flex;
@@ -16,37 +17,43 @@ const ContainerLogin = styled.div `
 `
 
 export default function LoginPage(){
-    const [email, handleEmail] = useInput('')
-    const [password, handlepassword] = useInput('')
+    const { form, onChange, cleanFields } = useForm ( { email:'', password:'' })
+   
     const history = useHistory()
+
+    const goHome = () => {
+        history.push('/')
+    }
     
-    const login = () => {
-        const body = { email, password};
-        axios.post(`${baseUrl}/login`, body).then((res) => {
+    const login = (e) => {
+        e.preventDefault();
+        const body = { 
+            email: form.email,
+            password: form.password
+         };
+        axios.post( `${baseUrl}/login`, body ).then((res) => {
             localStorage.setItem("token", res.data.token)
             history.push("/admin/trips/list")
+            console.log(res.data.token)
+            cleanFields();
         }).catch((err) => {
             alert(err.response.data.message)
         })
     }
 
 
-    const goBack = () => {
-        history.goBack()
-    }
-
-    
-
     return(
         <>
         <div>
-            <button onClick = {goBack} >VOLTAR</button>
+            <button onClick = {goHome} >VOLTAR</button>
         </div>
         <ContainerLogin>
             <div>
-                <input placeholder='E-mail' value={ email } onChange={ handleEmail }/>
-                <input placeholder='senha'value={ password } onChange={ handlepassword }/>
-                <button onClick={ login }>LOGIN</button>
+                <form onSubmit={ login }>
+                    <input name='email' placeholder='E-mail' value={ form.email } onChange={ onChange } pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" title="example@gmail.com" required/>
+                    <input name='password' placeholder='senha' value={ form.password } onChange={ onChange }  required/>
+                    <button>LOGIN</button>
+                </form>
             </div>
             
             <div>

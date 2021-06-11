@@ -5,6 +5,7 @@ import {useHistory} from 'react-router-dom'
 
 export default function HomePage(){
     const history = useHistory()
+    
     const goToListTrips = () => {
         history.push('/trips/list')
     }
@@ -20,7 +21,7 @@ export default function HomePage(){
              <img src="Logo.png" width='500px'/>
          </div>
          
-         <button onClick = {goToListTrips}>VIAGENS</button><button onClick = {goToLogin}>ÁREA ADMIN</button>
+         <button onClick = {goToListTrips}>VIAGENS</button><br/><button onClick = {goToLogin}>ÁREA ADMIN</button>
       
         </>
     );
