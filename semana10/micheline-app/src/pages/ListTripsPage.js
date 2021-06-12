@@ -6,10 +6,11 @@ import useRequestData from '../hooks/useRequestData'
 
 
 
-export default function ListTripsPage(){
+
+export default function ListTripsPage(){ 
     const history = useHistory()
 
-    const goToForm = () => {
+    const goToForm = (id) => {
         history.push('/trips/application')
     }
 
@@ -29,17 +30,16 @@ export default function ListTripsPage(){
             <p>Data: {destino.date}</p>
             <br />
         </div>
+        
     })
-   
+    
 
     return(
         <div>
-            <button onClick = {goBack}>VOLTAR</button><button onClick = {goToForm}>INSCREVER-SE</button>
+            <button onClick = {goBack}>VOLTAR</button>
+            <button onClick = {goToForm}>INSCREVER-SE</button>
             <p>ListTripsPage</p>
             {listaViagens}
-           
-
-
         </div>
     );
 }
