@@ -1,9 +1,9 @@
 import React from 'react'
 import {useHistory} from 'react-router-dom'
-import {paises} from '../constants/selectPaises'
-import useForm from '../hooks/useForm';
-import useRequestData from '../hooks/useRequestData'
-import { baseUrl } from '../constants/urls'
+import {paises} from '../../constants/selectPaises'
+import useForm from '../../hooks/useForm';
+import useRequestData from '../../hooks/useRequestData'
+import { baseUrl } from '../../constants/urls'
 import axios from 'axios';
 
 
@@ -70,7 +70,7 @@ export default function ApplicationFormPage(){
                 {idsViagens}
             </select>
             <br />
-            <input name={'name'} onChange={onChange} placeholder={'Nome'} value={form.name} pattern='[a-z]{3,}' title="Deve ter no mínimo 3 letras" required/>
+            <input name={'name'} onChange={onChange} placeholder={'Nome'} value={form.name} pattern='^.{3,}' title="Deve ter no mínimo 3 letras" required/>
             <br />
             <input name={'age'} onChange={onChange} placeholder={'Idade'} value={form.age} type="number" min="18"/>
             <br />

@@ -1,7 +1,7 @@
 import React from 'react'
 import {useHistory} from 'react-router-dom'
-import { baseUrl } from '../constants/urls'
-import useRequestData from '../hooks/useRequestData'
+import { baseUrl } from '../../constants/urls'
+import useRequestData from '../../hooks/useRequestData'
 
 
 

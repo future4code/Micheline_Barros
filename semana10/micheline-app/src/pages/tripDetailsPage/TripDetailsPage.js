@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import {useHistory, useParams} from 'react-router-dom';
-import useProtectedPage from '../hooks/useProtectdPage';
+import useProtectedPage from '../../hooks/useProtectdPage';
 import axios from 'axios';
-import { baseUrl } from '../constants/urls';
+import { baseUrl } from '../../constants/urls';
 
 
 
@@ -42,11 +42,6 @@ export default function TripDetailsPage(){
 
     
         const candidatos = trips.candidates && trips.candidates.map((candidato) => {
-            // if(mensagem === 'sucesso'){
-            //     return(
-            //         <li>{candidato.name}</li>
-            //     )
-            // }
             return(
                 <>
                     <p>Name: {candidato.name}</p>
@@ -101,7 +96,7 @@ export default function TripDetailsPage(){
     return(
         <div>
         <button onClick = {goBack} >VOLTAR</button>
-        <p>TripDetailsPage - detalhe de uma viagem e candidatos</p>
+        <p>DETALHES</p>
         <div>
             {trips && <h3>{trips.name}</h3>}
             {trips && <p><strong>{trips.planet}: </strong>{trips.description}</p>}
@@ -111,7 +106,7 @@ export default function TripDetailsPage(){
         <div>
             <hr/>
             {candidatos}
-            <h2>Lista de Aprovados</h2>
+            <h4>Aprovados</h4>
             {candidatoAprovado && candidatoAprovado.map((candidato)=>{
              return<p key={candidato.id}>Nome: {candidato.name}</p>
             })}

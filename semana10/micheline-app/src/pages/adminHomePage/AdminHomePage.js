@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import {useHistory} from 'react-router-dom';
-import { baseUrl } from '../constants/urls';
-import useRequestData from '../hooks/useRequestData';
-import useProtectedPage from '../hooks/useProtectdPage';
+import { baseUrl } from '../../constants/urls';
+import useRequestData from '../../hooks/useRequestData';
+import useProtectedPage from '../../hooks/useProtectdPage';
 import styled from 'styled-components'
 
 const ContainerViagem = styled.div `
@@ -53,7 +53,7 @@ export default function AdminHomePage(){
                 <button onClick = {goCreateTrip} >CRIAR VIAGEM</button>
                 <button onClick = {null} >LOGOUT</button>
             </div>
-            <p>AdminHomePage</p>
+            <p>VIAGENS</p>
             {listaViagens}
         </>
     );

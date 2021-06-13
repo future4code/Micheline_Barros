@@ -1,10 +1,9 @@
 import axios from 'axios'
 import React from 'react'
 import {useHistory} from 'react-router-dom'
-import { baseUrl } from '../constants/urls'
-// import useInput from '../hooks/useInput'
+import { baseUrl } from '../../constants/urls'
 import styled from 'styled-components';
-import useForm from '../hooks/useForm'
+import useForm from '../../hooks/useForm'
 
 const ContainerLogin = styled.div `
     display: flex;
