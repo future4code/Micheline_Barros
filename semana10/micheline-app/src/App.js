@@ -9,6 +9,7 @@ const AreaMensagem= styled.div`
   flex-direction: column;
   align-items: center;
   margin: auto;
+  color: white;
   box-sizing: border-box;
   /* width: 50rem; */
   box-shadow: 5px 5px 15px -5px #000000;

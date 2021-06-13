@@ -35,7 +35,7 @@ export default function ApplicationFormPage(){
             country: form.country
          };
         axios.post(`${baseUrl}/trips/${form.trip}/apply`, body).then((res) => {
-            alert(res.data.message)
+            console.log(res)
         }).catch((err) => {
             alert(err.response.data.message)
         })
@@ -59,9 +59,6 @@ export default function ApplicationFormPage(){
             </>
         )
     })
-
-
-
 
     return(
         <>
