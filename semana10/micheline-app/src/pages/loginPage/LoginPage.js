@@ -32,10 +32,9 @@ export default function LoginPage(){
         })
     }
 
-
+    
     return(
         <>
-        
             <DivBotaoVoltar>
                 <div>
                 <Button onClick = {goHome} colorScheme="none"  border= '1px' borderColor="white">VOLTAR</Button>

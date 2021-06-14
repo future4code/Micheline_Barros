@@ -54,6 +54,12 @@ export default function AdminHomePage(props){
         })
     }
 
+    const logout = () =>{
+        localStorage.removeItem("token");
+        history.push('/login')
+      }
+
+
     
  
     const listaViagens = listTrips.trips && listTrips.trips.map((destino) => {
@@ -72,7 +78,7 @@ export default function AdminHomePage(props){
             <DivBotao>
                 <Button onClick = {goHome} colorScheme="none"  border= '1px' borderColor="white" variant="solid">VOLTAR</Button>
                 <Button onClick = {goCreateTrip} colorScheme="none"  border= '1px' borderColor="white" variant="solid">CRIAR VIAGEM</Button>
-                <Button onClick = {null} colorScheme="none"  border= '1px' borderColor="white" variant="solid">LOGOUT</Button>
+                <Button onClick = {logout} colorScheme="none"  border= '1px' borderColor="white" variant="solid">LOGOUT</Button>
             </DivBotao>
             <H3>VIAGENS</H3>
             {listaViagens}
