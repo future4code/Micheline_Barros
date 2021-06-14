@@ -35,10 +35,15 @@ export default function LoginPage(){
 
 
     return(
-        <DivContainer>
+        <>
+        
             <DivBotaoVoltar>
+                <div>
                 <Button onClick = {goHome} colorScheme="none"  border= '1px' borderColor="white">VOLTAR</Button>
+               </div> 
             </DivBotaoVoltar>
+            
+        <DivContainer>    
         <ContainerLogin>
             <div>
                 <Form onSubmit={ login }>
@@ -56,5 +61,6 @@ export default function LoginPage(){
         </ContainerLogin>
        
         </DivContainer>
+        </>
     );
 }

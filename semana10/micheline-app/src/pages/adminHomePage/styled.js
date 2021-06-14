@@ -16,14 +16,22 @@ export const ContainerViagem = styled.div `
 export const DivBotao = styled.div `
     display:flex;
     justify-content: space-between;
-    width: 60vw;
+    width: 30vw;
     margin-bottom: 20px;
     margin-top: 20px;
+    
 `
 
 export const H3 = styled.h3 `
     margin-top: 20px;
     margin-bottom: 20px;
+`
+export const DivContainer = styled.div `
+    min-height: 100vh;
+    display: flex;
+    /* justify-content: center; */
+    flex-direction: column;
+    align-items:center;
 `
 
 

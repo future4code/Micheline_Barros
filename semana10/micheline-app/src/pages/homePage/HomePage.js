@@ -1,6 +1,6 @@
 import React from 'react'
 import {useHistory} from 'react-router-dom'
-import styled, { DivContainer, DivBotao } from './styled'
+import styled, { DivContainer, DivBotao, DivImg } from './styled'
 import { Button } from "@chakra-ui/react"
 
 
@@ -19,9 +19,9 @@ export default function HomePage(){
     return(
         <> 
         <DivContainer>
-         <div>
-             <img src="Logo.png" width='500px'/>
-         </div>
+         <DivImg>
+             <img src="Logo.png"/>
+         </DivImg>
          
         
             <DivBotao>

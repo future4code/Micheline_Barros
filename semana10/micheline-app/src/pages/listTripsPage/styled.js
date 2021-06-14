@@ -4,7 +4,7 @@ export const DivContainer = styled.div `
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    width: 50vw;
+    width: 30vw;
     min-height: 100vh;
     h3{
         text-align: center;

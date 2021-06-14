@@ -2,7 +2,8 @@ import styled from "styled-components";
 
 export const ContainerLogin = styled.div `
     display: flex;
-    text-align: center;
+    /* text-align: center; */
+    
     div{
         display: flex;
         flex-direction: column;
@@ -19,8 +20,9 @@ export const ContainerLogin = styled.div `
 export const DivContainer = styled.div `
     display: flex;
     flex-direction: column;
+    justify-content:center;
     text-align: center;
-    width: 70vw;
+    width: 35vw;
     min-height: 100vh;
 `
 
@@ -29,8 +31,10 @@ export const Form = styled.form `
 `
 
 export const Input = styled.input `
+display:flex;
+
     margin: 5px;
-    width:25vw;
+    width:10vw;
     color: #4c6ead;
 `
 
@@ -38,5 +42,6 @@ export const DivBotaoVoltar = styled.div `
     display:flex;
     justify-content: flex-start;
     padding: 20px;
-    width: 80vw;
+    width: 35vw;
+
 `
