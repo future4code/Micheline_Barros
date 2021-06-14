@@ -3,17 +3,12 @@ import {useHistory} from 'react-router-dom';
 import { baseUrl } from '../../constants/urls';
 import useRequestData from '../../hooks/useRequestData';
 import useProtectedPage from '../../hooks/useProtectdPage';
-import styled from 'styled-components'
+import styled, { ContainerViagem, DivBotao, H3 } from './styled';
+import { Button } from "@chakra-ui/react"
 
-const ContainerViagem = styled.div `
-    display: flex;
-    justify-content:space-between;
-    align-items:center;
-    width: 500px;
-    box-shadow: #5FCFD5 0px 4px 8px 0px;
-    padding: 10px;
-    margin-top: 20px;
-`
+
+
+
 
 export default function AdminHomePage(){
     useProtectedPage()
@@ -48,12 +43,12 @@ export default function AdminHomePage(){
 
     return(
         <>
-            <div>
-                <button onClick = {goHome} >VOLTAR</button>
-                <button onClick = {goCreateTrip} >CRIAR VIAGEM</button>
-                <button onClick = {null} >LOGOUT</button>
-            </div>
-            <p>VIAGENS</p>
+            <DivBotao>
+                <Button onClick = {goHome} colorScheme="none"  border= '1px' borderColor="white" variant="solid">VOLTAR</Button>
+                <Button onClick = {goCreateTrip} colorScheme="none"  border= '1px' borderColor="white" variant="solid">CRIAR VIAGEM</Button>
+                <Button onClick = {null} colorScheme="none"  border= '1px' borderColor="white" variant="solid">LOGOUT</Button>
+            </DivBotao>
+            <H3>VIAGENS</H3>
             {listaViagens}
         </>
     );

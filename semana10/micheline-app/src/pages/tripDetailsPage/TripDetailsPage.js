@@ -3,6 +3,9 @@ import {useHistory, useParams} from 'react-router-dom';
 import useProtectedPage from '../../hooks/useProtectdPage';
 import axios from 'axios';
 import { baseUrl } from '../../constants/urls';
+import { Button } from "@chakra-ui/react"
+// import styled, { DivBotao, DivContainer, ContainerViagem } from './styled'
+
 
 
 
@@ -95,7 +98,7 @@ export default function TripDetailsPage(){
    
     return(
         <div>
-        <button onClick = {goBack} >VOLTAR</button>
+        <Button onClick = {goBack} >VOLTAR</Button>
         <p>DETALHES</p>
         <div>
             {trips && <h3>{trips.name}</h3>}

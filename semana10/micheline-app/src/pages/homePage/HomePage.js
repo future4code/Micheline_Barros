@@ -1,5 +1,7 @@
 import React from 'react'
 import {useHistory} from 'react-router-dom'
+import styled, { DivContainer, DivBotao } from './styled'
+import { Button } from "@chakra-ui/react"
 
 
 
@@ -15,13 +17,19 @@ export default function HomePage(){
     }
 
     return(
-        <>
-         <p>HomePage</p>
+        <> 
+        <DivContainer>
          <div>
              <img src="Logo.png" width='500px'/>
          </div>
          
-         <button onClick = {goToListTrips}>VIAGENS</button><br/><button onClick = {goToLogin}>ÁREA ADMIN</button>
+        
+            <DivBotao>
+                <Button onClick = {goToListTrips} colorScheme="none"  border= '1px' borderColor="white" variant="solid">VIAGENS</Button>
+                <Button onClick = {goToLogin} colorScheme="none"  border= '1px' borderColor="white" variant="solid">ÁREA ADMIN</Button>
+            </DivBotao>
+         
+        </DivContainer>
       
         </>
     );

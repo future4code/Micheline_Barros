@@ -11,20 +11,16 @@ const AreaMensagem= styled.div`
   margin: auto;
   color: white;
   box-sizing: border-box;
-  /* width: 50rem; */
+  width: 50rem;
   box-shadow: 5px 5px 15px -5px #000000;
   background-color: #4c6ead;
-  /* button{
-    width:100px;
-    margin: auto;
-  } */
 `
 const Container = styled.div `
   font-family: sans-serif;
   display:flex;
   flex-direction: column;
   justify-content: center;
-  text-align: center;
+  /* text-align: center; */
   align-items: center;
   width: 100vw;
   min-height: 100vh;
