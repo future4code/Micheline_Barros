@@ -26,7 +26,6 @@ export default function LoginPage(){
         axios.post( `${baseUrl}/login`, body ).then((res) => {
             localStorage.setItem("token", res.data.token)
             history.push("/admin/trips/list")
-            console.log(res.data.token)
             cleanFields();
         }).catch((err) => {
             alert(err.response.data.message)

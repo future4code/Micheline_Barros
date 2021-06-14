@@ -13,7 +13,7 @@ export const DivContainer = styled.div `
 
 export const DivBotao = styled.div `
     padding-top: 25px;
-    padding-bottom: 25px;
+    padding-bottom: 5px;
     display: flex;
     justify-content: space-between;
 `

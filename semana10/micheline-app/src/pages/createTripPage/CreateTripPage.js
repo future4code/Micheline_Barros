@@ -42,9 +42,9 @@ export default function CreateTripPage(){
                 auth: localStorage.getItem("token")
             }
         }).then((res) => {
-            console.log(res)
+            alert('Cadastrada com sucesso!')
         }).catch((err) => {
-            console.log(err)
+            alert(err.response.data)
         })
     }
 

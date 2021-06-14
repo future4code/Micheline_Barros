@@ -29,12 +29,10 @@ export default function TripDetailsPage(){
                 auth: localStorage.getItem("token")
             }
         }).then((res) => {
-            console.log('res',res)
             setTrips(res.data.trip)
             setCandidatoAprovado(res.data.trip.approved)
-            console.log('aproved candi',res.data.trip.approved)
         }).catch((err) => {
-            console.log(err.response.data)
+            alert(err.response.data)
         })
     }
 
@@ -70,11 +68,10 @@ export default function TripDetailsPage(){
                 auth: localStorage.getItem("token")
             }
         }).then((res) => {
-            console.log('aprovado',res)
             getTripDetail();
             alert('registrado com sucesso')
         }).catch((err) => {
-            console.log(err.response.data)
+            alert(err.response.data)
         })
     }
 
@@ -87,7 +84,7 @@ export default function TripDetailsPage(){
                 auth: localStorage.getItem("token")
             }
         }).then((res) => {
-            console.log(res.data)
+            alert(res.data)
             getTripDetail();
             alert('registrado com sucesso')
         }).catch((err) => {

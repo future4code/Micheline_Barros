@@ -3,7 +3,6 @@ import styled from "styled-components";
 export const DivContainer = styled.div `
     display: flex;
     flex-direction: column;
-    /* justify-content: center; */
     text-align: center;
     width: 30vw;
     min-height: 100vh;
@@ -29,6 +28,7 @@ export const Form = styled.form `
 export const Input = styled.input `
     margin: 5px;
     width:30vw;
+    color: #4c6ead;
 `
 
 export const Select = styled.select `

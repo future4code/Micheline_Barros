@@ -21,7 +21,7 @@ export default function ListTripsPage(){
     console.log (listTrips)
 
     const listaViagens = listTrips.trips && listTrips.trips.map((destino) => {
-        return <div>
+        return <div key={destino.id}>
             <ContainerViagem>
                 <p>Nome: {destino.name}</p>
                 <p>Descrição: {destino.description}</p>
@@ -30,7 +30,7 @@ export default function ListTripsPage(){
                 <p>Data: {destino.date}</p>
             </ContainerViagem>
         </div>
-        
+    
     })
     
 
@@ -42,7 +42,6 @@ export default function ListTripsPage(){
                     <Button onClick = {goToForm} colorScheme="none"  border= '1px' borderColor="white" variant="solid">INSCREVER-SE</Button>
                 </DivBotao>
                 <h3>VIAGENS PROGRAMADAS</h3>
-                <br />
                 <hr/>
                     {listaViagens}
             </DivContainer>

@@ -8,7 +8,7 @@ export default function useRequestData( url, initialState ) {
         axios.get (url).then((res) => {
            setData( res.data )
         }).catch((err) => {
-            console.log( err.response.data )
+            alert( err.response.data )
         })
     };
     useEffect(() => { 
@@ -16,4 +16,8 @@ export default function useRequestData( url, initialState ) {
     }, []);
 
     return data
+
+   
+
+    
 }
