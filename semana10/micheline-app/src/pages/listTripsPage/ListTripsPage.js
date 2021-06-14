@@ -23,11 +23,11 @@ export default function ListTripsPage(){
     const listaViagens = listTrips.trips && listTrips.trips.map((destino) => {
         return <div>
             <ContainerViagem>
-            <p>Nome: {destino.name}</p>
-            <p>Descrição: {destino.description}</p>
-            <p>Planeta: {destino.planet}</p>
-            <p>Duração: {destino.durationInDays}</p>
-            <p>Data: {destino.date}</p>
+                <p>Nome: {destino.name}</p>
+                <p>Descrição: {destino.description}</p>
+                <p>Planeta: {destino.planet}</p>
+                <p>Duração: {destino.durationInDays}</p>
+                <p>Data: {destino.date}</p>
             </ContainerViagem>
         </div>
         

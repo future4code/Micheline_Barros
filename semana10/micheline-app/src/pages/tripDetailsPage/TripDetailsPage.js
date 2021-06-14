@@ -3,9 +3,8 @@ import {useHistory, useParams} from 'react-router-dom';
 import useProtectedPage from '../../hooks/useProtectdPage';
 import axios from 'axios';
 import { baseUrl } from '../../constants/urls';
-import { Button } from "@chakra-ui/react"
-// import styled, { DivBotao, DivContainer, ContainerViagem } from './styled'
-
+import { Button } from "@chakra-ui/react";
+import styled, { Form, DivContainer, DivBotaoSelicao, Select, ContainerAprovados, DivBotao, ContainerViagem, DivBotaoVoltar } from './styled';
 
 
 
@@ -46,16 +45,17 @@ export default function TripDetailsPage(){
     
         const candidatos = trips.candidates && trips.candidates.map((candidato) => {
             return(
-                <>
+                <ContainerAprovados>
                     <p>Name: {candidato.name}</p>
                     <p>Idade: {candidato.age}</p>
                     <p>Profissão: {candidato.profession}</p>
                     <p>Descrição: {candidato.applicationText}</p>
                     <p>Nacionalidade: {candidato.country}</p>
-                    <button onClick={() => aprova(candidato.id)}>Aprovar</button>
-                    <button onClick={() => reprova(candidato.id)}>Reprovar</button>
-                    <hr />
-                </>
+                    <DivBotaoSelicao>
+                        <Button onClick={() => aprova(candidato.id)} colorScheme="none"  border= '1px' borderColor="white">Aprovar</Button>
+                        <Button onClick={() => reprova(candidato.id)} colorScheme="none"  border= '1px' borderColor="white">Reprovar</Button>
+                    </DivBotaoSelicao>
+                </ContainerAprovados>
             )
         })
 
@@ -97,25 +97,31 @@ export default function TripDetailsPage(){
 
    
     return(
-        <div>
-        <Button onClick = {goBack} >VOLTAR</Button>
-        <p>DETALHES</p>
-        <div>
-            {trips && <h3>{trips.name}</h3>}
-            {trips && <p><strong>{trips.planet}: </strong>{trips.description}</p>}
-            {trips && <p>Duração: {trips.durationInDays} dias</p>}
-            {trips && <p>Data prevista: {trips.date}</p>}
-        </div>
-        <div>
-            <hr/>
-            {candidatos}
-            <h4>Aprovados</h4>
-            {candidatoAprovado && candidatoAprovado.map((candidato)=>{
-             return<p key={candidato.id}>Nome: {candidato.name}</p>
-            })}
-           
-        </div>
+        <DivContainer>
+            <div>
+                <Button onClick = {goBack} colorScheme="none"  border= '1px' borderColor="white">VOLTAR</Button>
+            </div>   
+                <h3>DETALHES</h3>
+                <ContainerViagem>
+                    {trips && <p>{trips.name}</p>}
+                    {trips && <p><strong>{trips.planet}: </strong>{trips.description}</p>}
+                    {trips && <p>Duração: {trips.durationInDays} dias</p>}
+                    {trips && <p>Data prevista: {trips.date}</p>}
+                </ContainerViagem>
+                <div>
+                   
+                {candidatos}
 
-        </div>
+                <h3>Aprovados</h3>
+                <hr />
+                {candidatoAprovado && candidatoAprovado.map((candidato)=>{
+                return <ContainerAprovados>
+                    <p key={candidato.id}>Nome: {candidato.name}</p>
+                    </ContainerAprovados>
+                
+                })}
+                </div>
+
+        </DivContainer>
     );
 }

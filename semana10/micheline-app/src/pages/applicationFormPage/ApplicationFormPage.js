@@ -1,10 +1,12 @@
-import React from 'react'
-import {useHistory} from 'react-router-dom'
-import {paises} from '../../constants/selectPaises'
+import React from 'react';
+import {useHistory} from 'react-router-dom';
+import {paises} from '../../constants/selectPaises';
 import useForm from '../../hooks/useForm';
-import useRequestData from '../../hooks/useRequestData'
-import { baseUrl } from '../../constants/urls'
+import useRequestData from '../../hooks/useRequestData';
+import { baseUrl } from '../../constants/urls';
 import axios from 'axios';
+import { Button } from "@chakra-ui/react";
+import styled, { Form, DivContainer, Input, Select, DivBotao, DivInput, DivBotaoVoltar } from './styled';
 
 
 
@@ -61,31 +63,37 @@ export default function ApplicationFormPage(){
     })
 
     return(
-        <>
-        <button onClick = {goBack} >VOLTAR</button>
-        <p>ApplicationFormPage - formulário para se candidatar as viagens</p>
-        <form onSubmit={enviar}>
-            <select name={'trip'} placeholder={'Planeta'} value={form.trip} onChange={onChange}  required>
-                <option value='' selected disabled>Escolha um destino</option>
-                {idsViagens}
-            </select>
-            <br />
-            <input name={'name'} onChange={onChange} placeholder={'Nome'} value={form.name} pattern='^.{3,}' title="Deve ter no mínimo 3 letras" required/>
-            <br />
-            <input name={'age'} onChange={onChange} placeholder={'Idade'} value={form.age} type="number" min="18"/>
-            <br />
-            <input name={'applicationText'} onChange={onChange} placeholder={'Texto de Candidatura'} value={form.applicationText} pattern='^.{30,}' title={'Deve ter no mínimo 30 caracteres'} required/>
-            <br />
-            <input name={'profession'}onChange={onChange} placeholder={'Profissão'} value={form.profession} pattern='^.{10,}' title={'Deve ter no mínimo 00 caracteres'} required/>
-            <br />
-            <select name={'country'} placeholder={'Planeta'} value={form.country} onChange={onChange}  required>
-            <option value='' selected disabled>Escolha um país</option>
-                {listaPaises}
-            </select>
-            <br/>
-            <button>ENVIAR</button>
-        </form>
-        
-        </>
+        <DivContainer>
+            <DivBotaoVoltar>
+                <Button onClick = {goBack} colorScheme="none"  border= '1px' borderColor="white" >VOLTAR</Button>
+            </DivBotaoVoltar>
+            <DivInput>
+                <p>INSCRIÇÃO</p>
+                <hr />
+                <Form onSubmit={enviar}>
+                    <Select name={'trip'} placeholder={'Planeta'} value={form.trip} onChange={onChange}  required>
+                        <option value='' selected disabled>Escolha um destino</option>
+                        {idsViagens}
+                    </Select>
+                    <br />
+                    <Input name={'name'} onChange={onChange} placeholder={'Nome'} value={form.name} pattern='^.{3,}' title="Deve ter no mínimo 3 letras" required/>
+                    <br />
+                    <Input name={'age'} onChange={onChange} placeholder={'Idade'} value={form.age} type="number" min="18"/>
+                    <br />
+                    <Input name={'applicationText'} onChange={onChange} placeholder={'Texto de Candidatura'} value={form.applicationText} pattern='^.{30,}' title={'Deve ter no mínimo 30 caracteres'} required/>
+                    <br />
+                    <Input name={'profession'}onChange={onChange} placeholder={'Profissão'} value={form.profession} pattern='^.{10,}' title={'Deve ter no mínimo 00 caracteres'} required/>
+                    <br />
+                    <Select name={'country'} placeholder={'Planeta'} value={form.country} onChange={onChange}  required>
+                    <option value='' selected disabled>Escolha um país</option>
+                        {listaPaises}
+                    </Select>
+                    <br />
+                    <DivBotao>
+                        <Button colorScheme="none"  border= '1px' borderColor="white">ENVIAR</Button>
+                    </DivBotao>
+                </Form>
+            </DivInput>
+        </DivContainer>
     );
 }
