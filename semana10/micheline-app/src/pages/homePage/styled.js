@@ -11,7 +11,7 @@ export const DivBotao = styled.div `
     padding-top: 50px;
     display: flex;
     justify-content: space-between;
-    margin:0 200px 0 200px;
+    margin:0 100px 0 100px;
 `
 
 export const DivImg = styled.div `

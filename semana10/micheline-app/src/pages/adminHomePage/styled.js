@@ -29,7 +29,6 @@ export const H3 = styled.h3 `
 export const DivContainer = styled.div `
     min-height: 100vh;
     display: flex;
-    /* justify-content: center; */
     flex-direction: column;
     align-items:center;
 `
