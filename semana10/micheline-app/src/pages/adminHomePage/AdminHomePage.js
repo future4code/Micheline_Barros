@@ -4,14 +4,17 @@ import { baseUrl } from '../../constants/urls';
 import useProtectedPage from '../../hooks/useProtectdPage';
 import styled, { ContainerViagem, DivBotao, H3, DivContainer } from './styled';
 import { Button } from "@chakra-ui/react"
+import useRequestData from '../../hooks/useRequestData'
 import axios from 'axios'
 
 
 
 
 export default function AdminHomePage(props){
-    const [ listTrips, setListTrips] = useState([])
-
+    const {data, requisicaoGet} = useRequestData(`${baseUrl}/trips`, [])
+    // const [ listTrips, setListTrips] = useState([])
+    console.log('url',`${baseUrl}/trips` )
+    console.log('data',data )
     useProtectedPage()
 
     const history = useHistory();
@@ -24,19 +27,23 @@ export default function AdminHomePage(props){
         history.push('/admin/trips/create')
     }
 
-    const getTrips = () => {
-        axios.get(`${baseUrl}/trips`).then((res) => {
-            setListTrips(res.data)
-        }).catch((err) => {
-            alert(err.response.data)
-        })
-    }
+    // const getTrips = () => {
+    //     axios.get(`${baseUrl}/trips`).then((res) => {
+    //         setListTrips(res.data)
+    //     }).catch((err) => {
+    //         alert(err.response.data)
+    //     })
+    // }
 
-    useEffect(() => { 
-        getTrips();
-    }, []);
+    // useEffect(() => { 
+    //     getTrips();
+    // }, []);
 
-   
+    const listTrips = data
+
+   //descontruir como objeto
+
+
     const goToDetails = (id) => {
         history.push(`/admin/trips/${id}`)
     }
@@ -48,7 +55,7 @@ export default function AdminHomePage(props){
             }
         }).then((res) => {
             alert('Viagem deletada com sucesso')
-            getTrips();
+            requisicaoGet(`${baseUrl}/trips`);
     }).catch((err) => {
             alert(err.response.data)
         })

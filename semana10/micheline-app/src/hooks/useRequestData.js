@@ -2,22 +2,25 @@ import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 
 export default function useRequestData( url, initialState ) {
-    const [ data, setData] = useState ( initialState ) 
+    const [ data, setData ] = useState ( initialState ) 
+    
 
-    const requisicaoGet = () => {
+    const requisicaoGet = (url) => {
         axios.get (url).then((res) => {
            setData( res.data )
         }).catch((err) => {
-            alert( err.response.data )
+            alert( err )
         })
     };
     useEffect(() => { 
-        requisicaoGet();
+        requisicaoGet(url);
     }, []);
 
-    return data
-
+ console.log('data',data)
    
+
+    return {data, requisicaoGet}
+
 
     
 }
