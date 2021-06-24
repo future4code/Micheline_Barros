@@ -1,3 +1,4 @@
+//Funções que serão chamadas nos botões
 export const goToLogin = (history)=> {
     history.push('/login')
 }
@@ -13,3 +14,4 @@ export const goToFeed = (history)=> {
 export const goToPost = (history, id)=> {
     history.push(`/post/${id}`)
 }
+
