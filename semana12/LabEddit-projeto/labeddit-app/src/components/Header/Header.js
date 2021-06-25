@@ -98,8 +98,11 @@ const Header = () => {
     setMobileMoreAnchorEl(null);
   };
 
+  const handleMenuClose = () => {
+    setAnchorEl(null);
+    handleMobileMenuClose();
+  };
  
-
   const handleMobileMenuOpen = (event) => {
     setMobileMoreAnchorEl(event.currentTarget);
   };
@@ -113,58 +116,58 @@ const Header = () => {
       keepMounted
       transformOrigin={{ vertical: 'top', horizontal: 'right' }}
       open={isMenuOpen}
-      // onClose={handleMenuClose}
+      onClose={handleMenuClose}
     >
       <MenuItem onClick={() => goToPost(history)}>Post</MenuItem>
       <MenuItem onClick={() => goToFeed(history)}>Feed</MenuItem>
       <MenuItem onClick={() => goToLogin(history)}>Login</MenuItem>
       <MenuItem onClick={() => goToSignUp(history)}>SignUp</MenuItem>
-      {/* <MenuItem onClick={handleMenuClose}>My account</MenuItem> */}
+      <MenuItem onClick={handleMenuClose}>My account</MenuItem>
     </Menu>
   );
 
   const mobileMenuId = 'primary-search-account-menu-mobile';
-  // const renderMobileMenu = (
-  //   <Menu
-  //     anchorEl={mobileMoreAnchorEl}
-  //     anchorOrigin={{ vertical: 'top', horizontal: 'right' }}
-  //     id={mobileMenuId}
-  //     keepMounted
-  //     transformOrigin={{ vertical: 'top', horizontal: 'right' }}
-  //     open={isMobileMenuOpen}
-  //     onClose={handleMobileMenuClose}
-  //   >
-  //     <MenuItem>
-  //       <IconButton aria-label="show 4 new mails" color="inherit">
-  //         <Badge badgeContent={4} color="secondary">
-  //           <MailIcon />
-  //         </Badge>
-  //       </IconButton>
-  //       <p>Messages</p>
-  //     </MenuItem>
-  //     <MenuItem>
-  //       <IconButton aria-label="show 11 new notifications" color="inherit">
-  //         <Badge badgeContent={11} color="secondary">
-  //           <NotificationsIcon />
-  //         </Badge>
+  const renderMobileMenu = (
+    <Menu
+      anchorEl={mobileMoreAnchorEl}
+      anchorOrigin={{ vertical: 'top', horizontal: 'right' }}
+      id={mobileMenuId}
+      keepMounted
+      transformOrigin={{ vertical: 'top', horizontal: 'right' }}
+      open={isMobileMenuOpen}
+      onClose={handleMobileMenuClose}
+    >
+      <MenuItem>
+        <IconButton aria-label="show 4 new mails" color="inherit">
+          <Badge badgeContent={4} color="secondary">
+            <MailIcon />
+          </Badge>
+        </IconButton>
+        <p>Messages</p>
+      </MenuItem>
+      <MenuItem>
+        <IconButton aria-label="show 11 new notifications" color="inherit">
+          <Badge badgeContent={11} color="secondary">
+            <NotificationsIcon />
+          </Badge>
          
-  //       </IconButton>
-  //       <p>Notifications</p>
-  //     </MenuItem>
-  //     <MenuItem onClick={handleProfileMenuOpen}>
-  //       <IconButton
-  //         aria-label="account of current user"
-  //         aria-controls="primary-search-account-menu"
-  //         aria-haspopup="true"
-  //         color="inherit"
-  //       >
-  //         <AccountCircle />
-  //         oi
-  //       </IconButton>
-  //       <p>Profile</p>
-  //     </MenuItem>
-  //   </Menu>
-  // );
+        </IconButton>
+        <p>Notifications</p>
+      </MenuItem>
+      <MenuItem onClick={handleProfileMenuOpen}>
+        <IconButton
+          aria-label="account of current user"
+          aria-controls="primary-search-account-menu"
+          aria-haspopup="true"
+          color="inherit"
+        >
+          <AccountCircle />
+          oi
+        </IconButton>
+        <p>Profile</p>
+      </MenuItem>
+    </Menu>
+  );
 
   return (
     <div className={classes.grow}>
@@ -218,7 +221,7 @@ const Header = () => {
             </IconButton>
           </div>
           <div className={classes.sectionMobile}>
-            {/* <IconButton
+            <IconButton
               aria-label="show more"
               aria-controls={mobileMenuId}
               aria-haspopup="true"
@@ -226,11 +229,11 @@ const Header = () => {
               color="inherit"
             >
               <MoreIcon />
-            </IconButton> */}
+            </IconButton>
           </div>
         </Toolbar>
       </AppBar>
-      {/* {renderMobileMenu} */}
+      {renderMobileMenu}
       {renderMenu}
     </div>
   );
