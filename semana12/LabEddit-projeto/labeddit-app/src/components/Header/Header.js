@@ -120,8 +120,8 @@ const Header = () => {
     >
       <MenuItem onClick={() => goToPost(history)}>Post</MenuItem>
       <MenuItem onClick={() => goToFeed(history)}>Feed</MenuItem>
-      <MenuItem onClick={() => goToLogin(history)}>Login</MenuItem>
-      <MenuItem onClick={() => goToSignUp(history)}>SignUp</MenuItem>
+      {/* <MenuItem onClick={() => goToLogin(history)}>Login</MenuItem>
+      <MenuItem onClick={() => goToSignUp(history)}>SignUp</MenuItem> */}
       <MenuItem onClick={handleMenuClose}>My account</MenuItem>
     </Menu>
   );
@@ -137,15 +137,15 @@ const Header = () => {
       open={isMobileMenuOpen}
       onClose={handleMobileMenuClose}
     >
-      <MenuItem>
+      {/* <MenuItem>
         <IconButton aria-label="show 4 new mails" color="inherit">
           <Badge badgeContent={4} color="secondary">
             <MailIcon />
           </Badge>
         </IconButton>
         <p>Messages</p>
-      </MenuItem>
-      <MenuItem>
+      </MenuItem> */}
+      {/* <MenuItem>
         <IconButton aria-label="show 11 new notifications" color="inherit">
           <Badge badgeContent={11} color="secondary">
             <NotificationsIcon />
@@ -153,9 +153,9 @@ const Header = () => {
          
         </IconButton>
         <p>Notifications</p>
-      </MenuItem>
+      </MenuItem> */}
       <MenuItem onClick={handleProfileMenuOpen}>
-        <IconButton
+        {/* <IconButton
           aria-label="account of current user"
           aria-controls="primary-search-account-menu"
           aria-haspopup="true"
@@ -163,7 +163,7 @@ const Header = () => {
         >
           <AccountCircle />
           oi
-        </IconButton>
+        </IconButton> */}
         <p>Profile</p>
       </MenuItem>
     </Menu>
@@ -209,6 +209,11 @@ const Header = () => {
                 <NotificationsIcon />
               </Badge>
             </IconButton> */}
+
+
+
+
+            {/* botão menu */}
             <IconButton
               edge="end"
               aria-label="account of current user"
@@ -217,8 +222,15 @@ const Header = () => {
               onClick={handleProfileMenuOpen}
               color="inherit"
             >
-              <AccountCircle />
+              <MenuIcon />
+              {/* <AccountCircle /> */}
             </IconButton>
+
+
+
+
+
+            
           </div>
           <div className={classes.sectionMobile}>
             <IconButton

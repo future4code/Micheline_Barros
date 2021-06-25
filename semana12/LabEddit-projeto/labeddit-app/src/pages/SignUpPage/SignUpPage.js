@@ -3,7 +3,7 @@ import { Button } from '@material-ui/core';
 import { PageContainer, SignUpContainer } from './styled'
 import SignUpForm from './SignUpForm';
 import { useHistory } from 'react-router-dom'
-import { goToSignUp } from '../../routes/coordinator'
+import { goToLogin } from '../../routes/coordinator'
 import useUnprotectedPage from '../../hooks/useUnprotectedPage';
 
 
@@ -15,6 +15,7 @@ const SignUpPage = () => {
         <PageContainer>
         <SignUpForm />
         <SignUpContainer>
+        <Button onClick={()=> goToLogin(history)} type={'submit'} fullWidth variant="text" color="secondary"  >Já possui conta? Fazer login</Button>
         </SignUpContainer>
     </PageContainer>
     )
