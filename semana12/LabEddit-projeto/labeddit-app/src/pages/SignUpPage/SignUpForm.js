@@ -2,23 +2,30 @@ import React from 'react';
 import { Button } from '@material-ui/core';
 import TextField from '@material-ui/core/TextField';
 import useForm from '../../hooks/useForm';
-import { PageContainer, ImputContainer } from './styled'
+import { PageContainer, ImputContainer } from './styled';
+import { SignUp } from '../../services/user';
+import { useHistory } from 'react-router-dom';
 
 const SignUpForm = () => {
-    const [ form, onChange, clear ] = useForm({name:'', email:'', password:''});
+    const [ form, onChange, clear ] = useForm({username:'', email:'', password:''});
+
+    const history = useHistory();
     
     const onSubmitForm = (e) => {
-        console.log(form)
         e.preventDefault()
+        console.log(form)
+        SignUp(form, clear, history)
+        
     }
+
 
     return(
         <PageContainer>
             <ImputContainer>
                 <form onSubmit={ onSubmitForm }>
                 <TextField 
-                        name = { 'name' }
-                        value = { form.name }
+                        name = { 'username' }
+                        value = { form.username }
                         onChange = { onChange }
                         label={'Nome'}
                         fullWidth

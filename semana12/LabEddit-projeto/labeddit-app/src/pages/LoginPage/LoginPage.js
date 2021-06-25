@@ -4,12 +4,11 @@ import { PageContainer, SignUpContainer } from './styled'
 import LoginForm from './LoginForm';
 import { useHistory } from 'react-router-dom'
 import { goToSignUp } from '../../routes/coordinator'
-import axios from 'axios'
-import {baseURL} from '../../constants/urls'
+import useUnprotectedPage from '../../hooks/useUnprotectedPage';
 
 const LoginPage = () => {
     const history = useHistory()
-
+    useUnprotectedPage();
 
     return(
         <PageContainer>
