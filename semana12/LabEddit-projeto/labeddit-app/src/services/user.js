@@ -3,12 +3,13 @@ import {baseURL} from '../constants/urls';
 import { goToFeed } from '../routes/coordinator'
 
 
-export const login = (body, clear, history) => {
+export const login = (body, clear, history, setAnchorEl) => {
     axios.post(`${baseURL}/users/login`, body)
     .then((res) => {
         localStorage.setItem("token", res.data.token)
         clear();
         goToFeed(history)
+        setAnchorEl()
     }).catch((err) => {
         if(err.response.data.errors){
             if(err.response.data.errors[0].password === 'too_small'){

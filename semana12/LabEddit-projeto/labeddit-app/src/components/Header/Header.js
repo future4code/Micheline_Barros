@@ -81,18 +81,50 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const Header = () => {
+
+
+const Header = ({anchorEl, setAnchorEl}) => {
   const classes = useStyles();
-  const [anchorEl, setAnchorEl] = React.useState(null);
+  
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
   const history = useHistory()
+  const token = localStorage.getItem('token')
+
+  const logout = () => {
+    localStorage.removeItem('token')
+  }
+
+  const verificaToken = () => {
+    if(token){
+      logout()
+      goToLogin(history)
+    } else {
+      goToLogin(history)
+    }
+  }
+
+  const temToken = (token) => {
+    if (token){
+      return <IconButton
+      edge="end"
+      aria-label="account of current user"
+      aria-controls={menuId}
+      aria-haspopup="true"
+      onClick={handleProfileMenuOpen}
+      color="inherit"
+    >
+      <MenuIcon /> 
+      </IconButton>
+    }
+  }
 
   const isMenuOpen = Boolean(anchorEl);
   const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
 
   const handleProfileMenuOpen = (event) => {
-    setAnchorEl(event.currentTarget);
+      setAnchorEl(event.currentTarget);
   };
+
 
   const handleMobileMenuClose = () => {
     setMobileMoreAnchorEl(null);
@@ -120,9 +152,7 @@ const Header = () => {
     >
       <MenuItem onClick={() => goToPost(history)}>Post</MenuItem>
       <MenuItem onClick={() => goToFeed(history)}>Feed</MenuItem>
-      {/* <MenuItem onClick={() => goToLogin(history)}>Login</MenuItem>
-      <MenuItem onClick={() => goToSignUp(history)}>SignUp</MenuItem> */}
-      <MenuItem onClick={handleMenuClose}>My account</MenuItem>
+      <MenuItem onClick={verificaToken}>Logout</MenuItem>
     </Menu>
   );
 
@@ -213,20 +243,10 @@ const Header = () => {
 
 
 
-            {/* botão menu */}
-            <IconButton
-              edge="end"
-              aria-label="account of current user"
-              aria-controls={menuId}
-              aria-haspopup="true"
-              onClick={handleProfileMenuOpen}
-              color="inherit"
-            >
-              <MenuIcon />
-              {/* <AccountCircle /> */}
-            </IconButton>
+            {/* botão menu */}           
+            {temToken(token)}
 
-
+             
 
 
 

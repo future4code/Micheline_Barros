@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import { Switch, Route } from 'react-router-dom';
 import FeedPage from '../pages/FeedPage/FeedPage';
 import LoginPage from '../pages/LoginPage/LoginPage';
 import PostPage from '../pages/PostPage/PostPage';
@@ -7,14 +7,11 @@ import SignUpPage from '../pages/SignUpPage/SignUpPage';
 import ErrorPage from '../pages/ErrorPage/ErrorPage';
 import Header from '../components/Header/Header';
 
-const Router = () => {
+const Router = ({anchorEl, setAnchorEl}) => {
     return(
-        <BrowserRouter>
-            <Header />
             <Switch>
-
                 <Route exact path={'/login'}>
-                    <LoginPage />
+                    <LoginPage anchorEl={anchorEl} setAnchorEl={setAnchorEl}/>
                 </Route>
 
                 <Route exact path={'/cadastro'}>
@@ -34,7 +31,7 @@ const Router = () => {
                 </Route>
 
             </Switch>
-        </BrowserRouter>
+        
     )
 }
 

@@ -7,13 +7,13 @@ import { login } from '../../services/user';
 import { useHistory } from 'react-router-dom'
 
 
-const LoginForm = () => {
+const LoginForm = ({anchorEl, setAnchorEl}) => {
     const [ form, onChange, clear ] = useForm({email:'', password:''});
 
     const history = useHistory()
     
     const onSubmitForm = (e) => {
-        login(form, clear, history)
+        login(form, clear, history, setAnchorEl)
         e.preventDefault()
     }
 
