@@ -5,6 +5,7 @@ export const PageContainer = styled.div `
     flex-direction: column;
     align-items: center;
     width:100vw;
+    padding-top:50px;
 `
 
 export const ImputContainer = styled.div `

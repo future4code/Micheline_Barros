@@ -15,7 +15,7 @@ const Router = ({anchorEl, setAnchorEl}) => {
                 </Route>
 
                 <Route exact path={'/cadastro'}>
-                    <SignUpPage />
+                    <SignUpPage anchorEl={anchorEl} setAnchorEl={setAnchorEl}/>
                 </Route>
 
                 <Route exact path={'/'}>

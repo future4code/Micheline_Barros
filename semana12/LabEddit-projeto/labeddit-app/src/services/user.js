@@ -21,12 +21,13 @@ export const login = (body, clear, history, setAnchorEl) => {
     })
 }
 
-export const SignUp = (body, clear, history) => {
+export const SignUp = (body, clear, history, setAnchorEl) => {
     axios.post(`${baseURL}/users/signup`, body)
     .then((res) => {
         localStorage.setItem("token", res.data.token)
         clear();
         goToFeed(history)
+        setAnchorEl()
     }).catch((err) => {
         if(err.response.data.errors){
             if(err.response.data.errors[0].password === 'too_small'){

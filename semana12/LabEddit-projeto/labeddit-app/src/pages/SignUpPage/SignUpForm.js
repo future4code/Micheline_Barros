@@ -6,7 +6,7 @@ import { PageContainer, ImputContainer } from './styled';
 import { SignUp } from '../../services/user';
 import { useHistory } from 'react-router-dom';
 
-const SignUpForm = () => {
+const SignUpForm = ({anchorEl, setAnchorEl}) => {
     const [ form, onChange, clear ] = useForm({username:'', email:'', password:''});
 
     const history = useHistory();
@@ -14,7 +14,7 @@ const SignUpForm = () => {
     const onSubmitForm = (e) => {
         e.preventDefault()
         console.log(form)
-        SignUp(form, clear, history)
+        SignUp(form, clear, history, setAnchorEl)
         
     }
 

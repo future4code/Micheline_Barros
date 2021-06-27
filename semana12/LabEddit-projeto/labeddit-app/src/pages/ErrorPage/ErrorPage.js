@@ -1,11 +1,12 @@
 import React from 'react';
+import { ErrorPageContainer, ErrorGif } from './styled'
 
 const ErrorPage = () => {
 
     return(
-        <div>
-            <h1>ErrorPage</h1>
-        </div>
+           <ErrorPageContainer>
+                <ErrorGif src='https://media.giphy.com/media/UHAYP0FxJOmFBuOiC2/giphy.gif' />
+            </ErrorPageContainer> 
     )
 }
 
