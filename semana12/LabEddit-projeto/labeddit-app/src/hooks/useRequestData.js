@@ -6,10 +6,8 @@ const useRequestData = (url, initial) => {
   const [data, setData] = useState(initial);
   const [loading, setLoading] = useState(false)
 
-  useEffect(() => {
-    setLoading(true)
-    axios
-      .get(url, {
+  const listcomments = (url) => {
+    axios.get(url, {
         headers:{
           Authorization: localStorage.getItem('token')
         }
@@ -21,10 +19,15 @@ const useRequestData = (url, initial) => {
       .catch((err) => {
         console.log(err.response.data);
       })
+  }
+
+  useEffect(() => {
+    setLoading(true)
+    listcomments(url)
   }, [url]);
 
   
-  return {data, loading};
+  return {data, loading, listcomments};
 };
 
 export default useRequestData;
