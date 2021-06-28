@@ -7,34 +7,12 @@ export const PostContainer = styled.div `
   flex-wrap:wrap;
   margin-top: 20px;
   `
-// export const PageContainer = styled.div `
-//     display: flex;
-//     flex-direction: column;
-//     align-items: center;
-//     width:100vw;
-//     padding-top:50px;
-// `
-
-// export const ImputContainer = styled.div `
-//     display: flex;
-//     flex-direction: column;
-//     align-items: center;
-//     width:80vw;
-//     max-width: 450px;
-//     margin-bottom:20px;
-// `
-
-// export const LoginContainer = styled.div `
-//     display: flex;
-//     flex-direction: column;
-//     align-items: center;
-//     width:80vw;
-//     max-width: 450px;
-//     margin-bottom:20px;
-// `
 
 export const CardPost = styled.div `
-    width: 20vw;
-    height: 80px;
+    display: flex;
+    flex-direction: column;
+    width: 150px;
+    height: 150px;
     border: 1px solid;
+    padding:5px
 `

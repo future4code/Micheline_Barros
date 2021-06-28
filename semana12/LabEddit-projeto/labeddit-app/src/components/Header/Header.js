@@ -150,7 +150,6 @@ const Header = ({anchorEl, setAnchorEl}) => {
       open={isMenuOpen}
       onClose={handleMenuClose}
     >
-      <MenuItem onClick={() => goToPost(history)}>Post</MenuItem>
       <MenuItem onClick={() => goToFeed(history)}>Feed</MenuItem>
       <MenuItem onClick={verificaToken}>Logout</MenuItem>
     </Menu>

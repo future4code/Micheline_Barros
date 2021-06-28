@@ -7,13 +7,15 @@ import { PostContainer, ButtonAddPost } from './styled'
 import { useHistory } from 'react-router';
 import { goToPost } from '../../routes/coordinator';
 
+
 const FeedPage = () => {
     useProtectedPage();
     const history = useHistory();
 
-    const posts = useRequestData(`${baseURL}/posts`, [])
+     const {data, loading} = useRequestData(`${baseURL}/posts`, [])
 
-    console.log('posts',posts)
+     const posts = data;
+
 
     const postPage = (id) => {
         goToPost(history, id)
@@ -34,8 +36,8 @@ const FeedPage = () => {
      
     return(
         <PostContainer>
+            {loading && <p>Carregando...</p>}
            {postsFeed}
-            <ButtonAddPost />
         </PostContainer>
     )
 }

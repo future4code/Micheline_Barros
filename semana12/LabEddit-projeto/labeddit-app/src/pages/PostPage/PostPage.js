@@ -4,19 +4,22 @@ import { baseURL } from '../../constants/urls';
 import useProtectedPage from '../../hooks/useProtectedPage';
 import useRequestData from '../../hooks/useRequestData';
 import PostCard from '../../components/PostCard/PostCard';
-import { PostContainer } from './styled'
+import { PostContainer } from './styled';
 
 const PostPage = () => {
     useProtectedPage ()
     const params = useParams();
+    const {data, loading} = useRequestData(`${baseURL}/posts/${params.id}/comments`, [])
+
+     const post = data;
     
-    
-    const post = useRequestData(`${baseURL}/posts/${params.id}/comments`, [])
+     
 
     
 
     return(
-        <PostContainer>       
+        <PostContainer>
+            {loading && <p>Carregando...</p>}       
             {post && post.map((comment) => { 
                return(
                     <PostCard key={comment.id}
