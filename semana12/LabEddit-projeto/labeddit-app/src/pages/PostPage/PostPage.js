@@ -1,13 +1,36 @@
 import React from 'react';
-import  useProtectedPage from '../../hooks/useProtectedPage'
+import { useParams } from 'react-router-dom';
+import { baseURL } from '../../constants/urls';
+import useProtectedPage from '../../hooks/useProtectedPage';
+import useRequestData from '../../hooks/useRequestData';
+import PostCard from '../../components/PostCard/PostCard';
+import { PostContainer } from './styled'
 
 const PostPage = () => {
- useProtectedPage();
+    useProtectedPage ()
+    const params = useParams();
+    
+    
+    const post = useRequestData(`${baseURL}/posts/${params.id}/comments`, [])
+
+    
 
     return(
-        <div>
-            <h1>PostPage</h1>
-        </div>
+        <PostContainer>       
+            {post && post.map((comment) => { 
+               return(
+                    <PostCard key={comment.id}
+                        username={comment.username}
+                        body={comment.body}
+                        voteSum={comment.voteSum}
+                        length={post.length}
+                    /> 
+                )}
+                
+            )}
+            
+            
+        </PostContainer>
     )
 }
 
