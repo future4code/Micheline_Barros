@@ -5,7 +5,6 @@ import LoginPage from '../pages/LoginPage/LoginPage';
 import PostPage from '../pages/PostPage/PostPage';
 import SignUpPage from '../pages/SignUpPage/SignUpPage';
 import ErrorPage from '../pages/ErrorPage/ErrorPage';
-import Header from '../components/Header/Header';
 
 const Router = ({anchorEl, setAnchorEl}) => {
     return(

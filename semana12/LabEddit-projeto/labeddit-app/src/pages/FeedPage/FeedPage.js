@@ -7,9 +7,7 @@ import { PostContainer, ButtonAddPost } from './styled'
 import PostCard from '../../components/PostCard/PostCard';
 import { useHistory } from 'react-router';
 import { goToPost } from '../../routes/coordinator';
-// import { TextField } from '@material-ui/core';
-// import Button from '@material-ui/core/Button'
-// import useForm from '../../hooks/useForm';
+
 
 
 const FeedPage = () => {
