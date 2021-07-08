@@ -10,18 +10,7 @@ const theme = createMuiTheme({
     text: {
         primary: neutralColor
     },
-    secondary: {
-      main: secondaryColor,
-      contrastText:'white'
-    },
-    tertiary: {
-      main: tertiaryColor,
-      contrastText:'white'
-    },
-    quaternary: {
-      main: quaternaryColor,
-      contrastText:'white'
-    },
+   
   }
 });
 
