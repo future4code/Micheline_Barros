@@ -4,7 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "exe1b": "node ./exe1b.js",
+    "exe1c": "node ./exe1c.js",
+    "exe2": "node ./exe2.js"
   },
   "author": "'micheline barros'",
   "license": "ISC"
