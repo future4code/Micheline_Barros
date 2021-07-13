@@ -1,0 +1,12 @@
+{
+  "name": "exercicio3",
+  "version": "1.0.0",
+  "description": "'execução do exercício 3'",
+  "main": "exe3.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node ./exe3.js"
+  },
+  "author": "'micheline barros'",
+  "license": "ISC"
+}

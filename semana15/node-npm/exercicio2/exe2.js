@@ -6,10 +6,10 @@ switch(operacao){
 	case "soma":
 		console.log("Resposta:",Number(process.argv[3]) + Number(process.argv[4]))
 		break;
-	case "subt":
+	case "sub":
 		console.log("Resposta:",Number(process.argv[3]) - Number(process.argv[4]))
 		break;
-    case "mult":
+    case "mul":
         console.log("Resposta:",Number(process.argv[3]) * Number(process.argv[4]))
         break;
     case "div":
