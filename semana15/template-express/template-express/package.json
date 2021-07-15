@@ -3,7 +3,7 @@
    "version": "1.0.0",
    "main": "index.js",
    "scripts": {
-      "dev-start": "tsnd --tranpile-only --ignore-watch node_modules src/index.ts",
+      "dev-start": "tsnd --transpile-only --ignore-watch node_modules ./src/index.ts",
       "start": "tsc && node ./build/index.js"
    },
    "license": "ISC",

@@ -7,7 +7,7 @@ const app: Express = express() //Express é um tipo
 
 app.use(express.json()) //se for uma requisição com body, uma post ou put, que chegará como string precisará ser convertida para json, e é o que essa linha faz, express.json()
 
-app.use(cors())  //para todas as requisições precisamos colocar um cabeçalho na resposta de controle de origem pro front não tomar o erro de cors
+app.use(cors())  //para todas as requisições precisamos colocar um cabeçalho na resposta de controle de origem pro front não tomar o erro de cors - Access-Control-Allow-Origin
 
 app.listen(3003, () => {
     console.log("Server is running in door 3003")  //url base => http://localhost:3003
