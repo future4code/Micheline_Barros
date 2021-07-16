@@ -10,7 +10,12 @@ const getAllCountryById = ( //recebe dois parâmetros. Sempre o request/req vir�
     const countriesByIdOrName: country | undefined = countries.find(
         country => (country.id.toString() === request.params.idOrName || country.name === request.params.idOrName)
     )
-    response.send(countriesByIdOrName)
+    if(countriesByIdOrName) {
+        response.status(200).send(countriesByIdOrName)
+    } else {
+        response.status(404).send("Não encontrado!")
+    }
+    
 }
 export default getAllCountryById;
 
