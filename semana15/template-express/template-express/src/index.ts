@@ -7,4 +7,4 @@ app.get("/countries", getAllCountries)
 //app.method(path, handler). A função getAllCountries será acionada quando chegar uma requisição para o caminho /countries
 
 
-app.get("/countries/:idOrName", getAllCountryById)
+app.get("/countries/:id", getAllCountryById)

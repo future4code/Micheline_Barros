@@ -7,11 +7,11 @@ const getAllCountryById = ( //recebe dois parâmetros. Sempre o request/req vir�
     request: Request,              //tipagem que dá acesso aos métodos
     response: Response
 ): void => { //void, pois não o 'return' dentro das chaves
-    const countriesByIdOrName: country | undefined = countries.find(
-        country => (country.id.toString() === request.params.idOrName || country.name === request.params.idOrName)
+    const countriesById: country | undefined = countries.find(
+        country => (country.id.toString() === request.params.id)
     )
-    if(countriesByIdOrName) {
-        response.status(200).send(countriesByIdOrName)
+    if(countriesById) {
+        response.status(200).send(countriesById)
     } else {
         response.status(404).send("Não encontrado!")
     }
