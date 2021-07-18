@@ -13,22 +13,12 @@ const getAllCountryById = ( //recebe dois parâmetros. Sempre o request/req vir�
     if(countriesById) {
         response.status(200).send(countriesById)
     } else {
+        response.header("Content-Type", "application/json; charset=utf-8");
         response.status(404).send("Não encontrado!")
     }
     
 }
 export default getAllCountryById;
-
-
-
-
-
-
-
-
-
-
-
 
 
 //principais propriedades do request ou req
