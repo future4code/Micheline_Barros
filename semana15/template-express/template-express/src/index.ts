@@ -1,4 +1,5 @@
 import app from './app';
+import deleteCountry from './endpoints/deleteCountry';
 import editCountry from './endpoints/editCountry';
 import getAllCountries from './endpoints/getAllCountries';
 import getAllCountryById from './endpoints/getAllCountryById';
@@ -12,5 +13,6 @@ app.get("/countries/search", getSearch)
 
 app.get("/countries/:id", getAllCountryById)
 
-
 app.post("/countries/:id", editCountry)
+
+app.delete("/countries/:id", deleteCountry)

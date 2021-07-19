@@ -5,12 +5,18 @@ import utf8 from 'utf8'
 
 // const utf8 = require('utf8'); //npm install utf8 e importa com require ou com import no cabeçalho
 
-const editCountry = (
+const deleteCountry = (
     req: Request,
     res: Response
 ) => {
 
     try {
+
+        if(req.headers.authorization !== "hsoeu460173"){
+            res.statusCode =  401;
+            throw new Error ('Unauthorized')
+        }
+
         const index = countries.findIndex(
             country => country.id === Number(req.params.id)
         )
@@ -20,28 +26,21 @@ const editCountry = (
             const mensagem = utf8.encode("Não encontrado") //converte a mensgem para utf8
             throw new Error(mensagem);
         }
-
-        if (!req.body.name && !req.body.capital) {    //se nenhum parâmetro for passado ele exibe essa mensagem de erro
-            throw new Error("Invalid Parameters");
-        }
-
-        if (req.body.name) {
-            countries[index].name = req.body.name
-        }
-
-        if (req.body.capital) {
-            countries[index].capital = req.body.capital
-        }
+       
+        countries.splice(index, 1)
         
-        res.status(200).send("Country successfully updated");
+        res.status(200).send("Delete Country successfully");
 
     } catch (error) {
-        res.statusMessage = error.message
-        res.end()
+        if (res.statusCode === 200){
+            res.status(500).end()
+        } else {
+            res.statusMessage = error.message
+            res.end() 
+        }
     }
-
 }
 
-export default editCountry;
+export default deleteCountry;
 
 
