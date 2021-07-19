@@ -11,8 +11,10 @@ const deleteCountry = (
 ) => {
 
     try {
+        
+        const authorization = req.headers.authorization as string;
 
-        if(req.headers.authorization !== "hsoeu460173"){
+        if( !authorization || authorization.length<10){
             res.statusCode =  401;
             throw new Error ('Unauthorized')
         }
