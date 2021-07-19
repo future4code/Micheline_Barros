@@ -1,4 +1,5 @@
 import app from './app';
+import createCountry from './endpoints/createCountry ';
 import deleteCountry from './endpoints/deleteCountry';
 import editCountry from './endpoints/editCountry';
 import getAllCountries from './endpoints/getAllCountries';
@@ -16,3 +17,5 @@ app.get("/countries/:id", getAllCountryById)
 app.post("/countries/:id", editCountry)
 
 app.delete("/countries/:id", deleteCountry)
+
+app.post("/countries", createCountry)
