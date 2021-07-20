@@ -191,3 +191,10 @@ select id, name, salary from Actor where salary <= "500000";
 
 e) Resposta: Esse erro ocorre, pois ele não reconhece o nome da coluna "nome", já que ela é identicada por "name"
 *ERRO: 22:02:51 SELECT id, nome do ator WHERE id = "002" LIMIT 0, 1000 Código de erro: 1054. Coluna desconhecida 'nome' na 'lista de campos' 0,187 s*
+
+**Correção**
+```
+SELECT id, name from Actor WHERE id = "002";
+```
+
+### Exercício 4
