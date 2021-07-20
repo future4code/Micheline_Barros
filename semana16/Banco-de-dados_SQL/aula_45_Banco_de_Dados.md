@@ -198,3 +198,20 @@ SELECT id, name from Actor WHERE id = "002";
 ```
 
 ### Exercício 4
+a) Resposta: Essa query pesquisa entre todos os atores aqueles que omeçam com a letra A ou J e com salário acima de 300.000.
+
+b) Resposta:
+```
+select * from Actor where (name not like "A%") and salary > 350000;
+```
+
+c) Resposta:
+```
+select * from Actor where (name like "%G%" or name like "%g%");
+```
+
+d) Resposta:
+```
+select * from Actor where (name like "%a%" or name like "%A%" and name like "%g%" or name like "%G%") and (salary > 350000 and salary < 900000); 
+```
+
