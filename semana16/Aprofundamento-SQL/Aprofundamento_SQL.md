@@ -38,3 +38,15 @@ d) Resposta: Não deu mensagem de erro, pois o comando está correto, porém com
 * ERRO: 21:03:35	update Actor set name = "Do Kyung-soo" where id = "007"	0 row(s) affected Rows matched: 0  Changed: 0  Warnings: 0	0.187 sec.*
 
 
+### Exercício 3
+
+a) Resposta: 
+```
+delete from Actor WHERE name = "Fernanda Montenegro";
+```
+
+b) Resposta:
+```
+delete from Actor where gender = "male" and salary > 1000000;
+```
+
