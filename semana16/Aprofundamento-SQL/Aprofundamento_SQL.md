@@ -50,3 +50,26 @@ b) Resposta:
 delete from Actor where gender = "male" and salary > 1000000;
 ```
 
+
+### Exercício 4
+
+a) Resposta: 
+```
+SELECT MAX(salary) FROM Actor;
+```
+
+b) Resposta:
+```
+SELECT MIN(salary) FROM Actor WHERE gender = "female";
+```
+
+c) Resposta:
+```
+SELECT COUNT(*) FROM Actor WHERE gender = "female";
+```
+
+d) Resposta: 
+```
+select SUM(salary) from Actor;
+```
+
