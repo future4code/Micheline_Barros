@@ -128,3 +128,60 @@ update Movie set synopsis = "Com os prédios de seu bairro estando prestes a ser
 
 ```
 *23:26:14	update Movie set synopsis = "Com os prédios de seu bairro estando prestes a ser..." where id = "003"	0 row(s) affected Rows matched: 0  Changed: 0  Warnings: 0	0.188 sec*
+
+
+### Exercício 7
+
+a) Resposta:
+```
+SELECT COUNT(*) FROM Movie WHERE rating > 7.5;
+```
+
+b) Resposta:
+```
+select avg(rating) from Movie;
+```
+
+c) Resposta:
+```
+select count(*) from Movie where playing_limit_date > curdate();
+```
+
+d) Resposta: 
+```
+select count(*) from Movie where release_Date > curdate();
+```
+
+e) Resposta:
+```
+select max(rating) from Movie;
+```
+
+f) Resposta:
+```
+select min(rating) from Movie;
+```
+
+
+### Exercício 8
+
+a) Resposta:
+```
+select * from Movie order by title asc;
+```
+
+b) Resposta:
+```
+select * from Movie order by title desc limit 5;
+```
+
+c) Resposta:
+```
+select * from Movie where release_date < curdate() order by release_Date desc limit 3;
+```
+
+d) Resposta: 
+```
+select * from Movie order by rating desc limit 3;
+```
+
