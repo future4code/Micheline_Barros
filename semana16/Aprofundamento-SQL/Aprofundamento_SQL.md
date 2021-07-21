@@ -50,7 +50,6 @@ b) Resposta:
 delete from Actor where gender = "male" and salary > 1000000;
 ```
 
-
 ### Exercício 4
 
 a) Resposta: 
@@ -72,4 +71,31 @@ d) Resposta:
 ```
 select SUM(salary) from Actor;
 ```
+
+### Exercício 5
+
+a) Resposta: Mostra a quantidade de atores por gênero;
+
+
+b) Resposta:
+```
+select id, name from Actor order by name desc;
+```
+
+c) Resposta:
+```
+select * from Actor order by salary desc;
+```
+
+d) Resposta: 
+```
+select * from Actor order by salary desc limit 3;
+```
+
+e) Resposta: 
+```
+select avg(salary), gender from Actor group by gender;
+```
+
+
 
