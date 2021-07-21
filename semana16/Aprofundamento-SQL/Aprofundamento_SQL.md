@@ -97,5 +97,30 @@ e) Resposta:
 select avg(salary), gender from Actor group by gender;
 ```
 
+### Exercício 6
 
+a) Resposta:
+```
+alter table Movie add playing_limit_date DATE;
+```
 
+b) Resposta:
+```
+alter table Movie change rating rating float;
+```
+
+c) Resposta:
+```
+update Movie set release_Date = "2021-07-17", playing_limit_date = "2021-07-30" where id = "001";
+```
+
+```
+update Movie set playing_limit_date = "2000-12-10" where title = "O Auto da Compadecida";
+```
+
+d) Resposta: Não deu mensagem de erro, pois o comando está correto, porém como não existe esse campo na tabela, então 0 linha foi afetada ou alterada. 
+```
+update Movie set synopsis = "Com os prédios de seu bairro estando prestes a ser..." where id = "003";
+
+```
+*23:26:14	update Movie set synopsis = "Com os prédios de seu bairro estando prestes a ser..." where id = "003"	0 row(s) affected Rows matched: 0  Changed: 0  Warnings: 0	0.188 sec*
