@@ -120,6 +120,10 @@ update Movie set playing_limit_date = "2000-12-10" where title = "O Auto da Comp
 
 d) Resposta: Não deu mensagem de erro, pois o comando está correto, porém como não existe esse campo na tabela, então 0 linha foi afetada ou alterada. 
 ```
+delete from Movie where id = "003";
+```
+
+```
 update Movie set synopsis = "Com os prédios de seu bairro estando prestes a ser..." where id = "003";
 
 ```
