@@ -1,31 +1,20 @@
-import app from './app';
-import connection from './connection';
+### Exercício 1
 
-app.get("/", async (req, res) => {
-    try{
+a) Resposta: esse método devolve um array com outros dois arrays. As informações da tabela estarão dentro do array[0];
 
-        const result = await connection.raw(
-            `select * from Actor;`
-        )
-
-        res.status(200).send(result[0])
-        
-    } catch(error){
-
-        res.status(400).send(error.sqlMessage || error.message)
-
-    };
-})
-
+b) Resposta:
+*Função*
+```
 const getActorName = async (name: string): Promise<any> => {
     const result = await connection.raw(
         `select * from Actor where name = "${name}"`
     )
     return result[0][0]
 }
-
-
-app.get("/name/:name", async (req, res) => {
+```
+*Requisição*
+```
+app.get("/:name", async (req, res) => {
     try{
         const name = req.params.name
         console.log('req.params.name',req.params.name);
@@ -41,15 +30,21 @@ app.get("/name/:name", async (req, res) => {
 
     };
 })
+```
 
+
+c) Resposta: 
+*Função*
+```
 const getActorGender = async (gender: string): Promise <any> => {
     const result = await connection.raw(`
     select count(*) from Actor where gender = "${gender}";
     `)
     return result[0][0]
 }
-
-
+```
+*Requisição*
+```
 app.get("/gender/:gender", async (req, res) => {
     try{
         const gender = req.params.gender
@@ -64,3 +59,173 @@ app.get("/gender/:gender", async (req, res) => {
 
     };
 })
+```
+
+
+### Exercício 2
+
+a) Resposta: 
+```
+
+```
+
+b) Resposta:
+```
+
+```
+
+c) Resposta:
+```
+
+```
+
+d) Resposta: 
+
+* *
+
+
+### Exercício 3
+
+a) Resposta: 
+```
+
+```
+
+b) Resposta:
+```
+
+```
+
+### Exercício 4
+
+a) Resposta: 
+```
+
+```
+
+b) Resposta:
+```
+
+```
+
+c) Resposta:
+```
+
+```
+
+d) Resposta: 
+```
+
+```
+
+### Exercício 5
+
+a) Resposta: 
+
+
+b) Resposta:
+```
+
+```
+
+c) Resposta:
+```
+
+```
+
+d) Resposta: 
+```
+
+```
+
+e) Resposta: 
+```
+
+```
+
+### Exercício 6
+
+a) Resposta:
+```
+
+```
+
+b) Resposta:
+```
+
+```
+
+c) Resposta:
+```
+
+```
+
+```
+
+```
+
+d) Resposta: 
+```
+
+```
+
+```
+
+```
+**
+
+
+### Exercício 7
+
+a) Resposta:
+```
+
+```
+
+b) Resposta:
+```
+
+```
+
+c) Resposta:
+```
+
+```
+
+d) Resposta: 
+```
+
+```
+
+e) Resposta:
+```
+
+```
+
+f) Resposta:
+```
+
+```
+
+
+### Exercício 8
+
+a) Resposta:
+```
+
+```
+
+b) Resposta:
+```
+
+```
+
+c) Resposta:
+```
+
+```
+
+d) Resposta: 
+```
+
+```
