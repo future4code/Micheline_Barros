@@ -1,0 +1,11 @@
+get http://localhost:3003
+
+###
+
+get http://localhost:3003/name/Tony Ramos
+
+###
+
+get http://localhost:3003/gender/male
+
+
