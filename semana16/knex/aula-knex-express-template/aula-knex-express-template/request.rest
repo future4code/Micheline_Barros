@@ -26,6 +26,13 @@ delete http://localhost:3003/actor/005
 get http://localhost:3003/actor/salary/male
 
 
+###
+get http://localhost:3003/actor/001
+
+###
+
+get http://localhost:3003/actor?gender=female
+
 
 
 

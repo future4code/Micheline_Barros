@@ -1,4 +1,4 @@
-import { request } from 'express';
+import { Request, Response } from 'express';
 import app from './app';
 import connection from './connection';
 
@@ -120,4 +120,45 @@ app.get("/actor/salary/:gender", async (req, res) => {
     }catch(error){
         res.status(400).send(error.sqlMessage || error.message);
     }
+})
+
+
+const selectActorById = async (id: string): Promise<void> => {
+    const result = await connection.raw(`
+        select * from Actor where id="${id}"
+    `)
+    return result[0][0]
+}
+
+app.get("/actor/:id", async(req: Request, res: Response) => {
+    try{
+        const id = req.params.id;
+        //const actor = await selectActorById(id);
+        res.status(200).send(await selectActorById(id))
+        //res.status(200).send(actor)
+    }catch(error){
+        res.status(400).send(error.sqlMessage || error.message);
+    }
+})
+
+
+const getSelectActorGender = async (gender: string): Promise <any> => {
+    const result = await connection.raw(`
+    select count(*) from Actor where gender = "${gender}";
+    `)
+    return result[0][0]
+}
+
+
+app.get("/actor", async (req: Request, res: Response) => {
+    try{
+        const gender = req.query.gender
+        const result = await getSelectActorGender(gender as string)
+        console.log('gender', gender)
+        res.status(200).send({Total:result})
+        
+    } catch(error){
+        res.status(400).send(error.sqlMessage || error.message)
+
+    };
 })

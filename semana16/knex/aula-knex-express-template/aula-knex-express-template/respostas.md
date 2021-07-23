@@ -17,8 +17,7 @@ const getActorName = async (name: string): Promise<any> => {
 app.get("/:name", async (req, res) => {
     try{
         const name = req.params.name
-        console.log('req.params.name',req.params.name);
-       res.send(await getActorName(name));
+        res.send(await getActorName(name));
         
 
        res.status(200).end()
@@ -142,12 +141,30 @@ app.get("/actor/salary/:gender", async (req, res) => {
 
 a) Resposta: 
 ```
-
+app.get("/actor/:id", async(req: Request, res: Response) => {
+    try{
+        const id = req.params.id;
+        res.send(await selectActorById(id))
+    }catch(error){
+        res.status(400).send(error.sqlMessage || error.message);
+    }
+})
 ```
 
 b) Resposta:
 ```
+app.get("/actor", async (req: Request, res: Response) => {
+    try{
+        const gender = req.query.gender
+        const result = await getSelectActorGender(gender as string)
+        console.log('gender', gender)
+        res.status(200).send({Total:result})
+        
+    } catch(error){
+        res.status(400).send(error.sqlMessage || error.message)
 
+    };
+})
 ```
 
 ### Exercício 4
@@ -162,15 +179,6 @@ b) Resposta:
 
 ```
 
-c) Resposta:
-```
-
-```
-
-d) Resposta: 
-```
-
-```
 
 ### Exercício 5
 
