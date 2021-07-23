@@ -22,4 +22,10 @@ Content-Type: application/json
 delete http://localhost:3003/actor/005
 
 
+###
+get http://localhost:3003/actor/salary/male
+
+
+
+
 

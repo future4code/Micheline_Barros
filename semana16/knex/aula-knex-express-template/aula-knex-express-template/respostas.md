@@ -113,12 +113,29 @@ app.delete("/actor/:id", async (req, res) => {
 ```
 
 c) Resposta:
+*Função:*
 ```
+const mediaToGender = async (gender: string): Promise<void> => {
+    const mediaSalary = await connection("Actor").avg({gender:"salary"}).where({gender})
 
+    console.log('mediaSalary',mediaSalary)
+    // Tem que dar um console.log pra ver como a resposta chega para que possa ser acessada no return da forma correta
+    return mediaSalary[0].gender;
+};
 ```
-
-d) Resposta: 
-
+*Requisição:*
+```
+app.get("/actor/salary/:gender", async (req, res) => {
+    try{
+        const gender = req.params.gender;
+        const result = await mediaToGender(gender)
+        res.send({media: result});
+        console.log(gender)
+    }catch(error){
+        res.status(400).send(error.sqlMessage || error.message);
+    }
+})
+```
 
 
 ### Exercício 3
