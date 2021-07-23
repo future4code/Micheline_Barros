@@ -1,3 +1,4 @@
+import { request } from 'express';
 import app from './app';
 import connection from './connection';
 
@@ -28,14 +29,12 @@ const getActorName = async (name: string): Promise<any> => {
 app.get("/name/:name", async (req, res) => {
     try{
         const name = req.params.name
-        console.log('req.params.name',req.params.name);
        res.send(await getActorName(name));
         
 
        res.status(200).end()
         
     } catch(error){
-        console.log('req.params.name',req.params.name)
         res.status(400).send(error.sqlMessage || error.message)
 
 
@@ -53,7 +52,6 @@ const getActorGender = async (gender: string): Promise <any> => {
 app.get("/gender/:gender", async (req, res) => {
     try{
         const gender = req.params.gender
-        console.log('req.params.name',req.params.gender);
         // const result = await getActorGender(gender)
        
         res.status(200).send(await getActorGender(gender))
@@ -63,4 +61,27 @@ app.get("/gender/:gender", async (req, res) => {
         res.status(400).send(error.sqlMessage || error.message)
 
     };
+})
+
+
+const updateActor = async (
+    salary: number,
+    id: string
+): Promise<void> => {
+    await connection("Actor").update({
+       salary: salary 
+    })
+    .where({id: id})
+}
+
+
+app.put("/actor/:id", async (req, res) =>{
+    try{
+        const salary= req.body.salary 
+       const id= req.params.id
+       await updateActor(salary, id)
+        res.status(200).send("Atualizado com sucesso")
+    }catch(error) {
+        res.status(400).send(error.sqlMessage || error.message);
+    }
 })

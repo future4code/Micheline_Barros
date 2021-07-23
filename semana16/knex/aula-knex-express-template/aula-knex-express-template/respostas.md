@@ -65,8 +65,31 @@ app.get("/gender/:gender", async (req, res) => {
 ### Exercício 2
 
 a) Resposta: 
+*Função:*
 ```
+const updateActor = async (
+    salary: number,
+    id: string
+): Promise<void> => {
+    await connection("Actor").update({
+       salary: salary 
+    })
+    .where({id: id})
+}
 
+```
+*Requisição:*
+```
+app.put("/actor/:id", async (req, res) =>{
+    try{
+        const salary= req.body.salary 
+       const id= req.params.id
+       await updateActor(salary, id)
+        res.status(200).send("Atualizado com sucesso")
+    }catch(error) {
+        res.status(400).send(error.sqlMessage || error.message);
+    }
+})
 ```
 
 b) Resposta:

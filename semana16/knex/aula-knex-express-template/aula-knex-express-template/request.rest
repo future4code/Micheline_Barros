@@ -8,4 +8,15 @@ get http://localhost:3003/name/Tony Ramos
 
 get http://localhost:3003/gender/male
 
+###
+
+put http://localhost:3003/actor/001
+Content-Type: application/json
+
+{
+    "salary": 40770000000
+}
+
+
+
 
