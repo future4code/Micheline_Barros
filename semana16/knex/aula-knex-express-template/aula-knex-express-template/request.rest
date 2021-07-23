@@ -17,6 +17,9 @@ Content-Type: application/json
     "salary": 40770000000
 }
 
+###
+
+delete http://localhost:3003/actor/005
 
 
 

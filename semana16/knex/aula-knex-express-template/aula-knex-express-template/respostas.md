@@ -93,8 +93,23 @@ app.put("/actor/:id", async (req, res) =>{
 ```
 
 b) Resposta:
+*Função:*
 ```
-
+const deleteActor = async(id: string): Promise<void> => {
+    await connection("Actor").delete().where({id: id});
+}
+```
+*Requisição:*
+```
+app.delete("/actor/:id", async (req, res) => {
+    try{
+        const id = req.params.id;
+        await deleteActor(id);
+        res.status(200).send("Deletado com sucesso");
+    }catch(error){
+        res.status(400).send(error.sqlMessage || error.message);
+    }
+})
 ```
 
 c) Resposta:
@@ -104,7 +119,6 @@ c) Resposta:
 
 d) Resposta: 
 
-* *
 
 
 ### Exercício 3
