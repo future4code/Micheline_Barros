@@ -198,60 +198,74 @@ app.delete("/actor/:id", async (req, res) => {
 
 
 ### Exercício 5
+*Função:*
+```
+const createMovie = async(
+    id: string, 
+    title: string, 
+    synopsis: string,
+    release_Date: Date, 
+    rating: Number, 
+    playing_limit_date: Date
+): Promise<void> => {
+    await connection.insert({
+    id: id, 
+    title: title, 
+    synopsis: synopsis,
+    release_Date: release_Date, 
+    rating: rating, 
+    playing_limit_date: playing_limit_date
+    }).into("Movie");
+};
 
-a) Resposta: 
-
-
-b) Resposta:
 ```
 
+*Requisição:*
+```
+app.post("/movie", async (req, res) =>{
+    try{
+       await createMovie(
+           req.body.id,
+           req.body.title ,
+           req.body.synopsis ,
+           new Date (req.body.release_Date),
+           req.body.rating ,
+           new Date (req.body.playing_limit_date)
+       )
+        res.status(200).send("Movie inserido com sucesso")
+    }catch(error) {
+        res.status(400).send(error.sqlMessage || error.message);
+    }
+});
 ```
 
-c) Resposta:
-```
-
-```
-
-d) Resposta: 
-```
-
-```
-
-e) Resposta: 
-```
-
-```
 
 ### Exercício 6
 
 a) Resposta:
+
+*Função:*
+```
+const getMovie = async(): Promise<void> => {
+    const result = await connection.raw(`
+    select * from Movie limit 15;
+    `)
+    return result[0];
+}
 ```
 
+*Requisição:*
+```
+app.get("/movie/all", async(req: Request, res: Response) => {
+    try {
+       res.status(200).send(await getMovie());
+
+    } catch(error){
+        res.status(500).send("erro")
+    }
+})
 ```
 
-b) Resposta:
-```
-
-```
-
-c) Resposta:
-```
-
-```
-
-```
-
-```
-
-d) Resposta: 
-```
-
-```
-
-```
-
-```
-**
 
 
 ### Exercício 7

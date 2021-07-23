@@ -46,5 +46,22 @@ Content-Type: application/json
 }
 
 
+###
 
+post http://localhost:3003/movie
+Content-Type: application/json
+
+{
+    "id": "008", 
+    "title": "teste", 
+    "synopsis": "teste testando",
+    "release_Date": "2021-07-23", 
+   " rating": 8, 
+    "playing_limit_date": "2021-07-29"
+}
+
+
+###
+
+get http://localhost:3003/movie/all
 
