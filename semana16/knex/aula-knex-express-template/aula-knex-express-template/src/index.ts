@@ -162,3 +162,27 @@ app.get("/actor", async (req: Request, res: Response) => {
 
     };
 })
+
+
+const updateSalaryActor = async (
+    salary: number,
+    id: string
+): Promise<void> => {
+    await connection("Actor").update({
+       salary: salary,
+       id: id
+    })
+    .where({id: id})
+}
+
+
+app.put("/actor", async (req, res) =>{
+    try{
+        const salary= req.body.salary 
+       const id= req.body.id
+       await updateSalaryActor(salary, id)
+        res.status(200).send("Atualizado com sucesso")
+    }catch(error) {
+        res.status(400).send(error.sqlMessage || error.message);
+    }
+})

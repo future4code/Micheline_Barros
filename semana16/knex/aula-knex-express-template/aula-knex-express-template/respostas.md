@@ -171,12 +171,29 @@ app.get("/actor", async (req: Request, res: Response) => {
 
 a) Resposta: 
 ```
-
+app.put("/actor", async (req, res) =>{
+    try{
+        const salary= req.body.salary 
+       const id= req.body.id
+       await updateSalaryActor(salary, id)
+        res.status(200).send("Atualizado com sucesso")
+    }catch(error) {
+        res.status(400).send(error.sqlMessage || error.message);
+    }
+})
 ```
 
 b) Resposta:
 ```
-
+app.delete("/actor/:id", async (req, res) => {
+    try{
+        const id = req.params.id;
+        await deleteActor(id);
+        res.status(200).send("Deletado com sucesso");
+    }catch(error){
+        res.status(400).send(error.sqlMessage || error.message);
+    }
+})
 ```
 
 

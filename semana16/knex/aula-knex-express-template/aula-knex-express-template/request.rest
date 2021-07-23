@@ -35,4 +35,16 @@ get http://localhost:3003/actor?gender=female
 
 
 
+###
+
+put http://localhost:3003/actor/001
+Content-Type: application/json
+
+{
+    "salary": 50,
+    "id": "001"
+}
+
+
+
 
