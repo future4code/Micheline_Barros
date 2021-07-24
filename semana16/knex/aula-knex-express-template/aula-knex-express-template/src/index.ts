@@ -1,4 +1,6 @@
 import { Request, Response } from 'express';
+import { connect } from 'http2';
+import { send } from 'process';
 import app from './app';
 import connection from './connection';
 
@@ -154,7 +156,7 @@ app.get("/actor", async (req: Request, res: Response) => {
     try{
         const gender = req.query.gender
         const result = await getSelectActorGender(gender as string)
-        console.log('gender', gender)
+        // console.log('gender', gender)
         res.status(200).send({Total:result})
         
     } catch(error){
@@ -237,3 +239,22 @@ app.get("/movie/all", async(req: Request, res: Response) => {
         res.status(500).send("erro")
     }
 })
+
+const searchMovie = async(palavraBusca: string): Promise<void> => {
+    const result = await connection.raw(`
+        select * from Movie where (title like "%${palavraBusca}%" or synopsis like "%${palavraBusca}%") order by release_Date asc;
+    `)
+    return result[0]
+}
+
+
+app.get("/movie/search", async(req: Request, res: Response) => {
+    try{
+            const buscar = req.query.query
+            res.status(200).send(await searchMovie(buscar as string))
+    } catch(err){
+        res.status(500).send({
+            message: err.message,
+          })
+    }
+} )

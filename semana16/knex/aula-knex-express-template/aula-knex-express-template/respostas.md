@@ -270,55 +270,27 @@ app.get("/movie/all", async(req: Request, res: Response) => {
 
 ### Exercício 7
 
-a) Resposta:
+*Função:*
+```
+const searchMovie = async(palavraBusca: string): Promise<void> => {
+    const result = await connection.raw(`
+        select * from Movie where (title like "%${palavraBusca}%" or synopsis like "%${palavraBusca}%") order by release_Date asc;
+    `)
+    return result[0]
+}
 ```
 
+*Requisição:*
+```
+app.get("/movie/search", async(req: Request, res: Response) => {
+    try{
+            const buscar = req.query.query
+            res.status(200).send(await searchMovie(buscar as string))
+    } catch(err){
+        res.status(500).send({
+            message: err.message,
+          })
+    }
+} )
 ```
 
-b) Resposta:
-```
-
-```
-
-c) Resposta:
-```
-
-```
-
-d) Resposta: 
-```
-
-```
-
-e) Resposta:
-```
-
-```
-
-f) Resposta:
-```
-
-```
-
-
-### Exercício 8
-
-a) Resposta:
-```
-
-```
-
-b) Resposta:
-```
-
-```
-
-c) Resposta:
-```
-
-```
-
-d) Resposta: 
-```
-
-```

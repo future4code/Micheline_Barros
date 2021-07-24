@@ -65,3 +65,8 @@ Content-Type: application/json
 
 get http://localhost:3003/movie/all
 
+###
+
+get http://localhost:3003/movie/search?query=eles
+
+
