@@ -1,0 +1,12 @@
+{
+  "name": "exercicio1ab",
+  "version": "1.0.0",
+  "description": "",
+  "main": "exe1b.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node ./exe1b.js"
+  },
+  "author": "'micheline barros'",
+  "license": "ISC"
+}

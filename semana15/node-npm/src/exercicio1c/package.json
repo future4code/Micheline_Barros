@@ -1,0 +1,12 @@
+{
+  "name": "exercicio1c",
+  "version": "1.0.0",
+  "description": "'execução do exercício 1 c'",
+  "main": "exe1c.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node ./exe1c.js"
+  },
+  "author": "'micheline barros'",
+  "license": "ISC"
+}
