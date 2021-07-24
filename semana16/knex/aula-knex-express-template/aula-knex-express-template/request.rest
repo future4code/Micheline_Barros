@@ -1,0 +1,72 @@
+get http://localhost:3003
+
+###
+
+get http://localhost:3003/name/Tony Ramos
+
+###
+
+get http://localhost:3003/gender/male
+
+###
+
+put http://localhost:3003/actor/001
+Content-Type: application/json
+
+{
+    "salary": 40770000000
+}
+
+###
+
+delete http://localhost:3003/actor/005
+
+
+###
+get http://localhost:3003/actor/salary/male
+
+
+###
+get http://localhost:3003/actor/001
+
+###
+
+get http://localhost:3003/actor?gender=female
+
+
+
+###
+
+put http://localhost:3003/actor/001
+Content-Type: application/json
+
+{
+    "salary": 50,
+    "id": "001"
+}
+
+
+###
+
+post http://localhost:3003/movie
+Content-Type: application/json
+
+{
+    "id": "008", 
+    "title": "teste", 
+    "synopsis": "teste testando",
+    "release_Date": "2021-07-23", 
+   " rating": 8, 
+    "playing_limit_date": "2021-07-29"
+}
+
+
+###
+
+get http://localhost:3003/movie/all
+
+###
+
+get http://localhost:3003/movie/search?query=eles
+
+
