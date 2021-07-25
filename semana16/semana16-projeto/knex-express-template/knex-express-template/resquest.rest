@@ -7,7 +7,12 @@ post http://localhost:3003/user
 Content-Type: application/json
 
 {
-    "name": "testec",
-	"nickname": "testec",
-	"email": "testc@dev.com"
+    "name": "Luiz",
+	"nickname": "luizbm",
+	"email": "luizbm@dev.com"
 }
+
+
+###
+
+get http://localhost:3003/user/162718609160

@@ -42,3 +42,19 @@ app.post("/user", async(req: Request, res: Response): Promise<void> => {
     }
 })
 
+
+app.get("/user/:id", async(req: Request, res: Response): Promise<void> => {
+    try{
+        const id = req.params.id;
+        const result = await connection.raw(`
+            select id, nickname from ToDoListUser where id = "${id}";
+        `)
+        if(!result[0][0]){
+            throw new Error("Usuário não encontrado!")
+        }
+        res.status(200).send(result[0][0])
+
+    } catch(error){
+        res.status(400).send(error.sqlMessage || error.message)
+    }
+})
