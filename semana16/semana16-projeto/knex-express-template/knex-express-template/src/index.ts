@@ -58,3 +58,42 @@ app.get("/user/:id", async(req: Request, res: Response): Promise<void> => {
         res.status(400).send(error.sqlMessage || error.message)
     }
 })
+
+const updateUser = async (id: string, name?: string, nickname?: string, email?: string):Promise<void> => {
+    if(name){
+        await connection("ToDoListUser").update({
+            name
+         }).where({id: id})
+    }
+    if(nickname){
+        await connection("ToDoListUser").update({
+            nickname
+         }).where({id: id})
+    }
+    if(email){
+        await connection("ToDoListUser").update({
+            email
+         }).where({id: id})
+    }
+}
+app.put("/user/edit/:id", async(req: Request, res: Response): Promise<void> => {
+    try{
+        const id = req.params.id;
+        if(req.body.name === '' || req.body.nickname === '' || req.body.email === ''){
+            res.status(400).send("Não é possível passar um dado em branco!")
+        }
+
+        if(!req.body.name && !req.body.nickname && !req.body.email){
+            res.status(400).send("Atualize pelo menos um valor")
+        }
+
+        await updateUser(id, req.body.name, req.body.nickname, req.body.email  )
+        
+            res.status(200).send("Atualizado co sucesso!")
+       
+      
+    }
+    catch(error){
+        res.status(400).send(error.sqlMessage || error.message)
+    }
+})
