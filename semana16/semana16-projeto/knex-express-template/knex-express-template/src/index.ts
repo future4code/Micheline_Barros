@@ -89,11 +89,46 @@ app.put("/user/edit/:id", async(req: Request, res: Response): Promise<void> => {
 
         await updateUser(id, req.body.name, req.body.nickname, req.body.email  )
         
-            res.status(200).send("Atualizado co sucesso!")
+            res.status(200).send("Atualizado com sucesso!")
        
       
     }
     catch(error){
+        res.status(400).send(error.sqlMessage || error.message)
+    }
+})
+
+ 
+const createTask = async(
+    id: string,
+    title: string, 
+    description: string, 
+    limit_date: string,
+    creator_user_id: string
+    ): Promise<void> => {
+    await connection.raw(`
+        insert into ToDoListTask(id, title, description, limit_date,  creator_user_id)
+        values(
+            ${id},
+            "${title}",
+            "${description}",
+            "${limit_date}",
+            "${creator_user_id}"
+        )
+    `)
+    }
+
+app.post("/task", async(req: Request, res: Response): Promise<void> => {
+    try{
+        await createTask(
+            Date.now().toString(),
+            req.body.title,
+            req.body.description,
+            req.body.limit_date,
+            req.body.creator_user_id
+        )
+        res.status(200).send("Tarefa criada com sucesso!")
+    } catch(error){
         res.status(400).send(error.sqlMessage || error.message)
     }
 })
