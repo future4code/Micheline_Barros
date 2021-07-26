@@ -40,3 +40,10 @@ Content-Type: application/json
 	"limit_date": "29/07/2021",
 	"creator_user_id": "1627173068135"   
 }
+
+
+
+###
+
+
+get http://localhost:3003/task/16273273219110.4363750814063776

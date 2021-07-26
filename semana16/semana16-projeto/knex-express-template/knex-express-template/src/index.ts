@@ -150,3 +150,32 @@ app.post("/task", async(req: Request, res: Response): Promise<void> => {
         res.status(400).send(error.sqlMessage || error.message)
     }
 })
+
+const getTaskId = async (id: string) => {
+    const result = await connection.raw(`
+        select tasks.*, users.nickname  from ToDoListTask as tasks
+        join ToDoListUser as users
+        on creator_user_id = users.id
+        where tasks.id = '${id}';
+    `)
+    return result[0][0]
+    }
+
+app.get("/task/:id", async(req: Request, res: Response): Promise<void> =>{
+    try{
+        const result = await getTaskId(req.params.id);
+
+        if( !result) {
+            throw new Error("Tarefa não encontrada!");
+        }
+
+        res.status(200).send({
+            ...result,
+            limit_date:  moment(result.limit_date, 'YYYY-MM-DD').format('DD/MM/YYYY')
+        });
+    } catch(error){
+        res.status(400).send(error.sqlMessage || error.message)
+    }
+});
+
+
