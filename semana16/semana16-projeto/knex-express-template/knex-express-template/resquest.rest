@@ -1,8 +1,10 @@
-get http://localhost:3003/alluser
+//Endpoint 6
+get http://localhost:3003/user/all
 
 
 ###
 
+//Endpoint 1
 post http://localhost:3003/user
 Content-Type: application/json
 
@@ -14,12 +16,13 @@ Content-Type: application/json
 
 
 ###
-
+//Endpoint 2
 get http://localhost:3003/user/1627175632470
 
 
 ###
 
+//Endpoint 3
 put http://localhost:3003/user/edit/1627175632470
 Content-Type: application/json
 
@@ -31,6 +34,7 @@ Content-Type: application/json
 
 ###
 
+//Endpoint 4
 post http://localhost:3003/task
 Content-Type: application/json
 
@@ -45,5 +49,9 @@ Content-Type: application/json
 
 ###
 
-
+//Endpoint 5
 get http://localhost:3003/task/16273273219110.4363750814063776
+
+
+
+

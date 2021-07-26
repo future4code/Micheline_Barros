@@ -5,14 +5,16 @@ import app from './app';
 import connection from './connection';
 import moment from 'moment'
 
-app.get("/alluser", async (req, res) => {
+//Endpoint 6
+app.get("/user/all", async (req, res) => {
     try{
 
         const result = await connection.raw(
-            `select * from ToDoListUser;`
+            `select id, nickname from ToDoListUser;`
         )
-
-        res.status(200).send(result[0])
+        
+     
+        res.status(200).send({users:[result[0]]})
         
     } catch(error){
 
@@ -21,6 +23,7 @@ app.get("/alluser", async (req, res) => {
     };
 })
 
+//Endpoint 1
 app.post("/user", async(req: Request, res: Response): Promise<void> => {
     try{
         if(req.body.name ===undefined || req.body.nickname ===undefined || req.body.email ===undefined) {
@@ -44,6 +47,7 @@ app.post("/user", async(req: Request, res: Response): Promise<void> => {
 })
 
 
+//Endpoint 2
 app.get("/user/:id", async(req: Request, res: Response): Promise<void> => {
     try{
         const id = req.params.id;
@@ -60,6 +64,8 @@ app.get("/user/:id", async(req: Request, res: Response): Promise<void> => {
     }
 })
 
+
+//Endpoint 3
 const updateUser = async (id: string, name?: string, nickname?: string, email?: string):Promise<void> => {
     if(name){
         await connection("ToDoListUser").update({
@@ -100,6 +106,7 @@ app.put("/user/edit/:id", async(req: Request, res: Response): Promise<void> => {
 })
 
  
+//Endpoint 4
 const createTask = async(
     id: string,
     title: string, 
@@ -151,6 +158,8 @@ app.post("/task", async(req: Request, res: Response): Promise<void> => {
     }
 })
 
+
+//Endpoint 5
 const getTaskId = async (id: string) => {
     const result = await connection.raw(`
         select tasks.*, users.nickname  from ToDoListTask as tasks
@@ -179,3 +188,4 @@ app.get("/task/:id", async(req: Request, res: Response): Promise<void> =>{
 });
 
 
+// Endpoint 6 está lá em cima antes do Endpoint 2 que é o de pegar por :id
