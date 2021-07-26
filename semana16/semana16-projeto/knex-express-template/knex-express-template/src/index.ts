@@ -1,8 +1,9 @@
 import { Request, Response } from 'express';
 import { connect } from 'http2';
-import { send } from 'process';
+import { send, title } from 'process';
 import app from './app';
 import connection from './connection';
+import moment from 'moment'
 
 app.get("/alluser", async (req, res) => {
     try{
@@ -120,14 +121,31 @@ const createTask = async(
 
 app.post("/task", async(req: Request, res: Response): Promise<void> => {
     try{
+        if(
+            !req.body.title ||
+            !req.body.description ||
+            !req.body.limit_date ||
+            !req.body.creator_user_id
+        ){
+            throw new Error("Verifique se todos os campos foram preenchidos corretamente!")
+        }
+
+        const dateDiff: number = moment(req.body.limit_date, 'DD/MM/YYYY').unix() - moment().unix()
+
+        if(dateDiff <= 0){
+            throw new Error("'limit_date' não pode ser ser anterior a data atual!")
+        }
+
+        const id: string = Date.now() + Math.random().toString()
         await createTask(
-            Date.now().toString(),
+            id,
             req.body.title,
             req.body.description,
-            req.body.limit_date,
+            moment(req.body.limit_date, 'DD/MM/YYYY').format('YYYY-MM-DD'),
             req.body.creator_user_id
         )
-        res.status(200).send("Tarefa criada com sucesso!")
+        res.status(200).send({mensage:"Tarefa criada com sucesso!", id: id})
+
     } catch(error){
         res.status(400).send(error.sqlMessage || error.message)
     }

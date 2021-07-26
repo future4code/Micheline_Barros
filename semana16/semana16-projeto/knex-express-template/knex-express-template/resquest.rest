@@ -35,8 +35,8 @@ post http://localhost:3003/task
 Content-Type: application/json
 
 {
-    "title": "Criar banco dos alunos",
-    "description": "Devemos criar o banco dos alunos para o módulo do backend",
-	"limit_date": "2020/05/04",
-	"creator_user_id": "001"   
+    "title": "tarefa teste",
+    "description": "testando as validações",
+	"limit_date": "29/07/2021",
+	"creator_user_id": "1627173068135"   
 }
