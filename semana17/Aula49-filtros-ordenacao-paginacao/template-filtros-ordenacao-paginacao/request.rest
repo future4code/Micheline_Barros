@@ -1,4 +1,0 @@
-get http://localhost:3003/recipes
-
-###
-
