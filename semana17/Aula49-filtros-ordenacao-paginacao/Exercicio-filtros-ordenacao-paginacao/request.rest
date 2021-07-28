@@ -3,3 +3,7 @@
 ###
 
 get http://localhost:3003/users?name=amanda
+
+###
+
+get http://localhost:3003/users/Teacher
