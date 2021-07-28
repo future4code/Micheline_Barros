@@ -8,9 +8,9 @@ export async function getRecipesNome(
 ): Promise<void> {
    try {
 
-      const title = req.query.title;
+      const title = req.query.title || "%"
 
-      const result = await connection("aula49_recipes").//método query builder
+      const result = await connection("aula49_recipes").where("title", "like", `%${title}%`) //query builder
 
       const recipes = result.map(toRecipe)
 
