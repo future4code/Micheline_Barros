@@ -5,7 +5,7 @@ export const getAllUsersType = async(req: Request,res: Response): Promise<void> 
    try {
 
       const type = req.params.type || "%"
-console.log('type', type)
+
       const users = await selectUserType(type as string)
 
       if(!users.length){
