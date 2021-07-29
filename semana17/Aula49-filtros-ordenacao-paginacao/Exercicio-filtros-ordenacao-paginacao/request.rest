@@ -12,3 +12,8 @@ get http://localhost:3003/users/Teacher
 
 get http://localhost:3003/users?name=a&order=desc&sort=type
 
+
+###
+
+get http://localhost:3003/users/?page=3
+

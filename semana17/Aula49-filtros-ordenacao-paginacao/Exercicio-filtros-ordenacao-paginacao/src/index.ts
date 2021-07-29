@@ -1,3 +1,4 @@
+import { getAllUsersPage } from './endpoints/getAllUsersPage';
 import { getAllUsersOrder } from './endpoints/getAllUsersOrder';
 import { getAllUsersName } from './endpoints/getAllUsersName';
 import { app } from "./app";
@@ -11,4 +12,6 @@ import { getAllUsersType } from './endpoints/getAllUsersType';
 
 // app.get("/users/:type", getAllUsersType)
 
-app.get("/users", getAllUsersOrder)
+// app.get("/users", getAllUsersOrder)
+
+app.get("/users", getAllUsersPage)
