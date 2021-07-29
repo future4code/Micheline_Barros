@@ -1,7 +1,7 @@
 import { Request, Response } from "express"
 import selectUserName from "../data/selectUserName"
 
-export const getAllUsersName = async(req: Request,res: Response): Promise<void> =>{
+export const getUsersName = async(req: Request,res: Response): Promise<void> =>{
    try {
 
       const name = req.query.name || "%"

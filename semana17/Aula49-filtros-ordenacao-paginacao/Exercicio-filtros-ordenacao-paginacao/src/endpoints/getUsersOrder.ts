@@ -2,7 +2,7 @@ import { Request, Response } from "express"
 import orderUsers from "../data/orderUsers"
 
 
-export const getAllUsersOrder = async(req: Request,res: Response): Promise<void> =>{
+export const getUsersOrder = async(req: Request,res: Response): Promise<void> =>{
    try {
 
       const name = req.query.name || "%" //ternário abreviado

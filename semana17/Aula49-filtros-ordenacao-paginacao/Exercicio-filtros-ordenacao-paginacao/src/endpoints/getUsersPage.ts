@@ -2,7 +2,7 @@ import { Request, Response } from "express";
 import selectUsersPage from "../data/selectUsersPage"
 
 
-export const getAllUsersPage = async(req: Request,res: Response): Promise<void> =>{
+export const getUsersPage = async(req: Request,res: Response): Promise<void> =>{
    try {
 
       const page = Number(req.query.page) || 1

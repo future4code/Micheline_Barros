@@ -1,17 +1,20 @@
-import { getAllUsersPage } from './endpoints/getAllUsersPage';
-import { getAllUsersOrder } from './endpoints/getAllUsersOrder';
-import { getAllUsersName } from './endpoints/getAllUsersName';
+import { getUsersPage } from './endpoints/getUsersPage';
+import { getUsersOrder } from './endpoints/getUsersOrder';
+import { getUsersName } from './endpoints/getUsersName';
 import { app } from "./app";
-import { getAllUsersType } from './endpoints/getAllUsersType';
+import { getUsersType } from './endpoints/getUsersType';
+import { getUsersFilterOrderPage } from './endpoints/getUsersFilterOrderPage';
 // import { getAllUsers } from './endpoints/getAllUsers';
 
 
 // app.get("/users", getAllUsers)
 
-// app.get("/users", getAllUsersName)
+// app.get("/users", getUsersName)
 
-// app.get("/users/:type", getAllUsersType)
+// app.get("/users/:type", getUsersType)
 
-// app.get("/users", getAllUsersOrder)
+// app.get("/users", getUsersOrder)
 
-app.get("/users", getAllUsersPage)
+// app.get("/users", getUsersPage)
+
+app.get("/users", getUsersFilterOrderPage)

@@ -17,3 +17,6 @@ get http://localhost:3003/users?name=a&order=desc&sort=type
 
 get http://localhost:3003/users/?page=3
 
+###
+
+get http://localhost:3003/users?name=s&order=desc&sort=type&page=1

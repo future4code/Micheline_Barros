@@ -1,7 +1,7 @@
 import { Request, Response } from "express"
 import selectUserType from "../data/selectUserType"
 
-export const getAllUsersType = async(req: Request,res: Response): Promise<void> =>{
+export const getUsersType = async(req: Request,res: Response): Promise<void> =>{
    try {
 
       const type = req.params.type || "%"
