@@ -27,4 +27,4 @@ const conta = new UserAccount ('021.555.333-60', 'Micheline', 35)
 
 //Resposta: o texto foi impresso apenas uma vez.
 
-//c)
+//c) Resposta: como são privadas só é possível acessá-las diretamente dentro da classe, mas se quisermos as informações privadas fora podemos criar funções para acessá-las.
