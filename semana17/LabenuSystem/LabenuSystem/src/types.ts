@@ -1,15 +1,14 @@
-export type recipe = {
-   id: string
-   title: string
-   description: string
-   userId: string
-   createdAt: number
+export type columnClass = {
+   id: string,
+   name: string,
+   startDate: string,
+   andDate: string,
+   module: number
 }
 
-export type user = {
-   id: string
-   name: string
-   email: string
-   password: string
-   recipes?: recipe[]
-}
+// export type user = {
+//    id: string
+//    name: string
+//    email: string
+//    password: string
+// }

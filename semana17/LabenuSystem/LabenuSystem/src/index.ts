@@ -1,4 +1,4 @@
 import { app } from "./app";
-import { getAllRecipes } from "./endpoints/getAllRecipes";
+import { createClass } from "./endpoints/createClass";
 
-app.get("/recipes", getAllRecipes)
+app.post("/class", createClass)
