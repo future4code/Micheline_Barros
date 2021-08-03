@@ -72,3 +72,19 @@ b) Resposta: A mensagem é impressa 1 vez.
 
 a) Resposta: o texto "Chamando o construtor da classe Customer" foi impresso uma vez;
 b) Resposta: o texto "Chamando o construtor da classe User" foi impresso uma vez. Como a classe Custumer é filha da classe User, essa é executada na criação de uma instância da classe filha.(a Custumer é uma abstração da User);
+
+
+### Exercício 3
+```
+ const cliente1 = new Customer("001", "carla@gmail.com", "Carla Angelice", "4321", "LabeCard")
+
+  console.log({
+    id: cliente1.getId(), 
+    email: cliente1.getEmail(),
+    name: cliente1.getName(), 
+    cartao: cliente1.getCreditCard(), 
+    Compra: cliente1.purchaseTotal
+  })
+```
+
+a) Resposta: Não, pois a propriedade 'password' é particular, private, e só é acessível dentro da class User e não possue um método getter para acessar seu valor fora.
