@@ -56,7 +56,7 @@ class UserAccount {
 
  }
  
- const userAccount1 = new UserAccount ('021.555.333-60', 'Micheline', 3)
+ const userAccount = new UserAccount ('021.555.333-60', 'Micheline', 3)
  
  //Resposta: o texto foi impresso apenas uma vez.
  
@@ -99,8 +99,32 @@ const transaction1 = new Transaction("isso é um teste", 200, "02/08/2021")
 
 console.log(transaction1.getTransaction());
 
-console.log(userAccount1.getUser())
+console.log(userAccount.getUser())
 
-const userAccount2 = new UserAccount ('021.555.333-60', 'Micheline', 3, 2000,[new Transaction("isso é um teste", 200, "02/08/2021")])
+const userAccount1 = new UserAccount ('000.555.333-00', 'Lídia', 30, 3000,[new Transaction("Supermercado", 500, "03/08/2021")])
+
+const userAccount2 = new UserAccount ('021.555.333-60', 'Micheline', 35, 2000,[new Transaction("Diversão", 200, "02/08/2021")])
 
 console.log(userAccount2.getUser())
+
+//Exercício 3
+
+class Bank{
+   private accounts: UserAccount[];
+
+   constructor(
+      accounts: UserAccount[]
+   ){
+         this.accounts = accounts;
+      }
+
+      getAccounts(){
+         return UserAccount
+      }
+      
+   }
+
+   const bank = new Bank ([userAccount1, userAccount2])
+   console.log(bank)
+  
+
