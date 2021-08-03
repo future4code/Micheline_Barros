@@ -102,3 +102,16 @@ public introduceYourself(): string{
 console.log(cliente1.introduceYourself())
 
 ```
+
+### Exercício 5
+
+```
+  public introduceYourself(): string{
+        return `Olá, sou ${this.name}. Bom dia!`;
+    }
+```
+
+```
+console.log(cliente1.introduceYourself())
+```
+
