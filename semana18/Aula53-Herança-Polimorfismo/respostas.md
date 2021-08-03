@@ -88,3 +88,17 @@ b) Resposta: o texto "Chamando o construtor da classe User" foi impresso uma vez
 ```
 
 a) Resposta: Não, pois a propriedade 'password' é particular, private, e só é acessível dentro da class User e não possue um método getter para acessar seu valor fora.
+
+
+### Exercício 4
+Resposta:
+```
+public introduceYourself(): string{
+          return "Olá, bom dia!";
+      }
+```
+
+```
+console.log(cliente1.introduceYourself())
+
+```
