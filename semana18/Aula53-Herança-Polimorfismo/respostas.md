@@ -45,3 +45,30 @@ a)Rresposta: Atributos marcados como private só podem ser acessados dentro da c
 
 b) Resposta: A mensagem é impressa 1 vez.
 
+### Exercício 2
+
+```
+ class Customer extends User {
+    public purchaseTotal: number = 0;
+    private creditCard: string;
+  
+    constructor(
+      id: string,
+      email: string,
+      name: string,
+      password: string,
+      creditCard: string
+    ) {
+      super(id, email, name, password);
+      console.log("Chamando o construtor da classe Customer");
+      this.creditCard = creditCard;
+    }
+  
+    public getCreditCard(): string {
+      return this.creditCard;
+    }
+  }
+```
+
+a) Resposta: o texto "Chamando o construtor da classe Customer" foi impresso uma vez;
+b) Resposta: o texto "Chamando o construtor da classe User" foi impresso uma vez. Como a classe Custumer é filha da classe User, essa é executada na criação de uma instância da classe filha.(a Custumer é uma abstração da User);
