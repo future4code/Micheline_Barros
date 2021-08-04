@@ -155,3 +155,26 @@ console.log("client:",{
 ```
 
 a) Resposta: Consegui imprimir todas. Toda informação que vem de uma interface é public.
+
+### Exercício 2
+
+```
+const place = new Place ()
+```
+
+a) Resposta: Não é possível criar uma instância de uma classe abstrata.ts(2511)
+
+b) Resposta: A solução que eu pensei é não declarar como abstract.
+
+```
+export class Place {
+    constructor(protected cep: string) {}
+  
+      public getCep(): string {
+          return this.cep;
+    }
+  }
+```
+```
+const place = new Place ("60510-001")
+```

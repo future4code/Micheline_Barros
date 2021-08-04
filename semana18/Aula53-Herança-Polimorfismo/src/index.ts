@@ -119,3 +119,29 @@ console.log("client:",{
     calculateBill: client.calculateBill()
 })
 
+//Exercício 2
+// export abstract class Place {
+//     constructor(protected cep: string) {}
+  
+//       public getCep(): string {
+//           return this.cep;
+//     }
+//   }
+
+
+//a)
+
+// const place = new Place ()
+
+//b)
+
+export class Place {
+    constructor(protected cep: string) {}
+  
+      public getCep(): string {
+          return this.cep;
+    }
+  }
+
+
+  const place = new Place ("60510-001")
