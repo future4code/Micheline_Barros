@@ -333,7 +333,7 @@ a) Resposta: Da classe Industry, pois contém os dados pertinentes a um cliente 
 
 b) Resposta: a interface Client, pois contém os dados comuns a qualquer cliente;
 
-c) Resposta: 
+c) Resposta: Como essa é uma classe filha, não é possível, de dentro dela, modificar dados privados das clases pai.
 
 
 
