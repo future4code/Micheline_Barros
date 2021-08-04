@@ -178,3 +178,76 @@ export class Place {
 ```
 const place = new Place ("60510-001")
 ```
+### Exercício 3
+```
+export class Residence extends Place {
+  constructor(
+    protected residentsQuantity: number,
+    // Refere-se ao número de moradores da casa
+
+    cep: string
+  ) {
+    super(cep);
+  }
+}
+
+const residence = new Residence(3, "60510111")
+
+console.log(residence)
+```
+
+```
+export class Commerce extends Place {
+  constructor(
+    protected floorsQuantity: number,
+    // Refere-se à quantidade de andares do lugar
+
+    cep: string
+  ) {
+    super(cep);
+  }
+}
+
+const commerce = new Commerce (10, "60000000")
+
+console.log(commerce)
+```
+
+```
+export class Industry extends Place {
+  constructor(
+    protected machinesQuantity: number, 
+    // Refere-se à quantidade de máquinas do local 
+    
+    cep: string
+		) {
+	    super(cep);
+  }
+}
+
+const industry = new Industry (100, "60500000")
+
+console.log(industry)
+```
+
+*Getter*
+```
+getResidentsQuantity(): number {
+    return this.residentsQuantity;
+  }
+```
+
+```
+getFloorsQuantity(): number {
+    return this.floorsQuantity;
+  }
+  ```
+
+  ```
+  getMachinesQuantity(): number{
+    return this.machinesQuantity;
+  }
+  ```
+
+  
+
