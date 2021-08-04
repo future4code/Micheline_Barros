@@ -214,3 +214,68 @@ console.log(industry);
 
 console.log("getMachinesQuantity",industry.getMachinesQuantity())
 
+class ResidentialClient extends Residence implements Client{
+  constructor(
+    public name: string,
+    public registrationNumber: number,
+    public consumedEnergy: number,
+    private cpf: string,
+    residentsQuantity: number,
+    cep: string,
+  ){
+    super(residentsQuantity, cep)
+  }
+
+  getcpf(): string{
+    return this.cpf
+  }
+
+  calculateBill(): number{
+    return this.consumedEnergy * 0.75;
+  }
+}
+
+
+class CommercialClient extends Commerce implements Client{
+  constructor(
+    public name: string,
+    public registrationNumber: number,
+    public consumedEnergy: number,
+    private CNPJ: string,
+    floorsQuantity: number,
+    cep: string
+  ){
+    super(floorsQuantity, cep);
+  }
+
+  getCNPJ(): string{
+    return this.CNPJ;
+  }
+
+  calculateBill(): number{
+    return this.consumedEnergy * 0.53;
+  }
+  
+}
+
+
+class IndustrialClient extends Industry implements Client{
+  constructor(
+    public name: string,
+    public registrationNumber: number,
+    public consumedEnergy: number,
+    private industrialRegistration: string,
+    machinesQuantity: number,
+    cep: string
+  ){
+    super(machinesQuantity, cep);
+  }
+
+  getindustrialRegistration(): string{
+    return this.industrialRegistration;
+  }
+
+  calculateBill(): number{
+    return (this.consumedEnergy * 0.45 + this.machinesQuantity*100);
+  }
+}

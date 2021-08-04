@@ -249,5 +249,91 @@ getFloorsQuantity(): number {
   }
   ```
 
+  ### Exercício 4
+
+  ```
+  class ResidentialClient extends Residence implements Client{
+  constructor(
+    public name: string,
+    public registrationNumber: number,
+    public consumedEnergy: number,
+    private cpf: string,
+    residentsQuantity: number,
+    cep: string,
+  ){
+    super(residentsQuantity, cep)
+  }
+
+  getcpf(): string{
+    return this.cpf
+  }
+  calculateBill(): number{
+    return this.consumedEnergy * 0.75;
+  }
+}
+```
+
+a) Resposta: Todas as propriedades da interface e da classe pai Residence e de sua pai Place, por causa da herança.
+
+### Exercício 5
+
+```
+class CommercialClient extends Commerce implements Client{
+  constructor(
+    public name: string,
+    public registrationNumber: number,
+    public consumedEnergy: number,
+    private CNPJ: string,
+    floorsQuantity: number,
+    cep: string
+  ){
+    super(floorsQuantity, cep);
+  }
+
+  getCNPJ(): string{
+    return this.CNPJ;
+  }
+
+  calculateBill(): number{
+    return this.consumedEnergy * 0.53;
+  }
   
+}
+```
+a) Resposta: Ela herda as mesmas propriedades e métodos da interface e da classe pai Place;
+
+b) Resposta: a CommercialClient é filha da Commerce e a ResidentialClient da Residence.
+
+### Exercício 6
+
+```
+class IndustrialClient extends Industry implements Client{
+  constructor(
+    public name: string,
+    public registrationNumber: number,
+    public consumedEnergy: number,
+    private industrialRegistration: string,
+    machinesQuantity: number,
+    cep: string
+  ){
+    super(machinesQuantity, cep);
+  }
+
+  getindustrialRegistration(): string{
+    return this.industrialRegistration;
+  }
+
+  calculateBill(): number{
+    return (this.consumedEnergy * 0.45 + this.machinesQuantity*100);
+  }
+}
+```
+
+a) Resposta: Da classe Industry, pois contém os dados pertinentes a um cliente industrial, como quantidade de máquinas;
+
+b) Resposta: a interface Client, pois contém os dados comuns a qualquer cliente;
+
+c) Resposta: 
+
+
 
