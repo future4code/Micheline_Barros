@@ -115,3 +115,43 @@ console.log(cliente1.introduceYourself())
 console.log(cliente1.introduceYourself())
 ```
 
+## Polimorfismo
+
+### Exercício 1
+
+```
+export interface Client {
+    name: string;
+    // Refere-se ao nome do cliente
+  
+    registrationNumber: number;
+    // Refere-se ao número de cadastro do cliente na concessionária
+      // como se fosse um id
+  
+    consumedEnergy: number;
+    // Refere-se à energia consumida pelo cliente no mês
+  
+    calculateBill(): number;
+    // Retorna o valor da conta em reais
+  }
+
+const client:  Client = {
+    name: 'Rochelle Rock',
+    registrationNumber: 9999,
+    consumedEnergy: 180,
+
+    calculateBill : () =>{
+        return 2
+    }
+}
+   
+console.log("client:",{
+    name:client.name, 
+    registrationNumber:client.registrationNumber,
+    consumedEnergy: client.consumedEnergy,
+    calculateBill: client.calculateBill()
+})
+
+```
+
+a) Resposta: Consegui imprimir todas. Toda informação que vem de uma interface é public.
