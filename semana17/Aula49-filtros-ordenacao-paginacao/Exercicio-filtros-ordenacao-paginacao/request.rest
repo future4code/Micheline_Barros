@@ -1,0 +1,22 @@
+# get http://localhost:3003/users
+
+###
+
+get http://localhost:3003/users?name=amanda
+
+###
+
+get http://localhost:3003/users/Teacher
+
+###
+
+get http://localhost:3003/users?name=a&order=desc&sort=type
+
+
+###
+
+get http://localhost:3003/users/?page=3
+
+###
+
+get http://localhost:3003/users?name=s&order=desc&sort=type&page=1
