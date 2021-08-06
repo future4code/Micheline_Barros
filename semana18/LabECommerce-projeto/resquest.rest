@@ -1,0 +1,13 @@
+//Endpoint 1
+post http://localhost:3003/user
+Content-Type: application/json
+
+{
+    "name": "Micheline Barros",
+    "email": "mms@gmail.com",
+	"age": 35
+}
+
+
+
+
