@@ -27,16 +27,29 @@ export class User{
 }
 
 export class Product{
+    idProduct: string;
     constructor(
         idProduct: string,
         name: string,
         description: string,
         price: number
-    ){}
+    ){
+        this.idProduct = idProduct
+    }
+
+    getIdProduct(): string{
+        return this.idProduct
+    }
 }
 
 
 export class Ticket extends Product{
+        idProduct: string;
+        name: string;
+        description: string;
+        price: number;
+        source: string = '';
+        destiny: string = '';
     constructor(
         idProduct: string,
         name: string,
@@ -46,6 +59,12 @@ export class Ticket extends Product{
         destiny: string
     ){
         super(idProduct,name,description, price)
+        this.idProduct=idProduct,
+        this.name= name,
+        this.description= description,
+        this.price= price,
+        this.source= source,
+        this.destiny= destiny
     }
 }
 
@@ -100,4 +119,49 @@ app.post("/user", async(req: Request, res: Response): Promise<void> => {
     }
 });
 
+
+//Endpoint 2
+export class ProductDataBase extends BaseDataBase {
+    public createProduct = async(product: Ticket) => {
+        await BaseDataBase.connection("product")
+            .insert({
+                idProduct: product.getIdProduct(),
+                name: product.name,
+                description: product.description,
+                price: product.price,
+                source: product.source,
+                destiny: product.destiny
+            })
+        }
+
+}
+
+app.post("/product", async(req: Request, res: Response): Promise<void> => {
+    try{
+        if(
+            !req.body.name ||
+            !req.body.description ||
+            !req.body.price
+        ){
+            throw new Error("Verifique se todos os campos foram preenchidos corretamente!")
+        }
+
+
+        const idProduct: string = Date.now() + Math.random().toString()
+        const newProduct = new Ticket(
+            idProduct,
+            req.body.name,
+            req.body.description,
+            req.body.price,
+            req.body.source,
+            req.body.destiny
+        )
+        new ProductDataBase().createProduct(newProduct)
+
+        res.status(200).send({mensage:"Produto inserido com sucesso!", id: idProduct})
+
+    } catch(error){
+        res.status(400).send(error.sqlMessage || error.message)
+    }
+});
 

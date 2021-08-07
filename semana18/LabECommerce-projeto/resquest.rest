@@ -8,6 +8,16 @@ Content-Type: application/json
 	"age": 35
 }
 
+###
+
+post http://localhost:3003/product
+Content-Type: application/json
+
+{
+    "name": "Fones",
+    "description": "Fones de ouvido JBL TUNE 500BT coloridos",
+	"price": 256
+}
 
 
 
