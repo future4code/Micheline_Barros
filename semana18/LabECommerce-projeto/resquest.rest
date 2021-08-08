@@ -3,9 +3,9 @@ post http://localhost:3003/user
 Content-Type: application/json
 
 {
-    "name": "Micheline Barros",
-    "email": "mms@gmail.com",
-	"age": 35
+    "name": "Charles grey",
+    "email": "rey@gmail.com",
+	"age": 37
 }
 
 ###
@@ -23,6 +23,12 @@ Content-Type: application/json
 ###
 
 get http://localhost:3003/allUser
+
+
+###
+
+get http://localhost:3003/allProduct
+
 
 
 

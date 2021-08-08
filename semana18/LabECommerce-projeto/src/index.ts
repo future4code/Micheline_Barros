@@ -201,3 +201,33 @@ app.get("/allUser", async(req: Request, res: Response): Promise<void> => {
         res.status(404).send(error.sqlMessage || error.message)
     }
 })
+
+//Endpoint 4
+
+class GetProductDataBase extends BaseDataBase{
+    public GetAllProduct = async () : Promise<any>=> {
+        const result = await BaseDataBase.connection.raw(` 
+        SELECT
+        idProduct,
+        name,
+        description,
+        price,
+        source,
+        destiny
+        FROM product
+        `)
+        return result[0]
+    }
+}
+
+app.get("/allProduct", async(req: Request, res: Response): Promise<void> => {
+    try {
+        const productConnection = new GetProductDataBase();
+        const result = await productConnection.GetAllProduct()
+        res.status(200).send(result)
+
+    } catch (error) {
+
+        res.status(404).send(error.sqlMessage || error.message)
+    }
+})
