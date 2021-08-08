@@ -24,6 +24,15 @@ export class User{
     getIdUser(): string{
         return this.idUser
     }
+
+    // getAllUser(){
+    //     return{
+    //         idUser: this.idUser,
+    //         name: this.name,
+    //         email:this.email,
+    //         age: this.age
+    //     }
+    // }
 }
 
 export class Product{
@@ -165,3 +174,30 @@ app.post("/product", async(req: Request, res: Response): Promise<void> => {
     }
 });
 
+//Endpoint 3
+
+class GetUserDataBase extends BaseDataBase{
+    public GetAllUser = async () : Promise<any>=> {
+        const result = await BaseDataBase.connection.raw(` 
+        SELECT
+        idUser,
+        name,
+        email,
+        age
+        FROM user
+        `)
+        return result[0]
+    }
+}
+
+app.get("/allUser", async(req: Request, res: Response): Promise<void> => {
+    try {
+        const userConnection = new GetUserDataBase();
+        const result = await userConnection.GetAllUser()
+        res.status(200).send(result)
+
+    } catch (error) {
+
+        res.status(404).send(error.sqlMessage || error.message)
+    }
+})

@@ -20,4 +20,9 @@ Content-Type: application/json
 }
 
 
+###
+
+get http://localhost:3003/allUser
+
+
 
