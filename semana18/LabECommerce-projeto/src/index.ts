@@ -25,25 +25,23 @@ export class User{
         return this.idUser
     }
 
-    // getAllUser(){
-    //     return{
-    //         idUser: this.idUser,
-    //         name: this.name,
-    //         email:this.email,
-    //         age: this.age
-    //     }
-    // }
 }
 
 export class Product{
     idProduct: string;
+    name: string;
+    description: string;
+    price: number;
     constructor(
         idProduct: string,
         name: string,
         description: string,
         price: number
     ){
-        this.idProduct = idProduct
+        this.idProduct = idProduct,
+        this.name= name,
+        this.description= description,
+        this.price= price
     }
 
     getIdProduct(): string{
@@ -131,15 +129,13 @@ app.post("/user", async(req: Request, res: Response): Promise<void> => {
 
 //Endpoint 2
 export class ProductDataBase extends BaseDataBase {
-    public createProduct = async(product: Ticket) => {
+    public createProduct = async(product: Product) => {
         await BaseDataBase.connection("product")
             .insert({
                 idProduct: product.getIdProduct(),
                 name: product.name,
                 description: product.description,
-                price: product.price,
-                source: product.source,
-                destiny: product.destiny
+                price: product.price
             })
         }
 
@@ -157,13 +153,11 @@ app.post("/product", async(req: Request, res: Response): Promise<void> => {
 
 
         const idProduct: string = Date.now() + Math.random().toString()
-        const newProduct = new Ticket(
+        const newProduct = new Product(
             idProduct,
             req.body.name,
             req.body.description,
-            req.body.price,
-            req.body.source,
-            req.body.destiny
+            req.body.price
         )
         new ProductDataBase().createProduct(newProduct)
 
@@ -231,3 +225,49 @@ app.get("/allProduct", async(req: Request, res: Response): Promise<void> => {
         res.status(404).send(error.sqlMessage || error.message)
     }
 })
+
+export class TicketDataBase extends BaseDataBase {
+    public createTicket = async(ticket: Ticket) => {
+        await BaseDataBase.connection("product")
+            .insert({
+                idProduct: ticket.getIdProduct(),
+                name: ticket.name,
+                description: ticket.description,
+                price: ticket.price,
+                source: ticket.source,
+                destiny: ticket.destiny
+            })
+        }
+
+}
+
+app.post("/ticket", async(req: Request, res: Response): Promise<void> => {
+    try{
+        if(
+            !req.body.name ||
+            !req.body.description ||
+            !req.body.price ||
+            !req.body.source ||
+            !req.body.destiny
+        ){
+            throw new Error("Verifique se todos os campos foram preenchidos corretamente!")
+        }
+
+
+        const idProduct: string = Date.now() + Math.random().toString()
+        const newTicket = new Ticket(
+            idProduct,
+            req.body.name,
+            req.body.description,
+            req.body.price,
+            req.body.source,
+            req.body.destiny
+        )
+        new TicketDataBase().createTicket(newTicket)
+
+        res.status(200).send({mensage:"Passagem inserida com sucesso!", id: idProduct})
+
+    } catch(error){
+        res.status(400).send(error.sqlMessage || error.message)
+    }
+});
