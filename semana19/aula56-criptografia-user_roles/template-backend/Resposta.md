@@ -11,3 +11,22 @@ export const generetorHash = async (s: string): Promise<string> => {
 }
 ```
 c) Resposta:
+```
+export const compare= async (s: string, hash: string): Promise<boolean> => {
+    
+    const hashCompare: boolean = await  bcrypt.compare(s, hash);
+
+    return hashCompare
+}
+```
+
+```
+async function comparar(){
+  const c = await compare("Vamos encriptografar", "$2a$12$XIMVnldegvA00BxJbc9ImOQ15jxijHZgGICtDFVRHiyxoJoLmHcsW");
+
+  console.log(c)
+}
+
+comparar();
+```
+```
