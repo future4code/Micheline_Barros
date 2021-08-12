@@ -1,0 +1,50 @@
+//Endpoint 1
+post http://localhost:3003/user
+Content-Type: application/json
+
+{
+    "name": "Charles grey",
+    "email": "rey@gmail.com",
+	"age": 37
+}
+
+###
+
+post http://localhost:3003/product
+Content-Type: application/json
+
+{
+    "name": "Capa",
+    "description": "Puro glamour",
+	"price": 67
+}
+
+
+###
+
+get http://localhost:3003/allUser
+
+
+###
+
+get http://localhost:3003/allProduct
+
+###
+
+
+post http://localhost:3003/ticket
+Content-Type: application/json
+
+{
+    "name": "Ticket",
+    "description": "Passagem",
+	"price": 167.00,
+    "source": "Fortaleza",
+    "destiny": "Aracaju-Se"
+}
+
+
+
+
+
+
