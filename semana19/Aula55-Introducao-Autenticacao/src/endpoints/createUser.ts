@@ -8,6 +8,13 @@ export async function createUser(
     res: Response
 ): Promise<void>{
     try{
+        if(!req.body.email || req.body.email.indexOf("@") === -1){
+            throw new Error("email inválido")
+        }
+
+        if(!req.body.password || req.body.password.lenght < 6){
+            throw new Error ("senha inválida")
+        }
         
         const id: string = new IdGenerator().generatorId();
 
@@ -24,7 +31,9 @@ export async function createUser(
         const user = userDB.createUser(id, email, password)
 
         res.status(200).send(token)
+
     }catch(error){
+
         res.status(500).send("Internal server error")
     }
 }

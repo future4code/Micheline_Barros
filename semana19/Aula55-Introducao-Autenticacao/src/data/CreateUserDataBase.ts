@@ -1,4 +1,3 @@
-import { User } from './../types';
 import { BaseDataBase } from './BaseDataBase';
 
 
@@ -6,12 +5,16 @@ import { BaseDataBase } from './BaseDataBase';
 
 
 export class CreateUserDataBase extends BaseDataBase{
-    public createUser = async (user: User) => {
+    public createUser = async (
+        id: string,
+        email: string,
+        password: string
+    ) => {
         await BaseDataBase.connection("aula55_user")
         .insert({
-            id: user.id,
-            email: user.email,
-            password: user.password
+            id: id,
+            email: email,
+            password: password
         })
     }
 }
@@ -32,3 +35,5 @@ export class CreateUserDataBase extends BaseDataBase{
 	   // })
 	   // .into(userTableName);
 	//};
+
+

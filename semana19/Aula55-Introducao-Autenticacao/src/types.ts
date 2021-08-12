@@ -3,3 +3,8 @@ export type User = {
     email: string ,
     password: string
 }
+
+
+export interface AuthenticationData{
+    id: string;
+}

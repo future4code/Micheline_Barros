@@ -2,6 +2,9 @@ post http://localhost:3003/user/signup
 Content-Type: application/json
 
 {
-    "email": "mi@email.com",
+    "email": "pi@email.com",
     "password": "1234"
 }
+
+###
+get http://localhost:3003/user/pi@email.com
