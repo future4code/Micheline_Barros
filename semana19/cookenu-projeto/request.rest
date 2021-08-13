@@ -1,0 +1,11 @@
+post http://localhost:3003/user
+Content-Type: application/json
+
+{
+    "name": "Eliane",
+    "email": "ee@email.com",
+    "password": "123456"
+}
+
+###
+get http://localhost:3003/user/pi@email.com
