@@ -23,6 +23,9 @@ class CreateTables extends BaseDataBase{
         `)
         .then(() => { console.log("Tabelas criadas")})
         .catch(printError)
+        .finally(() => {
+            CreateTables.connection.destroy()
+        })
     }
 }
 

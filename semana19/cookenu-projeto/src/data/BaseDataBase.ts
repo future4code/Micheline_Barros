@@ -14,7 +14,7 @@ export class BaseDataBase{
             password: process.env.DB_PASSWORD,
             database: process.env.DB_SCHEMA,
             port: 3306,
-            multipleStatements: true
+            multipleStatements: true //permite criar multiplas tabelas ao mesmo tempo
         }
     }) 
 }

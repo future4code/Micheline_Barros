@@ -1,4 +1,4 @@
-post http://localhost:3003/user
+post http://localhost:3003/signup
 Content-Type: application/json
 
 {
@@ -9,3 +9,13 @@ Content-Type: application/json
 
 ###
 get http://localhost:3003/user/pi@email.com
+
+
+###
+post http://localhost:3003/login
+Content-Type: application/json
+
+{
+    "email": "ee@email.com",
+    "password": "123456"
+}

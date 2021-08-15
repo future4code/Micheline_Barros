@@ -1,11 +1,10 @@
-import { UsersDataBase } from './../data/UsersDataBase';
-import { HashManager } from './../services/HashManager';
-import { IdGenerator } from './../services/IdGenerator';
+import { UsersDataBase } from '../data/UsersDataBase';
+import { HashManager } from '../services/HashManager';
+import { IdGenerator } from '../services/IdGenerator';
 import { Request, Response } from 'express';
-import { isIdentifierOrPrivateIdentifier } from 'typescript';
 
 
-export async function createUser(
+export async function signup(
     req: Request,
     res: Response
 ): Promise<void>{
@@ -28,7 +27,7 @@ export async function createUser(
         const id = idG.generateId();
 
         const {name, email} = req.body;
-        console.log(name)
+        
         const password = req.body.password;
         const hm = new HashManager();
         const criptoPass = await hm.hash(password)

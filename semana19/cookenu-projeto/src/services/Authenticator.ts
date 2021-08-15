@@ -1,21 +1,21 @@
-// import { AuthenticationData } from "../types";
-// import * as jwt from "jsonwebtoken";
+import * as jwt from "jsonwebtoken";
+import { AuthenticationData } from "../types";
 
 
-// export class Authenticator {
-//     generateToken(info: AuthenticationData): string{
-//         const token = jwt.sign(
-//             {id: info.id},
-//             "miSegredo",
-//             {expiresIn: "1h"}
-//         )
-//         return token;
-//     }
-//     getTokenData(token: string): AuthenticationData {
-//         const payload = jwt.verify(
-//             token,
-//             "miSegredo"
-//         );
-//         return payload as AuthenticationData
-//     }
-// }
+export class Authenticator { //gerar o token
+    generateToken(info:AuthenticationData): string{
+        const token = jwt.sign(
+            {info},
+            process.env.secret as string,
+            {expiresIn: "7d"}
+        )
+        return token;
+    }
+    getTokenData(token: string) { //lê e verifica se é válido
+        const payload = jwt.verify(
+            token,
+            process.env.secret  as string
+        );
+        return payload
+    }
+}
