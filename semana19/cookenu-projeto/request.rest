@@ -2,20 +2,23 @@ post http://localhost:3003/signup
 Content-Type: application/json
 
 {
-    "name": "Eliane",
-    "email": "ee@email.com",
+    "name": "Jamile",
+    "email": "jm@email.com",
     "password": "123456"
 }
 
-###
-get http://localhost:3003/user/pi@email.com
-
 
 ###
-post http://localhost:3003/login
+# @name login
+post http://localhost:3003/user/login
 Content-Type: application/json
 
 {
-    "email": "ee@email.com",
+    "email": "jm@email.com",
     "password": "123456"
 }
+
+
+###
+get http://localhost:3003/user/profile
+Authorization: {{login.response.body.token}}

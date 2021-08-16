@@ -1,8 +1,8 @@
 import { Authenticator } from './../services/Authenticator';
 import { HashManager } from './../services/HashManager';
-// import { SearchLogin } from './../data/SearchLogin';
 import { Response, Request } from 'express';
 import { BaseDataBase } from '../data/BaseDataBase';
+import { SearchLogin } from '../data/SearchLogin';
 
 
 export async function login(
@@ -18,11 +18,8 @@ export async function login(
 
         const {email, password} = req.body //desestruturação
         
-        // const sl = new SearchLogin();
-        // const searchUsuárioLogin = sl.login(email);
-
-        const [user] = await BaseDataBase.connection("cookenu_users")
-        .where({email}) // const [user] = await BaseDataBase.connection("cookenu_users"):por padrão essa construção retorna todos os usários, por isso não é necessário colocar o .select, mas como só queremos aquele que corresponda ao email informado colocamos o .where({email})
+        const sl = new SearchLogin();
+        const searchUsuárioLogin = sl.login(email);
 
         const hm = new HashManager();
         const passwordIsCorrect: boolean = await hm.compare(password, user.password)
