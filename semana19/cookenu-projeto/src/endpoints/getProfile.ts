@@ -1,6 +1,7 @@
+import { Profile } from './../data/Profile';
 import { Authenticator } from '../services/Authenticator';
 import { Request, Response } from 'express';
-import { BaseDataBase } from '../data/BaseDataBase';
+
 
 export async function getProfile(
     req: Request, 
@@ -12,18 +13,22 @@ export async function getProfile(
        
         const auth= new Authenticator()
         const tokenData = auth.getTokenData(token)
-         
-        if(tokenData === undefined ){
-            res.status(500).send("entrou no Error")
-        }
+        
 
-        const [user] = await BaseDataBase.connection("cookenu_users")
-        .where({id: tokenData?.id});
+        const id = tokenData.info
+console.log("tokenDataidid",id)
+        
+
+        const p = new Profile();
+
+        const pp = await p.profile(id);
+        
+        
        
         res.status(200).send({
-            id: user.id,
-            name: user.name,
-            email: user.email
+            id: pp.user.id,
+            name: pp.user.name,
+            email: pp.user.email
         }) 
         
 

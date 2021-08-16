@@ -1,11 +1,12 @@
-import { Authenticator } from './../services/Authenticator';
-import { HashManager } from './../services/HashManager';
-// import { SearchLogin } from './../data/SearchLogin';
+import { user } from '../types';
+import { Authenticator } from '../services/Authenticator';
+import { HashManager } from '../services/HashManager';
 import { Response, Request } from 'express';
 import { BaseDataBase } from '../data/BaseDataBase';
+import { SearchLogin } from '../data/SearchLogin';
 
 
-export async function login(
+export async function loginTeste(
    req: Request,
    res: Response
 ): Promise<void>{
@@ -18,17 +19,15 @@ export async function login(
 
         const {email, password} = req.body //desestruturação
         
-        // const sl = new SearchLogin();
-        // const searchUsuárioLogin = sl.login(email);
+        const sl = new SearchLogin();
 
-        const [user] = await BaseDataBase.connection("cookenu_users")
-        .where({email}) // const [user] = await BaseDataBase.connection("cookenu_users"):por padrão essa construção retorna todos os usários, por isso não é necessário colocar o .select, mas como só queremos aquele que corresponda ao email informado colocamos o .where({email})
+        const searchUsuárioLogin = await sl.login(email);
 
         const hm = new HashManager();
-        const passwordIsCorrect: boolean = await hm.compare(password, user.password)
+        const passwordIsCorrect: boolean = await hm.compare(password, searchUsuárioLogin.user.password)
 
         const auth = new Authenticator();
-        const token = auth.generateToken(user.id)
+        const token = auth.generateToken(searchUsuárioLogin.user.id)
         
         if(!passwordIsCorrect){
             res.statusCode = 401;
@@ -39,6 +38,7 @@ export async function login(
 
     } catch (error) {
         if(res.statusCode === 200){
+            
             res.status(500).send("Internal Server Error")
         } else{
             res.send(error.mensagem)

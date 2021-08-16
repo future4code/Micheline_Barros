@@ -3,31 +3,28 @@ import { AuthenticationData } from "../types";
 import { config } from "dotenv"
 
 config();
-
-export class Authenticator { //gerar o token
-    generateToken = (info:AuthenticationData): string =>{
-    console.log("entrou no auth")
-
-        const token = sign(
+//gerar o token
+export class Authenticator { 
+   generateToken = (info:AuthenticationData): string => sign(
             {info},
-            process.env.secret as string,
+            process.env.secret!,
             {expiresIn: "7d"}
            
-        )
-        return token;
-    }
-   getTokenData = (token: string): AuthenticationData => { //lê e verifica se é válido
+        );
+      
+    //lê e verifica se é válido
+   getTokenData = (token: string): AuthenticationData => { 
         console.log("entrou no getToken")
-        const {id} = verify(
+      
+            const {info} = verify(
             token,
-            process.env.secret as string 
-        )as AuthenticationData;
-        console.log("verify",verify)
-        console.log("token tokenData",token)
-        console.log("id tokenData",{id})
-        return {id}
+            process.env.secret!
+        )as AuthenticationData
+       
+        console.log("id tokenData",{info})
+        return {info}
+        
     }
 }
-
 
 

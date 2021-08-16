@@ -1,5 +1,5 @@
 export type AuthenticationData = {
-    id: string
+    info: string;
 }
 
 export type recipe = {
