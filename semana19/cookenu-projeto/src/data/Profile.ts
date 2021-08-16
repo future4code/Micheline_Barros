@@ -5,8 +5,6 @@ export class Profile extends BaseDataBase{
     public profile = async (id: string) => {
         const result = await BaseDataBase.connection("cookenu_users")
         .where({id});
-
-        console.log("login",{user: result[0]})
        
         return {user: result[0]}
     }

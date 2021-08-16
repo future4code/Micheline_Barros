@@ -14,14 +14,12 @@ export class Authenticator {
       
     //lê e verifica se é válido
    getTokenData = (token: string): AuthenticationData => { 
-        console.log("entrou no getToken")
       
             const {info} = verify(
             token,
             process.env.secret!
         )as AuthenticationData
-       
-        console.log("id tokenData",{info})
+
         return {info}
         
     }

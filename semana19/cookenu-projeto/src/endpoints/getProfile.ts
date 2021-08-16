@@ -14,17 +14,12 @@ export async function getProfile(
         const auth= new Authenticator()
         const tokenData = auth.getTokenData(token)
         
-
         const id = tokenData.info
-console.log("tokenDataidid",id)
-        
 
         const p = new Profile();
 
         const pp = await p.profile(id);
         
-        
-       
         res.status(200).send({
             id: pp.user.id,
             name: pp.user.name,
@@ -35,7 +30,7 @@ console.log("tokenDataidid",id)
     } catch (error) {
         if(res.statusCode === 200){
             res.status(500).send("Internal Server Error")
-            console.log("entrou aqui")
+    
         } else{
             res.send(error.message)
         }
