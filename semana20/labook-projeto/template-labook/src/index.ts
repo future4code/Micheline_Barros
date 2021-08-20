@@ -1,4 +1,4 @@
 import {app} from "./app"
-import { signupController } from "./controller/signupController"
+import { userRouter } from "./routes/UserRouter/userRouter"
 
-app.post("/users/signup", signupController)
+app.use("/user", userRouter)
