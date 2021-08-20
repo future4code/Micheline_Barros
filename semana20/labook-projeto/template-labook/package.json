@@ -4,7 +4,7 @@
    "description": "",
    "main": "index.js",
    "scripts": {
-      "migrations": "tsc && node ./build/migrations.js",
+      "migrations": "tsc && node ./build/Migrations.js",
       "start": "npm run build && node --inspect ./build/src/index.js",
       "dev": "clear && ts-node-dev ./src/index.ts",
       "build": "clear && echo \"Transpiling files...\" && tsc && echo \"Done!\" ",
@@ -20,6 +20,7 @@
       "express": "^4.17.1",
       "jsonwebtoken": "^8.5.1",
       "knex": "^0.21.5",
+      "migration": "^0.3.0",
       "mysql": "^2.18.1",
       "uuid": "^8.3.0"
    },
