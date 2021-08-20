@@ -3,7 +3,7 @@ import { BaseDataBase } from "../BaseDataBase"
 
 
 export class UserDataBase extends BaseDataBase{
-    public createUser = async (
+    createUser = async (
         user: User
     ) => {
         await BaseDataBase.connection.insert({
@@ -12,5 +12,12 @@ export class UserDataBase extends BaseDataBase{
             email: user.email,
             password: user.password
         }).into("labook_users")
+    }
+
+    selectUser = async ({email}: any) => {
+        const result = await BaseDataBase.connection("labook_users")
+        .select().where({email})
+         
+        return result[0]
     }
 }
