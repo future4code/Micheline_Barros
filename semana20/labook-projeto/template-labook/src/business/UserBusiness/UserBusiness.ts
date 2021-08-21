@@ -1,7 +1,7 @@
-import { UserDataBase } from './../data/UserDataBase/UserDataBase';
-import { Authenticator } from "../services/Authenticator";
-import { HashManager } from "../services/HashManager";
-import { IdGenerator } from "../services/IdGenerator";
+import { UserDataBase } from '../../data/UserDataBase/UserDataBase';
+import { Authenticator } from "../../services/Authenticator";
+import { HashManager } from "../../services/HashManager";
+import { IdGenerator } from "../../services/IdGenerator";
 
 
 export class UserBusiness{
@@ -10,7 +10,6 @@ export class UserBusiness{
 
         
         if(name.length < 5 || !name){
-            console.log ("letra name",name.lenght)
             throw new Error ("O campo nome não poderá estar em branco e deverá ter, no mínimo, 5 caracteres.");
             
         }
@@ -32,7 +31,7 @@ export class UserBusiness{
         const hashPass = await hm.hash(password);
 
         const udb = new UserDataBase();
-        udb.createUser({
+        await udb.createUser({
             id,
             name, 
             email, 
@@ -54,7 +53,7 @@ export class UserBusiness{
 
         const udb = new UserDataBase()
         const resultUser = await udb.selectUser({email})
-        console.log("resultUser",resultUser)
+      
         if(!resultUser){
             throw new Error ("Usuário não encontrado")
         }

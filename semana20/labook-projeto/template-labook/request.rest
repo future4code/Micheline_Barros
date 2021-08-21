@@ -17,3 +17,18 @@ Content-Type: application/json
     "email": "dgftyh@email.com",
     "password": "12346g"
 }
+
+
+###
+
+post http://localhost:3003/post/create
+Content-Type: application/json
+
+{
+    "photo":"praia", 
+    "description":"Nada melhor do que contemplar uma bela paisagem!", 
+    "type": "normal", 
+    "createdAt": "21/08/2021", 
+    "authorId":"7d9e3ca0-affe-4245-bd66-efeb146fe542"
+}
+

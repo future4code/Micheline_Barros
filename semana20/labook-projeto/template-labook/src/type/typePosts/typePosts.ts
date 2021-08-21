@@ -3,7 +3,7 @@ export enum TYPE_POST {
     event = "event"
 }
 
-export type post = {
+export type Post = {
    id: string,
    photo: string,
    description: string,
