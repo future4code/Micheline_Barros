@@ -1,22 +1,24 @@
 import { GetUserIdData } from "../data/GetUserIdData"
+import { CustomError } from "../errors/CustomError"
 
 export class GetUserByIdBusiness{
-    getUserId = async({id}: any) => {
+    constructor(
+        private getUserIdData: GetUserIdData
+    ){}
+   public getUserId = async(id: string) => {
             
-           if(!id){
-               throw new Error ("Informe o id.")
-           }
+        //    const getData = new GetUserIdData();
+           const resultUser = await this.getUserIdData.getUserIdData(id)
 
-
-
-           const getData = new GetUserIdData();
-           const resultUser = await getData.getUserIdData({id})
+           console.log("resultbusiness", resultUser)
 
            if(!resultUser){
-            throw new Error ("Não existe usuário associado a este id.")
+            throw new CustomError (404, "Not Found")
            }
 
            return resultUser
 
     }
 }
+
+export default new GetUserByIdBusiness(new GetUserIdData())
