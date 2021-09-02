@@ -7,3 +7,17 @@ Content-Type: application/json
 	"email": "vlaz@lbn.com",
 	"password": "123456gh"
 }
+
+
+###
+
+POST http://localhost:3003/walker/signup
+Content-Type: application/json
+
+{
+	"name": "Clara Góis",
+	"phone": "(85) 988998886",
+	"email": "clas@lbn.com",
+	"password": "123456gh"
+}
+

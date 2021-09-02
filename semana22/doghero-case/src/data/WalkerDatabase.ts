@@ -1,9 +1,9 @@
 import { BaseDatabase } from "./BaseDatabase";
 
-export class TutorDatabase extends BaseDatabase {
+export class WalkerDatabase extends BaseDatabase {
 
 
-  public async createTutor(
+  public async createWalker(
     id: string,
     phone: string,
     email: string,
@@ -19,7 +19,7 @@ export class TutorDatabase extends BaseDatabase {
           name,
           password
         })
-        .into(this.TABLE_NAME.TUTOR);
+        .into(this.TABLE_NAME.WALKER);
     } catch (error) {
       throw new Error(error.sqlMessage || error.message);
     }
