@@ -4,8 +4,8 @@ export class Walk{
     constructor(
         private id: string,
         private dateWalk: Date,
-        private startWalk: any,
-        private finishWalk: any,
+        private startWalk: string,
+        private finishWalk: string,
         private price: number,
         private status: Status,
         private idTutor: string,
@@ -117,7 +117,7 @@ export enum Status {
 }
 
 export interface WalkInputDTO{
-    dateWalk: string,
+    dateWalk: Date,
     startWalk: string,
     finishWalk: string,
     price: number,

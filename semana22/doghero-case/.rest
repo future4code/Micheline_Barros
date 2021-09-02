@@ -34,3 +34,18 @@ Content-Type: application/json
 	"sizeDog": "pequeno",
 	"idTutor": "3edc59cf-5d61-4780-a06b-bfac85618a54"
 }
+
+###
+
+POST http://localhost:3003/walk/signup
+Content-Type: application/json
+
+{
+	"dateWalk": "2021/09/12",
+	"startWalk": "9:0",
+	"finishWalk": "10:0",
+	"price": "25",
+	"idTutor": "3edc59cf-5d61-4780-a06b-bfac85618a54",
+	"idDog": "3df1c7e9-3aed-4887-9905-3fec83c9ded0",
+	"idWalker": "d3298f0e-52af-45a3-b544-05329a69a794"
+}

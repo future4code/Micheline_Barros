@@ -4,6 +4,7 @@ import { AddressInfo } from 'net';
 import { dogRouter } from './routes/dogRouter';
 import { tutorRouter } from './routes/tutorRouter';
 import { walkerRouter } from './routes/walkerRouter';
+import { walkRouter } from './routes/walkRouter';
 
 dotenv.config();
 
@@ -16,6 +17,8 @@ app.use("/tutor", tutorRouter);
 app.use("/walker", walkerRouter);
 
 app.use("/dog", dogRouter);
+
+app.use("/walk", walkRouter);
 
 
 const server = app.listen(3003, () => {
