@@ -21,3 +21,16 @@ Content-Type: application/json
 	"password": "123456gh"
 }
 
+
+###
+
+POST http://localhost:3003/dog/signup
+Content-Type: application/json
+
+{
+	"name": "Lala",
+	"dogBreed": "srd",
+	"genderDog": "female",
+	"sizeDog": "pequeno",
+	"idTutor": "3edc59cf-5d61-4780-a06b-bfac85618a54"
+}

@@ -18,7 +18,7 @@ export class Dog{
         return this.name;
     }
 
-    getPhone(){
+    getdogBreed(){
         return this.dogBreed;
     }
 
@@ -86,7 +86,7 @@ export enum GenderDog {
     FEMALE = "FEMALE"
 }
 
-export interface TutorInputDTO{
+export interface DogInputDTO{
     name: string,
     dogBreed: string,
     genderDog: string,
