@@ -7,6 +7,13 @@ dotenv.config();
 
 export abstract class BaseDatabase {
 
+    protected TABLE_NAME: any = {
+        TUTOR: "doghero_tutor",
+        DOG: "doghero_dog",
+        WALKER: "doghero_walker",
+        WALLKING: "doghero_wallking"
+    }
+
     private static connection: Knex | null = null;
 
     protected getConnection(): Knex{
@@ -35,23 +42,3 @@ export abstract class BaseDatabase {
     }
 }
 
-// import knex from "knex";
-// import dotenv from "dotenv";
-
-
-// dotenv.config();
-
-// export class BaseDatabase{
-
-//     public static connection = knex({
-//         client: 'mysql',
-//         connection: {
-//             host: process.env.DB_HOST,
-//             user: process.env.DB_USER,
-//             password: process.env.DB_PASSWORD,
-//             database: process.env.DB_DATABASE_NAME,
-//             port: 3306,
-//             multipleStatements: true //permite criar multiplas tabelas ao mesmo tempo
-//         }
-//     }) 
-// } 

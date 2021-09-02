@@ -62,26 +62,10 @@ export class Walker{
     }
 }
 
-// export enum Status {
-//     PENDENTE = "PENDENTE",
-//     CONCLUIDO = "CONCLUIDO",
-// }
-
 export interface WalkerInputDTO{
     name: string,
     phone: string,
     email: string,
     password: string
 }
-
-
-// export interface ShowOutputDTO{
-//     id: string,
-//     bandId: string,
-//     weekDay: WeekDay,
-//     startTime: number,
-//     endTime: number,
-//     musicGenre?: string,
-//     bandName?:string
-// }
 

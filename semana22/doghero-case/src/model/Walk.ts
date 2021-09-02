@@ -103,7 +103,7 @@ export class Walk{
             data.startWalk || data.start_alk,
             data.finishWalk || data.finish_walk,
             data.price,
-            Walk.toStatusEnum(data.staus),
+            Walk.toStatusEnum(data.status),
             data.idTutor || data.id_tutor,
             data.idDog || data.id_Dog,
             data.idWalker || data.id_walker
@@ -127,14 +127,4 @@ export interface WalkInputDTO{
     idWalker: string
 }
 
-
-// export interface ShowOutputDTO{
-//     id: string,
-//     bandId: string,
-//     weekDay: WeekDay,
-//     startTime: number,
-//     endTime: number,
-//     musicGenre?: string,
-//     bandName?:string
-// }
 

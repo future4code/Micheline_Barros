@@ -94,14 +94,3 @@ export interface TutorInputDTO{
     idTutor: string
 }
 
-
-// export interface ShowOutputDTO{
-//     id: string,
-//     bandId: string,
-//     weekDay: WeekDay,
-//     startTime: number,
-//     endTime: number,
-//     musicGenre?: string,
-//     bandName?:string
-// }
-
