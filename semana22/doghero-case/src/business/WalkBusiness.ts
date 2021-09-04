@@ -28,5 +28,13 @@ export class WalkBusiness {
 
     }
 
+    async getWalkScheduled(index: any){
+
+        const wbd = new WalkDatabase();
+        const result = wbd.getWalkByDate(index);
+        
+        return result
+    }
+
 
 }

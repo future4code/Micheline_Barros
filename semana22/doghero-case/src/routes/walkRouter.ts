@@ -8,4 +8,5 @@ const walkController = new WalkController();
 
 walkRouter.post("/signup", walkController.signup);
 
+walkRouter.get("/wallking", walkController.getWalk);
 

@@ -29,6 +29,23 @@ export class WalkController {
         await BaseDatabase.destroyConnection();
     }
 
-   
+    async getWalk(req: Request, res: Response) {
+        try {
+
+            const dataAtual = req.query.liga
+
+            console.log("controllerd",dataAtual)
+
+            const walkBusiness = new WalkBusiness();
+            const result = await walkBusiness.getWalkScheduled(dataAtual);
+
+            res.status(200).send(result)
+
+        } catch (error) {
+            res.status(400).send({ error: error.message });
+        }
+
+        await BaseDatabase.destroyConnection();
+    }
 
 }
