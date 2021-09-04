@@ -1,0 +1,29 @@
+POST http://localhost:3003/tutor/signup
+Content-Type: application/json
+
+{
+	"name": "Micheline Barros",
+	"phone": "(85) 922888886",
+	"email": "miline@lbn.com",
+	"password": "123456gh"
+}
+
+
+###
+
+POST http://localhost:3003/walk/signup
+Content-Type: application/json
+
+{
+	"dateWalk": "05/09/2021",
+	"startWalk": "20:0",
+	"time": "60",
+	"latitude": 10,
+	"longitude": 20,
+	"quantityDogs": 2,
+	"idTutor": "9f627663-219b-4188-af0c-b91e40f4bf7a"
+}
+
+###
+
+GET http://localhost:3003/walk/wallking?liga=true
