@@ -5,13 +5,13 @@ export class Walk{
         private id: string,
         private dateWalk: Date,
         private startWalk: Time,
+        private finishWalk: Time,
         private time: string,
         private latitude: number,
         private longitude: number,
         private quantityDogs: number,
         private idTutor: string,
         private status: Status,
-        private finishWalk?: string,
         private price?: number
     ){}
 
@@ -159,17 +159,17 @@ export enum Status {
 export interface WalkInputDTO{
     dateWalk: Date,
     startWalk: Time,
+    finishWalk: Time,
     time: string,
     latitude: number,
     longitude: number,
     quantityDogs: number,
-    idTutor: string,
+    idTutor: string
 }
 
 
 export interface WalkOutputDTO{
     dateWalk: Date,
-    startWalk: Time,
     time: string,
     latitude: number,
     longitude: number,
@@ -179,4 +179,14 @@ export interface WalkOutputDTO{
     finishWalk: Date,
     price: number
 }
+
+
+export interface WalkCalc{
+    quantityDogs: number,
+    startWalk: Time,
+    finishWalk: Date,
+    price: number,
+    calculaPrice(): number
+}
+
 

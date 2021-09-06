@@ -10,3 +10,9 @@ walkRouter.post("/signup", walkController.signup);
 
 walkRouter.get("/wallking", walkController.getWalk);
 
+walkRouter.get("/showWalk", walkController.getShowWalk);
+
+walkRouter.get("/walkTutor", walkController.getWalkTutor);
+
+
+

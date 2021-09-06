@@ -2,9 +2,9 @@ POST http://localhost:3003/tutor/signup
 Content-Type: application/json
 
 {
-	"name": "Micheline Barros",
-	"phone": "(85) 922888886",
-	"email": "miline@lbn.com",
+	"name": "Micheline",
+	"phone": "(85) 9228885586",
+	"email": "mine@lbn.com",
 	"password": "123456gh"
 }
 
@@ -15,15 +15,26 @@ POST http://localhost:3003/walk/signup
 Content-Type: application/json
 
 {
-	"dateWalk": "05/09/2021",
-	"startWalk": "20:0",
+	"dateWalk": "07/09/2021",
+	"startWalk": "10:0",
+	"finishWalk": "11:00",
 	"time": "60",
 	"latitude": 10,
 	"longitude": 20,
 	"quantityDogs": 2,
-	"idTutor": "9f627663-219b-4188-af0c-b91e40f4bf7a"
+	"idTutor": "f0e2c0cd-9026-4ab1-8bdb-8b31d4b39ef6"
 }
 
 ###
 
-GET http://localhost:3003/walk/wallking?liga=true
+GET http://localhost:3003/walk/wallking
+
+
+
+###
+
+GET http://localhost:3003/walk/showWalk?id=33e81069-370b-428e-948e-176f35904375
+
+
+###
+GET http://localhost:3003/walk/walkTutor?id=d91e9dc7-055a-4923-83fc-be0abd49350

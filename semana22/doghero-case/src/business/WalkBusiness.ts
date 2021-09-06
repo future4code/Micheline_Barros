@@ -1,8 +1,9 @@
+import { WalkDatabase } from './../data/WalkDatabase';
 import { IdGenerator } from "../services/IdGenerator";
-import { WalkInputDTO } from "../model/Walk";
-import { WalkDatabase } from "../data/WalkDatabase"
+import { Time, WalkInputDTO } from "../model/Walk";
 import { InputError } from "../error/InputError";
 import moment from "moment";
+import { NotFoundError } from "../error/NotFoundError";
 
 export class WalkBusiness {
 
@@ -20,11 +21,23 @@ export class WalkBusiness {
             throw new Error("'dateWalk' não pode ser ser anterior a data atual!")
         }
 
+        
         const idGenerator = new IdGenerator();
         const id = idGenerator.generate();
 
-        const walkDatabase = new WalkDatabase();
-        await walkDatabase.createWalk(id, walk.dateWalk, walk.startWalk, walk.time, walk.latitude, walk.longitude, walk.quantityDogs, walk.idTutor);
+        if(walk.time <= "30"){
+             const price = 25 + (walk.quantityDogs - 1) * 15
+
+            const walkDatabase = new WalkDatabase();
+            await walkDatabase.createWalk(id, walk.dateWalk, walk.startWalk, walk.finishWalk, walk.time, walk.latitude, walk.longitude, walk.quantityDogs, walk.idTutor, price);
+            
+        } else{
+            const price = 35 + (walk.quantityDogs - 1) * 20
+            const walkDatabase = new WalkDatabase();
+            await walkDatabase.createWalk(id, walk.dateWalk, walk.startWalk, walk.finishWalk, walk.time, walk.latitude, walk.longitude, walk.quantityDogs, walk.idTutor, price);
+        }
+
+        
 
     }
 
@@ -36,5 +49,27 @@ export class WalkBusiness {
         return result
     }
 
+    
+
+    async getShowWalk(id: string){
+
+        const wbd = new WalkDatabase();
+        const result = await wbd.getShowWalk(id);
+       
+        return result
+
+    }
+
+    async getWalkByTutor(id: string){
+
+        if(!id){
+            throw new NotFoundError("Não há shows nesse dia")
+        }
+
+        const wbd = new WalkDatabase();
+        const result = await wbd.getWalkByTutor(id);
+
+        return result
+    }
 
 }
