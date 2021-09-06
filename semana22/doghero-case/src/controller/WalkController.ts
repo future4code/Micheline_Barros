@@ -1,7 +1,7 @@
 import { Request, Response } from "express";
 import { WalkBusiness } from "../business/WalkBusiness";
 import { BaseDatabase } from "../data/BaseDatabase";
-import { Time, WalkInputDTO } from "../model/Walk";
+import { WalkInputDTO } from "../model/Walk";
 
 export class WalkController {
     async signup(req: Request, res: Response) {

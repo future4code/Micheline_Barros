@@ -1,9 +1,7 @@
-import { WalkBusiness } from './../business/WalkBusiness';
 import { Request, Response } from "express";
 import { TutorBusiness } from "../business/TutorBusiness";
 import { BaseDatabase } from "../data/BaseDatabase";
 import { TutorInputDTO } from "../model/Tutor";
-import { WalkController } from './WalkController';
 
 export class TutorController {
     async signup(req: Request, res: Response) {

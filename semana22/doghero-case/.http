@@ -2,9 +2,9 @@ POST http://localhost:3003/tutor/signup
 Content-Type: application/json
 
 {
-	"name": "Micheline",
-	"phone": "(85) 9228885586",
-	"email": "mine@lbn.com",
+	"name": "Micheline Barros",
+	"phone": "(85) 92288-5586",
+	"email": "minelbn@gmail.com",
 	"password": "123456gh"
 }
 
