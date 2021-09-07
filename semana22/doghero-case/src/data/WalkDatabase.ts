@@ -40,7 +40,7 @@ export class WalkDatabase extends BaseDatabase{
        } 
     }
 
-    async getWalkByDate(dataAtual: boolean): Promise<WalkOutputDTO[]>{
+    async getWalkByDate(dataAtual: boolean, offset: number): Promise<WalkOutputDTO[]>{
 
             if(dataAtual){
 
@@ -51,7 +51,8 @@ export class WalkDatabase extends BaseDatabase{
             const dataHoje = (ano + '-' + mes + '-' + dia)
 
             const result = await this.getConnection().select("*")
-            .into(this.TABLE_NAME.WALLKING).where("date_walk", ">=", dataHoje).orderBy("start_walk", 'asc')
+            .into(this.TABLE_NAME.WALLKING).where("date_walk", ">=", dataHoje).orderBy("start_walk", 'asc').limit(5)
+            .offset(offset)
 
                 
                

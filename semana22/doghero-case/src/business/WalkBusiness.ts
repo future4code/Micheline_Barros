@@ -43,14 +43,14 @@ export class WalkBusiness {
 
     }
 
-    async getWalkScheduled(index: any){
+    async getWalkScheduled(index: any, offset: number){
 
         if(!index){
             throw new NotFoundError("Not found")
         }
 
         const wbd = new WalkDatabase();
-        const result = wbd.getWalkByDate(index);
+        const result = wbd.getWalkByDate(index, offset);
         
         return result
     }

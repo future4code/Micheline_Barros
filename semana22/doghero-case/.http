@@ -28,7 +28,7 @@ Content-Type: application/json
 
 ###
 # @name index
-GET http://localhost:3003/walk/WalkDateTodayOrAll?liga=true
+GET http://localhost:3003/walk/WalkDateTodayOrAll?liga=true&page=1
 
 
 

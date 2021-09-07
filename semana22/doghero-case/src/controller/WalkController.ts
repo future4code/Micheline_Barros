@@ -33,10 +33,14 @@ export class WalkController {
     async index(req: Request, res: Response) {
         try {
 
-            const dataAtual = req.query.liga
+            const dataAtual = req.query.liga;
 
+            const page = Number(req.query.page) || 1;
+
+            const offset: number = 5 * (page -1);
+      
             const walkBusiness = new WalkBusiness();
-            const result = await walkBusiness.getWalkScheduled(dataAtual);
+            const result = await walkBusiness.getWalkScheduled(dataAtual, offset);
 
             res.status(200).send(result)
 
