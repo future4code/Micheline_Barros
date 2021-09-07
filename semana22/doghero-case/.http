@@ -1,3 +1,4 @@
+# @name signup
 POST http://localhost:3003/tutor/signup
 Content-Type: application/json
 
@@ -10,31 +11,32 @@ Content-Type: application/json
 
 
 ###
-
+# @name walkCreate
 POST http://localhost:3003/walk/signup
 Content-Type: application/json
 
 {
-	"dateWalk": "07/09/2021",
-	"startWalk": "10:0",
+	"dateWalk": "07/09",
+	"startWalk": "8:0",
 	"finishWalk": "11:00",
 	"time": "60",
-	"latitude": 10,
-	"longitude": 20,
+	"latitude": -4.5166,
+	"longitude":  -38.8949,
 	"quantityDogs": 2,
 	"idTutor": "f0e2c0cd-9026-4ab1-8bdb-8b31d4b39ef6"
 }
 
 ###
+# @name index
+GET http://localhost:3003/walk/WalkDateTodayOrAll?liga=true
 
-GET http://localhost:3003/walk/wallking
-
-
-
-###
-
-GET http://localhost:3003/walk/showWalk?id=33e81069-370b-428e-948e-176f35904375
 
 
 ###
-GET http://localhost:3003/walk/walkTutor?id=d91e9dc7-055a-4923-83fc-be0abd49350
+# @name showWalkId
+GET http://localhost:3003/walk/showWalk/33e81069-370b-428e-948e-176f35904375
+
+
+###
+# @name getWalkTutor
+GET http://localhost:3003/walk/walkTutor/d91e9dc7-055a-4923-83fc-be0abd49350

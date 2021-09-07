@@ -4,7 +4,7 @@ import { BaseDatabase } from "../data/BaseDatabase";
 import { WalkInputDTO } from "../model/Walk";
 
 export class WalkController {
-    async signup(req: Request, res: Response) {
+    async walkCreate(req: Request, res: Response) {
         try {
 
             const input: WalkInputDTO = {
@@ -30,7 +30,7 @@ export class WalkController {
         await BaseDatabase.destroyConnection();
     }
 
-    async getWalk(req: Request, res: Response) {
+    async index(req: Request, res: Response) {
         try {
 
             const dataAtual = req.query.liga
@@ -48,10 +48,10 @@ export class WalkController {
     }
 
 
-    async getShowWalk(req: Request, res: Response) {
+    async showWalkId(req: Request, res: Response) {
         try {
 
-            const id = req.query.id as string
+            const id = req.params.id as string 
 
             const walkBusiness = new WalkBusiness();
             const result = await walkBusiness.getShowWalk(id);

@@ -51,7 +51,7 @@ export class WalkDatabase extends BaseDatabase{
             const dataHoje = (ano + '-' + mes + '-' + dia)
 
             const result = await this.getConnection().select("*")
-            .into(this.TABLE_NAME.WALLKING).where("date_walk", ">=", dataHoje)
+            .into(this.TABLE_NAME.WALLKING).where("date_walk", ">=", dataHoje).orderBy("start_walk", 'asc')
 
                 
                
@@ -123,7 +123,6 @@ export class WalkDatabase extends BaseDatabase{
             throw new NotFoundError("Não há shows nesse dia")
         }
 
-        console.log("show",walk)
 
         return walk[0].map((data: any) => ({
             name: data.name,   

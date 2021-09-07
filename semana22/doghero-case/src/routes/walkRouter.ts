@@ -6,13 +6,13 @@ export const walkRouter = express.Router();
 
 const walkController = new WalkController();
 
-walkRouter.post("/signup", walkController.signup);
+walkRouter.post("/signup", walkController.walkCreate);
 
-walkRouter.get("/wallking", walkController.getWalk);
+walkRouter.get("/WalkDateTodayOrAll", walkController.index);
 
-walkRouter.get("/showWalk", walkController.getShowWalk);
+walkRouter.get("/showWalk/:id", walkController.showWalkId);
 
-walkRouter.get("/walkTutor", walkController.getWalkTutor);
+walkRouter.get("/walkTutor/:id", walkController.getWalkTutor);
 
 
 

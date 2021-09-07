@@ -1,6 +1,6 @@
 import { WalkDatabase } from './../data/WalkDatabase';
 import { IdGenerator } from "../services/IdGenerator";
-import { Time, WalkInputDTO } from "../model/Walk";
+import { WalkInputDTO } from "../model/Walk";
 import { InputError } from "../error/InputError";
 import moment from "moment";
 import { NotFoundError } from "../error/NotFoundError";
@@ -21,27 +21,33 @@ export class WalkBusiness {
             throw new Error("'dateWalk' não pode ser ser anterior a data atual!")
         }
 
-        
-        const idGenerator = new IdGenerator();
-        const id = idGenerator.generate();
+        if(walk.time === '30' || walk.time === '60'){
 
-        if(walk.time <= "30"){
-             const price = 25 + (walk.quantityDogs - 1) * 15
-
-            const walkDatabase = new WalkDatabase();
-            await walkDatabase.createWalk(id, walk.dateWalk, walk.startWalk, walk.finishWalk, walk.time, walk.latitude, walk.longitude, walk.quantityDogs, walk.idTutor, price);
-            
-        } else{
-            const price = 35 + (walk.quantityDogs - 1) * 20
-            const walkDatabase = new WalkDatabase();
-            await walkDatabase.createWalk(id, walk.dateWalk, walk.startWalk, walk.finishWalk, walk.time, walk.latitude, walk.longitude, walk.quantityDogs, walk.idTutor, price);
+            const idGenerator = new IdGenerator();
+            const id = idGenerator.generate();
+    
+            if(walk.time <= "30"){
+                 const price = 25 + (walk.quantityDogs - 1) * 15
+    
+                const walkDatabase = new WalkDatabase();
+                await walkDatabase.createWalk(id, walk.dateWalk, walk.startWalk, walk.finishWalk, walk.time, walk.latitude, walk.longitude, walk.quantityDogs, walk.idTutor, price);
+                
+            } else{
+                const price = 35 + (walk.quantityDogs - 1) * 20
+                const walkDatabase = new WalkDatabase();
+                await walkDatabase.createWalk(id, walk.dateWalk, walk.startWalk, walk.finishWalk, walk.time, walk.latitude, walk.longitude, walk.quantityDogs, walk.idTutor, price);
+            }
+        }else{
+            throw new Error("O tempo (time) de duração do passeio é de 30min ou 60min")
         }
-
-        
 
     }
 
     async getWalkScheduled(index: any){
+
+        if(!index){
+            throw new NotFoundError("Not found")
+        }
 
         const wbd = new WalkDatabase();
         const result = wbd.getWalkByDate(index);
@@ -53,6 +59,10 @@ export class WalkBusiness {
 
     async getShowWalk(id: string){
 
+        if(!id){
+            throw new NotFoundError("Not found")
+        }
+
         const wbd = new WalkDatabase();
         const result = await wbd.getShowWalk(id);
        
@@ -63,7 +73,7 @@ export class WalkBusiness {
     async getWalkByTutor(id: string){
 
         if(!id){
-            throw new NotFoundError("Não há shows nesse dia")
+            throw new NotFoundError("Não há passeios marcados por esse tutor")
         }
 
         const wbd = new WalkDatabase();
