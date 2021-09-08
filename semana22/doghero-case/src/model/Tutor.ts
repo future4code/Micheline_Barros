@@ -1,5 +1,3 @@
-import { InputError } from "../error/InputError";
-
 export class Tutor{
     constructor(
         private id: string,
@@ -64,6 +62,13 @@ export class Tutor{
 
 
 export interface TutorInputDTO{
+    name: string,
+    phone: string,
+    email: string,
+    password: string
+}
+
+export interface TutorOutputDTO{
     name: string,
     phone: string,
     email: string,

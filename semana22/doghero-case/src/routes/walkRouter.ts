@@ -14,5 +14,8 @@ walkRouter.get("/showWalk/:id", walkController.showWalkId);
 
 walkRouter.get("/walkTutor/:id", walkController.getWalkTutor);
 
+walkRouter.post("/editStartOrFinish/:id", walkController.editStartWalkOrFinishWalk);
+
+walkRouter.post("/editStatus/:id", walkController.editStatus);
 
 

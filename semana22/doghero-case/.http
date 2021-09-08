@@ -9,6 +9,10 @@ Content-Type: application/json
 	"password": "123456gh"
 }
 
+###
+# @name getTutors
+GET http://localhost:3003/tutor/dataTutors?page=1
+
 
 ###
 # @name walkCreate
@@ -23,20 +27,40 @@ Content-Type: application/json
 	"latitude": -4.5166,
 	"longitude":  -38.8949,
 	"quantityDogs": 2,
-	"idTutor": "f0e2c0cd-9026-4ab1-8bdb-8b31d4b39ef6"
+	"idTutor": "eb8afb0d-80d8-4a0b-a9f8-7da958d1f7b5"
 }
 
 ###
 # @name index
-GET http://localhost:3003/walk/WalkDateTodayOrAll?liga=true&page=1
+GET http://localhost:3003/walk/WalkDateTodayOrAll?page=1&dataAtual=true
 
 
 
 ###
 # @name showWalkId
-GET http://localhost:3003/walk/showWalk/33e81069-370b-428e-948e-176f35904375
+GET http://localhost:3003/walk/showWalk/0b356875-d2e7-429f-a0c6-aa04fe09175a
 
 
 ###
 # @name getWalkTutor
-GET http://localhost:3003/walk/walkTutor/d91e9dc7-055a-4923-83fc-be0abd49350
+GET http://localhost:3003/walk/walkTutor/eb8afb0d-80d8-4a0b-a9f8-7da958d1f7b5
+
+###
+# @name editStartOrFinish
+POST http://localhost:3003/walk/editStartOrFinish/0b356875-d2e7-429f-a0c6-aa04fe09175a
+Content-Type: application/json
+
+{
+	"startWalk": "8:00",
+	"finishWalk": "8:30"
+}
+
+
+###
+# @name editStatus
+POST http://localhost:3003/walk/editStatus/0b356875-d2e7-429f-a0c6-aa04fe09175a
+Content-Type: application/json
+
+{
+	"status": "CONCLUIDO"
+}

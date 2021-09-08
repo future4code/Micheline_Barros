@@ -38,4 +38,12 @@ export class TutorBusiness {
 
     }
 
+
+    async getTutorsBusiness(offset: number) {
+
+        const tutorDatabase = new TutorDatabase();
+        const result = await tutorDatabase.getTutorData(offset)
+
+        return result
+    }
 }

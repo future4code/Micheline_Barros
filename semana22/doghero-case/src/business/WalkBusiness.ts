@@ -1,3 +1,4 @@
+import { Time, EditWalkDTO, Status } from './../model/Walk';
 import { WalkDatabase } from './../data/WalkDatabase';
 import { IdGenerator } from "../services/IdGenerator";
 import { WalkInputDTO } from "../model/Walk";
@@ -45,9 +46,6 @@ export class WalkBusiness {
 
     async getWalkScheduled(index: any, offset: number){
 
-        if(!index){
-            throw new NotFoundError("Not found")
-        }
 
         const wbd = new WalkDatabase();
         const result = wbd.getWalkByDate(index, offset);
@@ -70,16 +68,32 @@ export class WalkBusiness {
 
     }
 
-    async getWalkByTutor(id: string){
+    async getWalkByTutor(idTutor: string){
 
-        if(!id){
+        if(!idTutor){
             throw new NotFoundError("Não há passeios marcados por esse tutor")
         }
 
         const wbd = new WalkDatabase();
-        const result = await wbd.getWalkByTutor(id);
+        const result = await wbd.getWalkByTutor(idTutor);
 
         return result
     }
 
+    async editStartOrFinishBusiness(input: EditWalkDTO){
+
+        const wbd = new WalkDatabase();
+        const result = await wbd.editStartOrFinishData(input);
+
+        return result
+    }
+
+
+    async editStatusBusiness(input: EditWalkDTO){
+
+        const wbd = new WalkDatabase();
+        const result = await wbd.editStatusData(input);
+
+        return result
+    }
 }

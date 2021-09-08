@@ -185,8 +185,14 @@ export interface WalkCalc{
     quantityDogs: number,
     startWalk: Time,
     finishWalk: Date,
-    price: number,
-    calculaPrice(): number
+    price: number
 }
 
+
+export interface EditWalkDTO{
+    id: string,
+    startWalk?: Time,
+    finishWalk?: Time,
+    status?: string
+}
 

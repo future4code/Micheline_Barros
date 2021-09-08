@@ -1,7 +1,8 @@
+import { Status, Walk, EditWalkDTO } from './../model/Walk';
 import { Request, Response } from "express";
 import { WalkBusiness } from "../business/WalkBusiness";
 import { BaseDatabase } from "../data/BaseDatabase";
-import { WalkInputDTO } from "../model/Walk";
+import { Time, WalkInputDTO } from "../model/Walk";
 
 export class WalkController {
     async walkCreate(req: Request, res: Response) {
@@ -33,7 +34,7 @@ export class WalkController {
     async index(req: Request, res: Response) {
         try {
 
-            const dataAtual = req.query.liga;
+            const dataAtual = req.query.dataAtual;
 
             const page = Number(req.query.page) || 1;
 
@@ -55,8 +56,8 @@ export class WalkController {
     async showWalkId(req: Request, res: Response) {
         try {
 
-            const id = req.params.id as string 
-
+            const id = req.params.id as string;
+           
             const walkBusiness = new WalkBusiness();
             const result = await walkBusiness.getShowWalk(id);
                
@@ -72,8 +73,8 @@ export class WalkController {
 
     async getWalkTutor(req: Request, res: Response){
         try {
-            const id = req.query.id as string
-
+            const id = req.params.id as string
+      
             const walkBusiness = new WalkBusiness()
             const walkTutor = await walkBusiness.getWalkByTutor(id)
 
@@ -84,6 +85,52 @@ export class WalkController {
                 message: error.message
             })
         }
+    }
+
+    async editStartWalkOrFinishWalk(req: Request, res: Response) {
+        try {
+
+            const input: EditWalkDTO ={ 
+                id: req.params.id,
+                startWalk: req.body.startWalk,
+                finishWalk: req.body.finishWalk
+            };
+            
+       
+            const walkBusiness = new WalkBusiness();
+            await walkBusiness.editStartOrFinishBusiness(input);
+
+               
+            res.status(200).send("Alterado com sucesso")
+
+        } catch (error) { 
+            res.status(400).send({ error: error.message });
+        }
+
+        await BaseDatabase.destroyConnection();
+    }
+
+    async editStatus(req: Request, res: Response) {
+        try {
+
+            const status = Walk.toStatusEnum(req.body.status as string)
+
+            const input: EditWalkDTO ={ 
+                id: req.params.id,
+                status
+            };
+            
+            const walkBusiness = new WalkBusiness();
+            await walkBusiness.editStatusBusiness(input);
+
+               
+            res.status(200).send("Status alterado com sucesso")
+
+        } catch (error) { 
+            res.status(400).send({ error: error.message });
+        }
+
+        await BaseDatabase.destroyConnection();
     }
 
 }

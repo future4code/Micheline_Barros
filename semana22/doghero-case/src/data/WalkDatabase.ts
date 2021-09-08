@@ -1,5 +1,5 @@
 import { Tutor } from './../model/Tutor';
-import { Walk, WalkCalc, WalkOutputDTO } from './../model/Walk';
+import { WalkCalc, WalkOutputDTO, Status, EditWalkDTO } from './../model/Walk';
 import moment from "moment";
 import { NotFoundError } from "../error/NotFoundError";
 import { Time} from "../model/Walk";
@@ -51,10 +51,12 @@ export class WalkDatabase extends BaseDatabase{
             const dataHoje = (ano + '-' + mes + '-' + dia)
 
             const result = await this.getConnection().select("*")
-            .into(this.TABLE_NAME.WALLKING).where("date_walk", ">=", dataHoje).orderBy("start_walk", 'asc').limit(5)
+            .into(this.TABLE_NAME.WALLKING)
+            .where("date_walk", ">=", dataHoje)
+            .orderBy("date_walk", 'asc')
+            .limit(5)
             .offset(offset)
 
-                
                
                 if(!result[0]){
                     throw new NotFoundError(`Não tem nenhum walk agendado`)
@@ -64,8 +66,12 @@ export class WalkDatabase extends BaseDatabase{
            }else{
 
             
-            const result = await this.getConnection().select("*")
+            const result = await this.getConnection()
+            .select("*")
+            .orderBy("date_walk", 'asc')
             .into(this.TABLE_NAME.WALLKING)
+            .limit(5)
+            .offset(offset)
 
             if(!result[0]){
                 throw new NotFoundError(`Não tem nenhum walk agendado`)
@@ -103,7 +109,7 @@ export class WalkDatabase extends BaseDatabase{
     }
 
     public async getWalkByTutor(
-        id: string
+        idTutor: string
     ): Promise<WalkOutputDTO[]> {
 
         const walk = await this.getConnection().raw(`
@@ -116,7 +122,7 @@ export class WalkDatabase extends BaseDatabase{
         t.name as name
         FROM ${this.TABLE_NAME.WALLKING} w
         LEFT JOIN ${this.TABLE_NAME.TUTOR} t ON t.id = w.id_tutor
-       
+        WHERE w.id_tutor = "${idTutor}"
         ORDER BY dateWalk ASC
         `)
         
@@ -126,6 +132,7 @@ export class WalkDatabase extends BaseDatabase{
 
 
         return walk[0].map((data: any) => ({
+            id: data.id,
             name: data.name,   
             dateWalk: data.dateWalk,
             startWalk: data.startWalk,
@@ -133,5 +140,34 @@ export class WalkDatabase extends BaseDatabase{
         }))
         
     }
+
+    async editStartOrFinishData(walk: EditWalkDTO): Promise<void>{
+    
+            try {
+                await this.getConnection().where("id",walk.id)
+                .update({
+                    start_walk: walk.startWalk,
+                    finish_walk: walk.finishWalk
+            
+                }).into(this.TABLE_NAME.WALLKING)
+                
+            } catch (error) {
+                throw new Error(error.sqlMessage || error.message);
+            }
+    }
+
+    async editStatusData(input: EditWalkDTO): Promise<void>{
+    
+        try {
+            await this.getConnection().where("id",input.id)
+            .update({
+                status: input.status
+
+            }).into(this.TABLE_NAME.WALLKING)
+            
+        } catch (error) {
+            throw new Error(error.sqlMessage || error.message);
+        }
+}
 
 }

@@ -1,3 +1,4 @@
+import { TutorOutputDTO } from './../model/Tutor';
 import { BaseDatabase } from "./BaseDatabase";
 
 export class TutorDatabase extends BaseDatabase {
@@ -24,6 +25,23 @@ export class TutorDatabase extends BaseDatabase {
       throw new Error(error.sqlMessage || error.message);
     }
   }
+
+  public async getTutorData(offset: number): Promise<TutorOutputDTO[]> {
+    try {
+      const result = await this.getConnection()
+        .select("id", "name", "phone", "email")
+        .into(this.TABLE_NAME.TUTOR)
+        .orderBy("name", 'asc')
+        .limit(5)
+        .offset(offset);
+
+        return result
+
+    } catch (error) {
+      throw new Error(error.sqlMessage || error.message);
+    }
+  }
+
 
 
 }
