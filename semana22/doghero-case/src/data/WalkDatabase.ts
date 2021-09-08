@@ -87,7 +87,7 @@ export class WalkDatabase extends BaseDatabase{
         
         try {
             const result = await this.getConnection().raw(`
-            SELECT TIMEDIFF(finish_walk, start_walk) as timeWallking,
+            SELECT id, date_walk, TIMEDIFF(finish_walk, start_walk) as timeWallking,
             if (time = "30",
            25 + (quantity_dogs - 1)*15, 35 + (quantity_dogs - 1)*20) as price
             FROM ${this.TABLE_NAME.WALLKING} w
