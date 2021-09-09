@@ -9,7 +9,7 @@ const app = express();
 
 app.use(express.json());
 
-app.use("/", Router);
+// app.use("/", Router);
 
 
 const { PORT = 3003} = process.env
@@ -22,3 +22,5 @@ const server = app.listen(PORT, () => {
       console.error(`Falha ao rodar o servidor.`);
     }
   });
+
+
