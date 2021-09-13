@@ -24,3 +24,14 @@ const server = app.listen(PORT, () => {
   });
 
 
+  const xlsxj = require("xlsx-to-json");
+  xlsxj({
+    input: "pokemonGo.xlsx", 
+    output: "pokemonGo.json"
+  }, function(err, result) {
+    if(err) {
+      console.error(err);
+    }else {
+      console.log(result);
+    }
+  });
