@@ -7,7 +7,7 @@ dotenv.config();
 export abstract class BaseDatabase {
 
     protected TABLE_NAME: any = {
-       
+       Pokemon: 'table_pokemon'
     }
 
     private static connection: Knex | null = null;
