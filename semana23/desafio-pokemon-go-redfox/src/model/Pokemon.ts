@@ -149,7 +149,7 @@ export class Pokemon{
 
 }
 
-export interface PokemonImputDTO{
+export interface PokemonInputDTO{
     id: string,
     name: string,
     generation: number,

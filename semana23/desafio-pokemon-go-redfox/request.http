@@ -1,3 +1,11 @@
 # @name signup
 
 GET http://localhost:3003/pokemon/1
+
+###
+
+GET http://localhost:3003/pokemon/all
+
+###
+
+GET http://localhost:3003/pokemon/filtros?

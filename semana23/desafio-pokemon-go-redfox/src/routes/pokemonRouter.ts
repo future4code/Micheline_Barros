@@ -6,6 +6,10 @@ export const pokemonRouter = express.Router();
 
 const pokemonController = new PokemonController();
 
-pokemonRouter.get("/:id", pokemonController.getPokemonIdController);
+pokemonRouter.get("/all", pokemonController.getPokemonController);
+
+pokemonRouter.get("/:id", pokemonController.getPokemonByIdController);
+
+pokemonRouter.get("/query/filtros", pokemonController.getPokemonFilterOrderPageController);
 
 
