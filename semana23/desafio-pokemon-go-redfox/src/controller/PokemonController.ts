@@ -38,7 +38,7 @@ export class PokemonController{
         try {
             const nameOrtype = req.query.name? req.query.name : req.query.type? req.query.type : "%"; 
 
-            const sort = req.query.sort === "statTotal" ? "stat_total" : req.query.sort === "atk" ? "atk" : req.query.sort === "sta" ? "sta" : req.query.sort === "cp40" ? "cp_40" : req.query.sort === "cp39" ? "cp_39" : "name"
+            const sort = req.query.sort === "statTotal" ? "stat_total" : req.query.sort === "atk" ? "atk" : req.query.sort === "def" ? "def": req.query.sort === "sta" ? "sta" : req.query.sort === "cp40" ? "cp_40" : req.query.sort === "cp39" ? "cp_39" : "name"
 
             const order = req.query.order === "desc" ? "desc" : "asc";
      
