@@ -164,3 +164,19 @@ export interface PokemonInputDTO{
     cp40: number,
     cp39: number
 }
+
+export interface PokemonOutputDTO{
+    id: string,
+    name: string,
+    generation: number,
+    evolutionStage: string,
+    familyId: string,
+    type1: string,
+    type2: string,
+    statTotal:number,
+    atk: number,
+    sta: number,
+    legendary: number,
+    cp40: number,
+    cp39: number
+}

@@ -3,11 +3,11 @@ import { PokemonData } from '../data/PokemonData';
 
 export class PokemonBusiness{
 
-    async getPokemonBusiness(offset: number){
+    async getPokemonBusiness(offset: number, sort: string, order: string){
        
 
         const getPokemon = new PokemonData()
-        const result = await getPokemon.getPokemonData(offset)
+        const result = await getPokemon.getPokemonData(offset, sort, order)
        
         return result
 

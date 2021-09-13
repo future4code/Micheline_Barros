@@ -9,9 +9,13 @@ export class PokemonController{
         try {
             const page = Number(req.query.page) || 1;
             const offset: number = 5 * (page -1);
+
+            const sort = req.query.sort === "id" ? "id" : "name"
+
+            const order = req.query.order === "desc" ? "desc" : "asc";
            
             const pokemonBusiness = new PokemonBusiness()
-            const result = await pokemonBusiness.getPokemonBusiness(offset)
+            const result = await pokemonBusiness.getPokemonBusiness(offset, sort, order)
             
             res.status(200).send(result) 
 
