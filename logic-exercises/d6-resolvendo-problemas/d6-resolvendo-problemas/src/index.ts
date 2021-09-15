@@ -2,6 +2,7 @@ import express, { Request, Response } from "express";
 import dotenv from "dotenv";
 import { AddressInfo } from "net";
 import {stringOneEdit } from "./stringOneEdit";
+import { countCharRepeated } from "./countCharRepeated";
 
 
 dotenv.config();
@@ -19,6 +20,6 @@ const server = app.listen(process.env.PORT || 3003, () => {
   }
 });
 
-console.log(stringOneEdit('banana', 'banane'))
+console.log(stringOneEdit('banana', 'banane'));
 
-
+console.log(countCharRepeated('aaaaaaabb'));
