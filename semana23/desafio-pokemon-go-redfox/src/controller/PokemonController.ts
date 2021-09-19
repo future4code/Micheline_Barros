@@ -1,7 +1,6 @@
-import { PokemonInputDTO } from './../model/Pokemon';
 import { Request, Response } from "express";
-import { stringify } from "uuid";
 import { PokemonBusiness } from "../business/PokemonBusiness";
+import { PokemonData } from "../data/PokemonData";
 
 export class PokemonController{
 
@@ -14,8 +13,8 @@ export class PokemonController{
 
             const order = req.query.order === "desc" ? "desc" : "asc";
            
-            const pokemonBusiness = new PokemonBusiness()
-            const result = await pokemonBusiness.getPokemonBusiness(offset, sort, order)
+            const pokemonBusiness = new PokemonBusiness(new PokemonData)
+            const result = await pokemonBusiness.getPokemon(offset, sort, order)
             
             res.status(200).send(result) 
 
@@ -28,8 +27,8 @@ export class PokemonController{
         try {
             const id = Number(req.params.id);
            
-            const pokemonBusiness = new PokemonBusiness()
-            const result = await pokemonBusiness.getPokemonByIdBusiness(id)
+            const pokemonBusiness = new PokemonBusiness(new PokemonData)
+            const result = await pokemonBusiness.getPokemonById(id)
             
             res.status(200).send(result) 
 
@@ -52,8 +51,8 @@ export class PokemonController{
 
          
            
-            const pokemonBusiness = new PokemonBusiness()
-            const result = await pokemonBusiness.getPokemonFilterOrderPageBusiness(nameOrtype as string, sort as string, order as string, offset)
+            const pokemonBusiness = new PokemonBusiness(new PokemonData)
+            const result = await pokemonBusiness.getPokemonFilterOrderPage(nameOrtype as string, sort as string, order as string, offset)
             
             res.status(200).send(result) 
 

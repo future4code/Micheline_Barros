@@ -1,6 +1,6 @@
 export class Pokemon{
     constructor(
-        private id: string,
+        private id: number,
         private name: string,
         private generation: number,
         private evolutionStage: string,
@@ -20,7 +20,7 @@ export class Pokemon{
         return this.id;
     }
 
-    setId(id: string){
+    setId(id: number){
         return this.id = id;
     }
 
@@ -150,7 +150,7 @@ export class Pokemon{
 }
 
 export interface PokemonInputDTO{
-    id: string,
+    id: number,
     name: string,
     generation: number,
     evolutionStage: string,
@@ -166,6 +166,13 @@ export interface PokemonInputDTO{
 }
 
 export interface PokemonOutputDTO{
+    cp_39: any;
+    cp_40: any;
+    stat_total: any;
+    type_2: any;
+    type_1: any;
+    family_id: any;
+    evolution_stage: any;
     id: string,
     name: string,
     generation: number,
