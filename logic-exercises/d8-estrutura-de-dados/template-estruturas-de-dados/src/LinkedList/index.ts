@@ -24,6 +24,18 @@ export class List{
         currentItem.next = new ListNode(value)
         
     }
+
+    public print() {
+        let node: ListNode | null = this.start;
+        let i = 1;
+        while (node) {
+          console.log(`Elemento ${i}: `, node.value)
+          node = node.next;
+            i++
+        }
+        return node
+      }
+    
 }
 
 
@@ -36,4 +48,8 @@ list.addItem("four")
 
 // console.log(list)
 
-console.log(JSON.stringify(list, null, 2))
+// console.log(JSON.stringify(list, null, 2))
+
+console.log(list.print());
+
+
