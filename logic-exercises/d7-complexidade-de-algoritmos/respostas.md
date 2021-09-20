@@ -73,4 +73,9 @@ function verifyIfExistRepeatedNumbers(listOfNumbers: number[]): boolean {
   return false;
 }
 ```
+Resposta: complexidade O(n²), custo 1.
+
+###Exercício 5
+Resposta: do mais eficiente para o menos.
+mais eficiente ex3 O(1), ex1 O(n), ex2 O(n), ex4 O(n²) menos eficiente
 
