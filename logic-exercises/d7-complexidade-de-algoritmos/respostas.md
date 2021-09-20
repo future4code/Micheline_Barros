@@ -73,6 +73,7 @@ function verifyIfExistRepeatedNumbers(listOfNumbers: number[]): boolean {
   return false;
 }
 ```
+
 Resposta: complexidade O(n²), custo 1.
 
 ###Exercício 5
