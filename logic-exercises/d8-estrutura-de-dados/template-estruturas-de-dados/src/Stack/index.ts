@@ -50,12 +50,3 @@ export class Stack{
         return node
     }
 }
-
-const stack = new Stack()
-stack.isEmpty()
-stack.push("five")
-stack.push("six")
-console.log(stack);
-
-console.log(stack.isEmpty());
-
