@@ -1,5 +1,5 @@
 import { Bulbasaur, Ivysaur } from './PokeMock';
-import { Pokemon } from "../../model/Pokemon";
+import { Pokemon } from "../../src/model/Pokemon";
 
 
 export class PokemonDataMock{

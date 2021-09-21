@@ -1,5 +1,5 @@
-import { PokemonData } from './../data/PokemonData';
-import { PokemonBusiness } from './../business/PokemonBusiness';
+import { PokemonData } from '../src/data/PokemonData';
+import { PokemonBusiness } from '../src/business/PokemonBusiness';
 import { PokemonDataMock } from './mocks/PokemonDataMock';
 
 const pokemonBusinessMock = new PokemonBusiness(
@@ -9,7 +9,7 @@ const pokemonBusinessMock = new PokemonBusiness(
 describe("Testando o getPokemonById", () => {
 
     test("Deve retornar um erro quando for passado um id inválido", async() => {
-        expect.assertions(1);
+        expect.assertions(2);
 
         try {
             await pokemonBusinessMock.getPokemonById(23);

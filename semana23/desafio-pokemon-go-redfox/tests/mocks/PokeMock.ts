@@ -1,4 +1,4 @@
-import { Pokemon } from "../../model/Pokemon";
+import { Pokemon } from "../../src/model/Pokemon";
 
 export const Bulbasaur = new Pokemon(
     1, 
