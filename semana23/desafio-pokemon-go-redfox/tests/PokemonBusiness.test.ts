@@ -19,4 +19,18 @@ describe("Testando o getPokemonById", () => {
         
         }
     })
+
+
+    test("Esse teste deve ser bem sucedido quando for passado o id correto", async() => {
+        try {
+            await pokemonBusinessMock.getPokemonById(1);
+            
+        } catch (error) {
+            expect(error.message).toEqual("Not found");
+        
+        }
+    })
+
+
+   
 })
