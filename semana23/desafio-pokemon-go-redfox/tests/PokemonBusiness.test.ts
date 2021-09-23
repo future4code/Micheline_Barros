@@ -3,8 +3,9 @@ import { PokemonBusiness } from '../src/business/PokemonBusiness';
 import { PokemonDataMock } from './mocks/PokemonDataMock';
 
 const pokemonBusinessMock = new PokemonBusiness(
-    new PokemonDataMock() as PokemonData
+    new PokemonDataMock() as unknown as PokemonData
 )
+
 
 describe("Testando o getPokemonById", () => {
 

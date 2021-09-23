@@ -1,8 +1,9 @@
-import { Bulbasaur, Ivysaur } from './PokeMock';
-import { Pokemon } from "../../src/model/Pokemon";
+import { Bulbasaur, getPokemonMock, Ivysaur } from './PokeMock';
+import { Pokemon, PokemonInputDTO } from "../../src/model/Pokemon";
 
 
-export class PokemonDataMock{
+export class PokemonDataMock{   
+           
     public async getPokemonById(id: number): Promise<Pokemon>{
         switch (id) {
             case Bulbasaur.getId():

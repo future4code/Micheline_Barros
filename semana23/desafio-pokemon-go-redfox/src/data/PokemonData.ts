@@ -19,24 +19,22 @@ export class PokemonData extends BaseDatabase{
             if(!result.length){
                 throw new NotFoundError("Not found")
             }
-           
-            // return Pokemon.toPokemonModel(result)
 
             return result.map((pokemon: PokemonOutputDTO) => {
                 return {
                     id: Number(pokemon.id),
                     name: pokemon.name,
                     generation: pokemon.generation,
-                    evolutionStage: pokemon.evolution_stage,
-                    familyId: pokemon.family_id,
-                    type1: pokemon.type_1,
-                    type2: pokemon.type_2,
-                    statTotal:pokemon.stat_total,
+                    evolutionStage: pokemon.evolutionStage,
+                    familyId: pokemon.familyId,
+                    type1: pokemon.type1,
+                    type2: pokemon.type2,
+                    statTotal:pokemon.statTotal,
                     atk: pokemon.atk,
                     sta: pokemon.sta,
                     legendary: pokemon.legendary,
-                    cp40: pokemon.cp_40,
-                    cp39: pokemon.cp_39
+                    cp40: pokemon.cp40,
+                    cp39: pokemon.cp39
             }})
 
             
@@ -92,16 +90,16 @@ export class PokemonData extends BaseDatabase{
                     id: Number(pokemon.id),
                     name: pokemon.name,
                     generation: pokemon.generation,
-                    evolutionStage: pokemon.evolution_stage,
-                    familyId: pokemon.family_id,
-                    type1: pokemon.type_1,
-                    type2: pokemon.type_2,
-                    statTotal:pokemon.stat_total,
+                    evolutionStage: pokemon.evolutionStage,
+                    familyId: pokemon.familyId,
+                    type1: pokemon.type1,
+                    type2: pokemon.type2,
+                    statTotal:pokemon.statTotal,
                     atk: pokemon.atk,
                     sta: pokemon.sta,
                     legendary: pokemon.legendary,
-                    cp40: pokemon.cp_40,
-                    cp39: pokemon.cp_39
+                    cp40: pokemon.cp40,
+                    cp39: pokemon.cp39
             }})
          
 
