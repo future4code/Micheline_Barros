@@ -1,0 +1,66 @@
+# @name signup
+POST http://localhost:3003/tutor/signup
+Content-Type: application/json
+
+{
+	"name": "Micheline Barros",
+	"phone": "(85) 92288-5586",
+	"email": "minelbn@gmail.com",
+	"password": "123456gh"
+}
+
+###
+# @name getTutors
+GET http://localhost:3003/tutor/dataTutors?page=1
+
+
+###
+# @name walkCreate
+POST http://localhost:3003/walk/signup
+Content-Type: application/json
+
+{
+	"dateWalk": "07/09",
+	"startWalk": "8:0",
+	"finishWalk": "11:00",
+	"time": "60",
+	"latitude": -4.5166,
+	"longitude":  -38.8949,
+	"quantityDogs": 2,
+	"idTutor": "eb8afb0d-80d8-4a0b-a9f8-7da958d1f7b5"
+}
+
+###
+# @name index
+GET http://localhost:3003/walk/WalkDateTodayOrAll?page=1&dataAtual=true
+
+
+
+###
+# @name showWalkId
+GET http://localhost:3003/walk/showWalk/0b356875-d2e7-429f-a0c6-aa04fe09175a
+
+
+###
+# @name getWalkTutor
+GET http://localhost:3003/walk/walkTutor/eb8afb0d-80d8-4a0b-a9f8-7da958d1f7b5
+
+###
+# @name editStartOrFinish
+POST http://localhost:3003/walk/editStartOrFinish/0b356875-d2e7-429f-a0c6-aa04fe09175a
+Content-Type: application/json
+
+{
+	"startWalk": "8:00",
+	"finishWalk": "8:30"
+}
+
+
+###
+# @name editStatus
+POST http://localhost:3003/walk/editStatus/0b356875-d2e7-429f-a0c6-aa04fe09175a
+Content-Type: application/json
+
+{
+	"status": "CONCLUIDO"
+}
