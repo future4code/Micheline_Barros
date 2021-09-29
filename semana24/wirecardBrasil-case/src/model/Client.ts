@@ -1,4 +1,4 @@
-export class Tutor{
+export class Client{
     constructor(
         private id: string,
         private name: string,
@@ -41,7 +41,7 @@ export class Tutor{
     
 
     static toTutorModel(data?: any){
-        return (data && new Tutor(
+        return (data && new Client(
             data.id,
             data.name,
             data.email,
