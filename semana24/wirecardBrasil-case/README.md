@@ -1,6 +1,6 @@
 # Case Back end - wirecardBrasil-case
 
-Documentação: https://documenter.getpostman.com/view/14555245/U16jLR3n
+Documentação: https://documenter.getpostman.com/view/14555245/UUy1emm8
 
 **Sobre**
 Essa API simula uma aplicação de pagamentos.
